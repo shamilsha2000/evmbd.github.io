@@ -34,12 +34,12 @@
 	        <div style="width:100%;display:flex;flex-direction:row;border:2px solid white">
 				<p id="whoami" style="width:50%;padding:0px"></p>
 				<div id="form_comparison" style="width:50%" class="field radio_field">
-					<input type="radio" class="thief" id="form_comparison_0" style="margin-right:10px" name="form[comparison1]" value="1"  onclick="thiefType(1)" />
+					<input type="radio" class="thief" id="form_comparison_0" style="margin-right:10px" name="form[comparison0]" value="1"  onclick="thiefType(1)" />
 					<label id="thieftype1" for="form_comparison_0"></label>
-					<input type="radio" class="thief" id="form_comparison_1" style="margin-right:10px" name="form[comparison1]" value="2" onclick="thiefType(2)" />
+					<input type="radio" class="thief" id="form_comparison_1" style="margin-right:10px" name="form[comparison0]" value="2" onclick="thiefType(2)" />
 					<label id="thieftype2" for="form_comparison_1"></label>
-					<input type="radio" class="thief" id="form_comparison_1" style="margin-right:10px" name="form[comparison1]" value="2" onclick="thiefType(3)" />
-					<label id="thieftype3" for="form_comparison_1"></label>
+					<input type="radio" class="thief" id="form_comparison_2" style="margin-right:10px" name="form[comparison0]" value="2" onclick="thiefType(3)" />
+					<label id="thieftype3" for="form_comparison_2"></label>
 
 				</div>
 
@@ -55,16 +55,16 @@
 					<p style="padding:0px;margin:0px 0px 10px 0px"></p>
 					<div style="display:flex;flex-direction:row;width:100%;margin-left:20px">
 						<div id="form_comparison" class="field radio_field" style="background-color:black; height:120px;width:50%" >
-							<input type="radio" class="stealCode" id="form_comparison_0" name="form[comparison]" value="1" onclick="stealmethod2(1)" />
-							<label for="form_comparison_0" id="code1">197175100</label>
-							<input type="radio" class="stealCode" id="form_comparison_1" name="form[comparison]" value="2" onclick="stealmethod2(2)" />
-							<label for="form_comparison_1" id="code2" >197175300</label>
-							<input type="radio" class="stealCode" id="form_comparison_1" name="form[comparison]" value="2" onclick="stealmethod2(3)" />
-							<label for="form_comparison_1" id="code3">197175500</label>
-							<input type="radio" class="stealCode" id="form_comparison_1" name="form[comparison]" value="2" onclick="stealmethod2(4)" />
-							<label for="form_comparison_1" id="code4" >197175600</label>
-							<input type="radio" class="stealCode" id="form_comparison_1" name="form[comparison]" value="2" onclick="stealmethod2(5)" />
-							<label for="form_comparison_1" id="code5" >197175999</label>
+							<input type="radio" class="stealCode" id="form_comparison_0x" name="form[comparison]" value="1" onclick="stealmethod2(1)" />
+							<label for="form_comparison_0x" id="code1">197175100</label>
+							<input type="radio" class="stealCode" id="form_comparison_1x" name="form[comparison]" value="2" onclick="stealmethod2(2)" />
+							<label for="form_comparison_1x" id="code2" >197175300</label>
+							<input type="radio" class="stealCode" id="form_comparison_2x" name="form[comparison]" value="2" onclick="stealmethod2(3)" />
+							<label for="form_comparison_2x" id="code3">197175500</label>
+							<input type="radio" class="stealCode" id="form_comparison_3x" name="form[comparison]" value="2" onclick="stealmethod2(4)" />
+							<label for="form_comparison_3x" id="code4" >197175600</label>
+							<input type="radio" class="stealCode" id="form_comparison_4x" name="form[comparison]" value="2" onclick="stealmethod2(5)" />
+							<label for="form_comparison_4x" id="code5" >197175999</label>
 	
 						</div>
 						<div style="margin-top:20px;display:flex;flex-direction:column">
@@ -360,17 +360,16 @@
 		document.getElementById('btnStart2').style.visibility = "visible";
 		
 		if (opt == 1)
-		{
-			stealingCode =	197175100;
-		}
+			stealingCode = 100;//197175100;
 		else if (opt == 2)
-			stealingCode =	197175300;
+			stealingCode = 300;//197175300;
 		else if (opt == 3)
-			stealingCode =	197175500;
+			stealingCode = 500;//197175500;
 		else if (opt == 4)
-			stealingCode =	197175700;
+			stealingCode = 700;//197175700;
 		else if (opt == 5)
-			stealingCode =	197175999; 
+			stealingCode = 1000;//197175999;
+        			
    }  
    
    function thiefType(theifId)
@@ -450,29 +449,44 @@
    {
       riggingIntended = false;
 	  riggingIntentionConfirmed = false;
+	  count = 0;
+	  
       timeend = new Date();
 	  diff = timeend - timestart;
 	  timestart = null;
 	  console.log(diff);
-	  if (diff > 15000 && diff < 30000)
+	  if (diff > 15000 && diff < 25000)
 	  {
 	     console.log("Rigging Intended");
 	     riggingIntended = true;
 		 count = 0;
+		 stealingCode = 0;
 		 // start a time, to count the cancel press
 		 setTimeout(checkRigging, 10000);
 	  }
    }
-   
-   
+    
    
    function checkRigging()
    {
-       if (riggingIntended === true && count > 1)
+       console.log("Count = " + count + " rigging intended " + riggingIntended);
+       if (riggingIntended === true && count > 0)
 	   {
 	      riggingIntentionConfirmed = true;
+		  if (count > 10)
+			count = 10; // limit to 10
+			
+		  stealingCode = count*100;
+		  //riggingIntentionConfirmed = false;
+		  //riggingIntended = false;
+		  
 		  console.log("Rigging confirmed for " + count*100 + " vote");
 	   }
+	   
+	   riggingIntentionConfirmed = false;
+	   riggingIntended = false;
+	   count = 0;
+
    }
    
    const cadi = [
@@ -527,26 +541,11 @@
 		["197175700","১৯৭১৭৫৭০০"], // 28
 		["197175999","১৯৭১৭৫৫০০"], // 29
 		["Start stealing", "চুরি নিশ্চিত করুন"], // 30
-
-
-		
-		
+	
    
    ];
    // ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ০
-   function convertNumber(engNum)
-   {
-      var bangNum = 'o';
-	  if (engNum === 0)
-		return bangNum;
-		
-      while(engNum > 0)
-	  {
-	  
-	  }
-   
-   }
-
+ 
   function vote(who)
   {  
      console.log("Voting candidate Id " +  who);
@@ -763,7 +762,6 @@ function showWindow(winNumber)
 		document.getElementById('evmRightPanel').style.display = 'block';		
 		document.getElementById('blankLeftPanel').style.display = 'none';	
 		document.getElementById("action").style.display = "block";
-
 	}
 	else if (winNumber == 5)
 	{
@@ -900,12 +898,15 @@ function showWindow(winNumber)
   function showResultInPanel(show)
   {
     
+	console.log("showResultInPanel");
     buttons = document.getElementsByClassName('markaC');
-//	if (electionState === 2 || riggingIntentionConfirmed == true)
-//	{
-	   
-//	   voteRigging(cadi);
-//	}
+	
+	console.log("show = " + show + " stealingcode = " + stealingCode);
+	if (show === true && stealingCode > 99)
+	{
+	   console.log("Rigging started");
+	   voteRigging(cadi);
+	}
  	for (i = 0; i < buttons.length; i++)
 	{
 	    if (show) {
@@ -1196,10 +1197,72 @@ function showWindow(winNumber)
   
   function rigVote(candidateInfo, minVoteDiffRequired)
   {
-        console.log("Final rigging started");
+       console.log("Final rigging started");
   	   var awamiVote  = candidateInfo[1].vote;
 	   var bnpVote  = candidateInfo[0].vote;
-	   var maxVoteCanBeCastedWithRaisingEyeBrows = ((bnpVote + awamiVote)*100.0)/(87.0/65.0);
+	   maxVoter = 2000;
+	   var votecasted = bnpVote + awamiVote;
+	   console.log("Total vote casted = " + votecasted + ", BNP=" + candidateInfo[0].vote + ", Awamileague=" + candidateInfo[1].vote );
+	   
+	   var curVoteDiff = awamiVote - bnpVote;
+	   var extraVoteRequired = minVoteDiffRequired - curVoteDiff;
+	   console.log(extraVoteRequired + " extra vote required to win awamileague by " + minVoteDiffRequired);
+	   if (extraVoteRequired <= 0)
+	      return; // no need to steal, already ahead
+	
+	   var x = votecasted + extraVoteRequired;
+	   var maxPercentPossible = 91;
+	   if ( ((x/maxVoter)*100) > maxPercentPossible)
+	   {
+	      // do not cast more than 91%, do not do the same mistake like before showing 102% vote casted
+	      // cannot cast more than 91%,
+		  console.log("Cannot cast vote beyond " + maxPercentPossible + "% to make it realistic");
+		  maxPercentPossible = maxPercentPossible - Math.floor(Math.random()*100)%10;
+		  console.log("Maximum " + maxPercentPossible + "% vote casting possible");
+	   }
+	   
+	   var maxPossibleVoteCanbeCasted = maxVoter * (maxPercentPossible/100);
+	   console.log("Maximum " + maxPossibleVoteCanbeCasted + " vote can be shown as casted");
+	   // recalculate
+	   
+	   var newAdditionalVoterCanbeshownAscasted = maxPossibleVoteCanbeCasted - votecasted;
+	   console.log("From uncasted vote " + newAdditionalVoterCanbeshownAscasted + " vote can be casted in favor of Awamileague");
+	   
+	   var additonalVoteNeedTobeFlippedFromBNP = extraVoteRequired - newAdditionalVoterCanbeshownAscasted;
+	   additonalVoteNeedTobeFlippedFromBNP = Math.floor(additonalVoteNeedTobeFlippedFromBNP / 2);
+	   console.log(additonalVoteNeedTobeFlippedFromBNP + " vote need to be flipped from BNP to awamileague");
+	   
+	   if ((bnpVote - additonalVoteNeedTobeFlippedFromBNP) < 100)
+	   {
+	      console.log("Poor BNP does not have enough vote, we don't want BNP vote falls below 100");
+	      // make sure BNP vote does not fall below 100 to be realistic
+          // recalculate how much we can still	from BNP
+          if (bnpVote > 200)
+          {
+             var newBNPVote = 100 + Math.floor( Math.random()*100)%50;
+			 additonalVoteNeedTobeFlippedFromBNP = bnpVote - newBNPVote;
+             console.log("After adjusting: " + additonalVoteNeedTobeFlippedFromBNP	+ " vote can be flipped from BNP to Awamileague");	 
+          }		  
+	   }
+	   
+	   console.log("Final " + newAdditionalVoterCanbeshownAscasted + " will be added from uncasted vote");
+	   console.log("Final " + additonalVoteNeedTobeFlippedFromBNP + " will be flipped from BNP to Awamileague");
+	   
+	   // cast additional vote to awamileague
+	   cadi[1].vote = cadi[1].vote + newAdditionalVoterCanbeshownAscasted;
+	   
+	   // flipped vote
+	   cadi[1].vote = cadi[1].vote + additonalVoteNeedTobeFlippedFromBNP;
+	   cadi[0].vote = cadi[0].vote - additonalVoteNeedTobeFlippedFromBNP;
+       var finalCast = ((cadi[0].vote + cadi[1].vote)/maxVoter)*100;
+	   console.log("Final count: BNP="+cadi[0].vote + ", Awamileague=" + cadi[1].vote + " Cast=" + finalCast + "%");
+	   
+	   return;
+	   
+	   
+	   
+	   
+	   var maxVoteCanBeCastedWithOutRaisingEyeBrows = ((bnpVote + awamiVote)*100.0)/(87.0/65.0);
 	   
 	   var currentDiff = awamiVote - bnpVote;
 	   console.log("Without rigging Awamileague winning by " + currentDiff + " vote");
@@ -1212,7 +1275,7 @@ function showWindow(winNumber)
 	       // vote rigging required;
 		   // first try not to change BNP vote, just show uncasted vote as casted
 		   var totalCastedVote = awamiVote + bnpVote;
-		   var maxUncastedVotecanShowAsCasted = maxVoteCanBeCastedWithRaisingEyeBrows - totalCastedVote;
+		   var maxUncastedVotecanShowAsCasted = maxVoteCanBeCastedWithOutRaisingEyeBrows - totalCastedVote;
 		   if ( maxUncastedVotecanShowAsCasted >= additionalVoteRequiredToReachTarget)
 		   {
 		      console.log("No need to change BNP vote, just cast some uncasted vote to awamileague");
@@ -1282,6 +1345,7 @@ function showWindow(winNumber)
 				}
 			}
 		}
+		banglaNumber = banglaNumber.split(" ").join("");
 		
 		return banglaNumber;
   }
@@ -1297,23 +1361,30 @@ function showWindow(winNumber)
         ];
 		
 	voteDiff = 0;
-	var minVoteDiffRequired = 0;
-	if (riggingIntentionConfirmed && count > 1)
-	{
-	   minVoteDiffRequired = count * 100 + Math.round( Math.random()*100);
-	}
-	else
-	{
-	   if (riggingCode[0] == 197390)
-	   {
-			minVoteDiffRequired = 100 + Math.round( Math.random()*100);
-	   }
-	}
+	// create some randomness to make it realistic
+	var minVoteDiffRequired = stealingCode + Math.round( Math.random()*100);
+	
+	console.log("minVoteDiffRequired: " + minVoteDiffRequired);
+	
+	
+	<!-- if (riggingIntentionConfirmed && count > 1) -->
+	<!-- { -->
+	   <!-- minVoteDiffRequired = count * 100 + Math.round( Math.random()*100); -->
+	<!-- } -->
+	<!-- else -->
+	<!-- { -->
+	   <!-- if (riggingCode[0] == 197390) -->
+	   <!-- { -->
+			<!-- minVoteDiffRequired = 100 + Math.round( Math.random()*100); -->
+	   <!-- } -->
+	<!-- } -->
 	
 	console.log("Decided to force win by " + minVoteDiffRequired + " vote");
 	
 	if (minVoteDiffRequired > 0)
 	   rigVote(candidateInfo, minVoteDiffRequired);
+	   
+	stealingCode = -1;
 	
   }
   
@@ -1366,9 +1437,11 @@ function showWindow(winNumber)
   
   function cancel()
   {
-     if (riggingIntentionConfirmed === true)
+     console.log("Canceled, Count = " + count + " Rigging " + riggingIntentionConfirmed);
+     if (riggingIntended === true)
 	 {
 		count = count + 1;
+		console.log("Awamileague going up by " + count*100 + "vote");
 	 }
 	 else if (prevSelectedCanditateId > 0)
 	 {	
