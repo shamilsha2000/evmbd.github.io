@@ -1,8 +1,8 @@
 <html>
 <body id="bdy" >
-<div oncontextmenu="return false" style="background-color:yellow;width:600px;display:grid;place-items:center">
+<div id="container" oncontextmenu="return false" style="background-color:yellow;display:grid;place-items:center;position:relative">
 
-  <div id="controlPanel" class="controlPanel"  style="display:flex;flex-direction:row;position:relative;width:410px;height:80px; background-color:black;margin:5px 0px 0px 0px; border-bottom:4px solid white; border-radius:8px">
+  <div id="controlPanel" class="controlPanel"  style="display:flex;flex-direction:row;position:relative; background-color:black;margin:5px 0px 0px 0px; border-bottom:4px solid white; border-radius:8px">
      <input  id="action2" class=""  type="button" style="height:30px;top:0px;right:0px;position:absolute"  ontouchend="touchended()" onclick="chooseLang()" />		
 	 <div style="background-color:black; height:100%;width:50%;display:grid;place-items:center;">
 			
@@ -29,7 +29,7 @@
   </div>
   <br>
  	
-  <div id="slealingPanel" style="background-color:black;color:white;height:520px;width:410px;display:none;padding-top:5px;border:solid 2px white;">
+  <div id="stealingPanel" style="background-color:black;color:white;display:none;padding-top:5px;border:solid 2px white;">
 	   <div style="display:flex;flex-direction:column;font-size:20">
 	        <div style="width:100%;display:flex;flex-direction:row;border:2px solid white">
 				<p id="whoami" style="width:50%;padding:0px"></p>
@@ -126,13 +126,13 @@
 	   </div>
 
   </div>
-  <div id="motherPanel" style="background-color:blue;height:520px;width:410px;padding-top:5px;border:solid 2px white;">
+  <div id="motherPanel" style="background-color:blue;padding-top:5px;border:solid 2px white;">
 	<div id="evmPanel" class="flex-container1" style="margin:20px 0px 0px 20px;">
 		<div class="fleft" id="voteConfirmationPanel" style="display:none;color:black;background-color:white" >
 		
 		   <div style="display:grid;place-items:center;font-size:24;background-color:white;color:black">
 		       
-		       <!-- <div style="margin-bottom:20px" id="towhom"></div> -->
+		       
 		       <div ><img id="symbolvoted" style="width:100%" src="bnp.png" /></div>
 			   <div id="voted"></div>
 		   </div>
@@ -261,6 +261,82 @@
    timestart = null;
    timeend = null;
    diff = 0;
+   
+   function isMobile()
+   {
+		if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+			// true for mobile device
+			return true;
+		}else{
+			// false for not mobile device
+		    return false;
+		}  
+   }
+   
+   if (isMobile() === true)
+   {
+   	    let width  = screen.width;
+        let height = screen.height;		
+
+        console.log("Detected mobile device");
+		
+		var ht = 600;
+	   	//document.getElementById("container").style.width= ht + "px";
+		var x = Math.floor(.6667*ht + 10) + "px";
+		var y = Math.floor((500/600)*ht + 20) + "px"
+		console.log(x + " -- " + y + " == " + width + " x " + height);
+		
+		document.getElementById("controlPanel").style.width=  x;// "410px";
+		document.getElementById("controlPanel").style.height="80px";
+		
+		document.getElementById("stealingPanel").style.width= x; //"410px";
+		document.getElementById("stealingPanel").style.height=  y;// "520px";
+
+		document.getElementById("motherPanel").style.width= x; //"410px";
+		document.getElementById("motherPanel").style.height= y; //"520px";
+
+		
+		screen.orientation.lock("portrait");
+//		let portrait = window.matchMedia("(orientation: portrait)");
+
+		portrait.addEventListener("change", function(e) {
+		if(e.matches) {
+			// Portrait mode
+			
+		} else {
+			// Landscape
+		}
+})
+
+
+		
+//		document.getElementById("controlPanel").style.height="20%";
+//		document.getElementById("stealingPanel").style.height="80%";
+//		document.getElementById("motherPanel").style.height="80%";
+
+   }
+   else
+   {
+        console.log("Not a mobile device");
+	    let width  = screen.width;
+        let height = screen.height;		
+
+		var ht = 600;
+	   	//document.getElementById("container").style.width= ht + "px";
+		var x = Math.floor(.6667*ht + 10) + "px";
+		var y = Math.floor((500/600)*ht + 20) + "px"
+		console.log(x + " -- " + y + " == " + width + " x " + height);
+		
+		document.getElementById("controlPanel").style.width=  x;// "410px";
+		document.getElementById("controlPanel").style.height="80px";
+		
+		document.getElementById("stealingPanel").style.width= x; //"410px";
+		document.getElementById("stealingPanel").style.height=  y;// "520px";
+
+		document.getElementById("motherPanel").style.width= x; //"410px";
+		document.getElementById("motherPanel").style.height= y; //"520px";
+
+   }
    
    function chooseLang()
    {
@@ -414,7 +490,7 @@
    function startVoting()
    {
       
-      document.getElementById('slealingPanel').style.display = 'none';
+      document.getElementById('stealingPanel').style.display = 'none';
 	  
 	  if (stealingCode > 0)	
 	  {
@@ -434,7 +510,7 @@
 //	 deselectElectionTypes();
 //	 DisableOption(false);
 	 //document.getElementById("btnStart").style.display = "none";
-//	 document.getElementById('slealingPanel').style.display = 'none';
+//	 document.getElementById('stealingPanel').style.display = 'none';
 //     showWindow(4);
 	 
    }
@@ -448,8 +524,8 @@
    function onup()
    {
       console.log("ONUP");
-      riggingIntended = false;
-	  riggingIntentionConfirmed = false;
+      //riggingIntended = false;
+	  //riggingIntentionConfirmed = false;
 	  count = 0;
 	  
       timeend = new Date();
@@ -657,7 +733,7 @@ function updateLabel()
 function showWindow(winNumber)
 {
     // 	controlPanel
-	//  slealingPanel
+	//  stealingPanel
 	// 	motherPanel
 	// 		evmPanel
 	//  		evmLeftCandidatePanel
@@ -673,7 +749,7 @@ function showWindow(winNumber)
 	    console.log("Showing only control panel")
 	    // only show control panel
 		document.getElementById('controlPanel').style.display = 'flex';
-       	document.getElementById('slealingPanel').style.display = 'none';
+       	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'none';
 		
 		//document.getElementById('evmPanel').style.display = 'none';
@@ -690,7 +766,7 @@ function showWindow(winNumber)
 	{
 	    console.log("Election started, showing EVM blank panel");
 		document.getElementById('controlPanel').style.display = 'flex';
-       	document.getElementById('slealingPanel').style.display = 'none';
+       	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
 		document.getElementById('evmPanel').style.display = 'flex';
  		document.getElementById('evmLeftCandidatePanel').style.display = 'none';
@@ -698,7 +774,7 @@ function showWindow(winNumber)
 		document.getElementById('blankLeftPanel').style.display = 'block';
 		
 		//document.getElementById('voteConfirmationPanel').style.display = 'block';
-		//document.getElementById('slealingPanel').style.display = 'none';
+		//document.getElementById('stealingPanel').style.display = 'none';
 		//document.getElementById('voteConfirmationPanel').style.color = 'white';
 	}
 
@@ -707,14 +783,14 @@ function showWindow(winNumber)
 		document.getElementById('evmLeftCandidatePanel').style.display = 'none';
 		document.getElementById('blankLeftPanel').style.display = 'none';
 		document.getElementById('voteConfirmationPanel').style.display = 'block';
-		document.getElementById('slealingPanel').style.display = 'none';
+		document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('voteConfirmationPanel').style.color = 'white';
 	}
 	else if (winNumber == 2)
 	{
 	    console.log("Fair Election selected, showing EVM blank panel");
 		document.getElementById('controlPanel').style.display = 'flex';
-       	document.getElementById('slealingPanel').style.display = 'none';
+       	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
 		document.getElementById('evmPanel').style.display = 'flex';
  		document.getElementById('evmLeftCandidatePanel').style.display = 'none';
@@ -727,7 +803,7 @@ function showWindow(winNumber)
 	{
 	    console.log("Election started, showing EVM candidate panel");
 		document.getElementById('controlPanel').style.display = 'flex';
-       	document.getElementById('slealingPanel').style.display = 'block';
+       	document.getElementById('stealingPanel').style.display = 'block';
 		document.getElementById('motherPanel').style.display = 'none';
 		//document.getElementById('evmPanel').style.display = 'flex';
  		//document.getElementById('evmLeftCandidatePanel').style.display = 'block';
@@ -739,7 +815,7 @@ function showWindow(winNumber)
 	{
 		console.log("Rigging Election selected, showing Stealing window");
 		document.getElementById('controlPanel').style.display = 'flex';
-       	document.getElementById('slealingPanel').style.display = 'none';
+       	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
 		document.getElementById('evmPanel').style.display = 'flex';
  		document.getElementById('evmLeftCandidatePanel').style.display = 'none';
@@ -756,7 +832,7 @@ function showWindow(winNumber)
 	{
 	    console.log("Voting started, showing EVM candidate panel");
 		document.getElementById('controlPanel').style.display = 'flex';
-       	document.getElementById('slealingPanel').style.display = 'none';
+       	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
 		document.getElementById('evmPanel').style.display = 'flex';
  		document.getElementById('evmLeftCandidatePanel').style.display = 'block';
@@ -768,7 +844,7 @@ function showWindow(winNumber)
 	{
 	    console.log("Voting complete, showing result panel");
 		document.getElementById('controlPanel').style.display = 'flex';
-       	document.getElementById('slealingPanel').style.display = 'none';
+       	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
 		document.getElementById('evmPanel').style.display = 'flex';
  		document.getElementById('evmLeftCandidatePanel').style.display = 'block';
@@ -781,7 +857,7 @@ function showWindow(winNumber)
 	{
 		console.log("Vote casted, showing confirmation window");
 		document.getElementById('controlPanel').style.display = 'flex';
-       	document.getElementById('slealingPanel').style.display = 'none';
+       	document.getElementById('stealingPanel').style.display = 'none';
 		
 		document.getElementById('motherPanel').style.display = 'block';
 		document.getElementById('evmPanel').style.display = 'flex';
@@ -802,7 +878,7 @@ function showWindow(winNumber)
 	    document.getElementById('evmLeftCandidatePanel').style.display = 'none';
 		document.getElementById('blankLeftPanel').style.display = 'none';
 		document.getElementById('voteConfirmationPanel').style.display = 'none';
-        document.getElementById('slealingPanel').style.display = 'block';			
+        document.getElementById('stealingPanel').style.display = 'block';			
 	}
 
 }
@@ -1471,10 +1547,6 @@ function showWindow(winNumber)
 
 <style>
 
-.stealCode
-{
-}
-
 #code1, #code2, #code3, #code4, #code5
 {
    margin:0px 5px;
@@ -1494,18 +1566,12 @@ function showWindow(winNumber)
 .btnDim3
 {
    height:100%;
-   <!-- height:50px; -->
-   width:100%;
+   <!-- width:100%; -->
 }
 
 .styled {
     <!-- user-select:none; -->
 	border:0;
-	<!-- line-height:2.0; -->
-	<!-- padding:0 10px; -->
-	<!-- width:100px; -->
-	<!-- font-size:1rem; -->
-	<!-- text-align:center; -->
 	color: #fff;
 	text-shadow: 1px 1px 1px #000;
 	border-radius:5px;
@@ -1592,11 +1658,6 @@ function showWindow(winNumber)
 #form_comparison label + input {
     clear: both;
 }
-
- .setgray
- {
-    background-color:gray;
- }
 
  .flex-container1 {
      display: flex;
@@ -1703,26 +1764,6 @@ function showWindow(winNumber)
   text-align:center;*/
 }
 
- .fright3 {
-  width: 100%;
-  height:35px;
-  line-height:35px;
-  margin: 2px 0px 20px 0px;
-  padding: 2px;
-  box-sizing:border-box;
-  /*background-color: red;
-  border: 2px solid white;
-  text-align:center;*/
-}
-
-.bottom {
-  width: 95%;
-  height: 50px;
-  margin: 1px;
-  padding: 5px;
-  border: 2px solid black;
-}
-
 .markax {
   width: 100%;
   height:50px;
@@ -1734,19 +1775,6 @@ function showWindow(winNumber)
   display:grid;
   place-items:center;
   
-/*
-  width: 100%;
-  height: 40px;
-  line-height:40px;
-  margin: 3px;
-  padding: 2px;
-  border-radius:10px;
-  background-color: black;
-  border: 2px solid black;
-  display:grid;
-  place-items:center;
-  box-sizing:border-box;
-  */
 }
 input[type='radio']:after {
         width: 15px;
@@ -1775,21 +1803,13 @@ input[type='radio']:after {
         visibility: visible;
         border: 2px solid white;
     }
+	
 .btnn {
   <!-- background-color:white; -->
   line-height:20px;
   border-radius:5px;
   width:50px;
   height:20px;
-}
-
-.markay {
-  width: 80%;
-  height: 25px;
-  margin: 3px;
-  padding: 2px;
-  background-color: white;
-  border: 2px solid black;
 }
 
 .markaA {
@@ -1820,6 +1840,7 @@ input[type='radio']:after {
   border: 2px solid black;
   box-sizing:border-box;
 }
+
 .markaC {
     width:15%;
 	height:100%;
@@ -1839,9 +1860,7 @@ input[type='radio']:after {
  }
 
 .imgdiv {
-	
 	width:100%;
-	
 }
 
 .imgg {
@@ -1850,131 +1869,10 @@ input[type='radio']:after {
    
 }
 
- .pushable {
-    /*background: hsl(340deg 100% 32%);*/
-	background: hsl(140deg, 70%, 47%);
-    border-radius: 12px;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline-offset: 4px;
-  }
-  .front1 {
-    display: block;
-    padding: 12px 22px;
-    border-radius: 12px;
-    font-size: 1.25rem;
-	/*background:green;*/
-	background: hsl(147deg, 50%, 47%);
-    /*background: hsl(345deg 100% 47%);*/
-    color: white;
-    transform: translateY(-6px);
-  }
-  .front2 {
-    display: block;
-    padding: 12px 22px;
-    border-radius: 12px;
-    font-size: 1.25rem;
-	background-color:red;
-    /*background: hsl(345deg 100% 47%);*/
-    color: white;
-    transform: translateY(-6px);
-  }
-
-  .pushable:active .front {
-    transform: translateY(-2px);
-  }
-
-
 
 <!-- HTML !-->
 
-
-/* CSS */
-.button-29 {
-  align-items: center;
-  appearance: none;
-  /*
-  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
-  */
-  background-color:green;
-  border: 0;
-  border-radius: 6px;
-  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
-  height: 48px;
-  justify-content: center;
-  /*sline-height: 1;*/
-  list-style: none;
-  overflow: hidden;
-  padding-left: 8px;
-  padding-right: 8px;
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
-}
-
-.button-29:focus {
-  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-}
-/*
-.button-29:hover {
-  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-  transform: translateY(-2px);
-}
-*/
-.button-29:active {
-  box-shadow: #3c4fe0 0 3px 7px inset;
-  transform: translateY(2px);
-}
  
- 
- 
- .fright3 {
-	position: relative;
-    color: rgba(255,255,255,1);
-    text-decoration: none;
-    background-color: rgba(219,87,5,1);
-    font-family: 'Yanone Kaffeesatz';
-    font-weight: 400;
-    font-size: 1.5em;
-    display: block;
-    padding: 4px;
-    border-radius: 8px;
-    box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
-    
-	width: 80px;
-	height:40px;
-	text-align: center;
-	
-	transition: all .1s ease;
-	
-	-webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-
-}
-
-.fright3:active {
-    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    position: relative;
-    top: 6px;
-}
 </style>
 
  
