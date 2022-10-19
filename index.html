@@ -253,7 +253,7 @@
   
 
 </div>
-<div id="log" > </div>
+<div id="log"> </div>
 
 
 <script>
@@ -275,13 +275,13 @@
    
    if (isMobile() === true)
    {
-   	    let width  = screen.width;
-        let height = screen.height;
+   	    let width  = window.innerWidth;
+        let height = window.innerHeight;
         var wid = document.getElementById("bdy").style.width;
 		var wid1 = document.getElementById("container").style.width;
-		alert(width + " x " + height);
+		//alert(width + " x " + height);
 
-	   document.getElementById("log").innerText = "LOG: wid1=" + wid1;
+	   document.getElementById("log").innerText = "LOG: " + wid;
 	
         console.log("wid = " + wid + "  wid1 = " + wid1);	
 
@@ -291,7 +291,7 @@
 		if(screen.availHeight > screen.availWidth){
 			//alert("Please use Landscape!");
 			console.log("Type is " + typeof screen.availHeight);
-			ht = screen.availWidth;
+			ht = width;
 			console.log("width " + ht);
 		}
 		else{
@@ -302,9 +302,9 @@
 	
 	   	//document.getElementById("container").style.width= ht + "px";
 		var x = ht + "px";// Math.floor(.6667*ht + 10) + "px";
-		var y = Math.floor((500/600)*ht + 20) + "px"
+		var y = Math.floor((ht/400)*500 + 20) + "px"
 		console.log(x + " -- " + y + " == " + width + " x " + height);
-		
+		alert(x + " -- " + y + " == " + width + " x " + height);
 		document.getElementById("controlPanel").style.width=  x;// "410px";
 		document.getElementById("controlPanel").style.height="80px";
 		
@@ -1559,7 +1559,7 @@ function showWindow(winNumber)
 
 </body>
 
-<
+
 <style>
 
 #code1, #code2, #code3, #code4, #code5
