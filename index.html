@@ -253,8 +253,8 @@
   
 
 </div>
+<div id="log" > </div>
 
-</body>
 
 <script>
 
@@ -276,7 +276,14 @@
    if (isMobile() === true)
    {
    	    let width  = screen.width;
-        let height = screen.height;		
+        let height = screen.height;
+        var wid = document.getElementById("bdy").style.width;
+		var wid1 = document.getElementById("container").style.width;
+		alert(width + " x " + height);
+
+	   document.getElementById("log").innerText = "LOG: wid1=" + wid1;
+	
+        console.log("wid = " + wid + "  wid1 = " + wid1);	
 
         console.log("Detected mobile device");
 		var ht = 600;
@@ -308,6 +315,8 @@
 		document.getElementById("motherPanel").style.height= y; //"520px";
 
 //		let portrait = window.matchMedia("(orientation: portrait)");
+
+//alert(document.getElementById("controlPanel").style.width);
 
 
 
@@ -1548,6 +1557,9 @@ function showWindow(winNumber)
    
 </script>
 
+</body>
+
+<
 <style>
 
 #code1, #code2, #code3, #code4, #code5
