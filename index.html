@@ -3,12 +3,12 @@
 <div id="container" oncontextmenu="return false" style="background-color:yellow;display:grid;place-items:center;position:relative">
 
   <div id="controlPanel" class="controlPanel"  style="display:flex;flex-direction:row;position:relative; background-color:black;margin:5px 0px 0px 0px; border-bottom:4px solid white; border-radius:8px">
-     <input  id="action2" class=""  type="button" style="height:30px;top:0px;right:0px;position:absolute"  ontouchend="touchended()" onclick="chooseLang()" />		
+     <input  id="action2" class=""  type="button" style="top:0px;right:0px;position:absolute"  ontouchend="touchended()" onclick="chooseLang()" />		
 	 <div style="background-color:black; height:100%;width:50%;display:grid;place-items:center;">
 			
 		<div id="options"  style="display:flex;flex-direction:column;height:100%;color:white">		
-			<div  style="width:100%;margin-top:5px">
-				<input id=x"  class="opt"  type="radio" checked name="elect" value="1"  onclick="failElection()" />
+			<div  style="width:100%;height:50%;margin-top:5px">
+				<input id=x"  class="opt"  type="radio" style="height:50px; checked name="elect" value="1"  onclick="failElection()" />
 				<label id="label1x" for="x"></label>
 			</div>
 			<div style="width:100%;margin-top:5px">
@@ -23,7 +23,7 @@
 	 </div>
 	 <div style="background-color:black;height:100%;width:50%">
 	    <div   style="display:grid;place-items:center;height:100%;background-color:black" >
-			<input  id="action" class="styled btnDim1"  type="button" style="height:30px"  ontouchend="touchended()" onclick="action()" />		
+			<input  id="action" class="styled btnDim1"  type="button"  ontouchend="touchended()" onclick="action()" />		
 		</div>
 	 </div>
   </div>
@@ -127,7 +127,7 @@
 
   </div>
   <div id="motherPanel" style="background-color:blue;padding-top:5px;border:solid 2px white;">
-	<div id="evmPanel" class="flex-container1" style="margin:20px 0px 0px 20px;">
+	<div id="evmPanel" class="flex-container1" style="margin:20px 0px 0px 20px; background-color:yellow;">
 		<div class="fleft" id="voteConfirmationPanel" style="display:none;color:black;background-color:white" >
 		
 		   <div style="display:grid;place-items:center;font-size:24;background-color:white;color:black">
@@ -153,7 +153,7 @@
 		   </div>
 		</div>
 		   
-		<div class="fleft" id="evmLeftCandidatePanel">
+		<div class="fleft" id="evmLeftCandidatePanel" style="background-color:lime">
 			<div class="flex-container4 candName">
 			  <div class="flex-container6" id="A1" >
 			    <div class="markaA" id="A11"></div>
@@ -299,14 +299,21 @@
 			ht = screen.availWidth;
 			console.log("width2 " + ht);	
 		}
-	
+	    
+		var wRatio = width/400;
+		
+		
 	   	//document.getElementById("container").style.width= ht + "px";
 		var x = ht + "px";// Math.floor(.6667*ht + 10) + "px";
 		var y = Math.floor((ht/400)*500 + 20) + "px"
 		console.log(x + " -- " + y + " == " + width + " x " + height);
 		alert(x + " -- " + y + " == " + width + " x " + height);
+		document.getElementById("container").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
+
+		document.getElementById("controlPanel").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
+		
 		document.getElementById("controlPanel").style.width=  x;// "410px";
-		document.getElementById("controlPanel").style.height="80px";
+		document.getElementById("controlPanel").style.height= Math.floor(80*wRatio) + "px";//"80px";
 		
 		document.getElementById("stealingPanel").style.width= x; //"410px";
 		document.getElementById("stealingPanel").style.height=  y;// "520px";
@@ -314,9 +321,30 @@
 		document.getElementById("motherPanel").style.width= x; //"410px";
 		document.getElementById("motherPanel").style.height= y; //"520px";
 
-//		let portrait = window.matchMedia("(orientation: portrait)");
+		document.getElementById("action2").style.height = Math.floor(30*wRatio) + "px";
+		document.getElementById("action").style.lineHeight = 2.0;//*wRatio;
+		document.getElementById("action").style.fontSize = (1*wRatio)+"rem";// "1rem";
+		
+		document.getElementById("confirmButtonPanel").style.height= (60*wRatio) + "px"; //"60px";
+		document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
+		
+		var elems = document.getElementsByClassName("flex-container6");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50*wRatio) + "px";
+		}
+	
+		elems = document.getElementsByClassName("markax");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50*wRatio) + "px";
+		}
 
-//alert(document.getElementById("controlPanel").style.width);
+		
+
+		alert(document.getElementById("controlPanel").style.height);
+		
+		
 
 
 
@@ -334,6 +362,7 @@
         let height = screen.height;		
 
 		var ht = 600;
+		var wRatio = 1;
 	   	//document.getElementById("container").style.width= ht + "px";
 		var x = Math.floor(.6667*ht + 10) + "px";
 		var y = Math.floor((500/600)*ht + 20) + "px"
@@ -347,6 +376,26 @@
 
 		document.getElementById("motherPanel").style.width= x; //"410px";
 		document.getElementById("motherPanel").style.height= y; //"520px";
+		
+		document.getElementById("action2").style.height = "30px";
+		document.getElementById("action").style.lineHeight = "2.0";
+		document.getElementById("action").style.fontSize = "1rem";
+		document.getElementById("confirmButtonPanel").style.height= (60*wRatio) + "px"; //"60px";
+		document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
+
+		//document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
+		var elems = document.getElementsByClassName("flex-container6");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50) + "px";
+		}
+	
+		elems = document.getElementsByClassName("markax");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50) + "px";
+		}
+		
 
    }
    
@@ -1570,10 +1619,10 @@ function showWindow(winNumber)
 }
 .btnDim1
 {
-	line-height:2.0;
+	<!-- line-height:2.0; -->
 	padding:0 10px;
 	<!-- width:100px; -->
-	font-size:1rem;
+	<!-- font-size:1rem; -->
 	text-align:center;
 	color: white;
 }
@@ -1695,7 +1744,7 @@ function showWindow(winNumber)
      display: flex;
 	 flex-direction: row;
 	 background-color:black;
-	 height:60px;
+	 <!-- height:60px; -->
 	 width:75%;
 	 padding:5px;
 	 box-sizing:border-box;
@@ -1705,7 +1754,7 @@ function showWindow(winNumber)
      display: flex;
 	 flex-direction: row;
 	 background-color:black;
-	 height:80px;
+	 <!-- height:80px; -->
 	 
 	 padding:5px;
 	 box-sizing:border-box;
@@ -1726,7 +1775,7 @@ function showWindow(winNumber)
 	 display: flex;
 	 flex-direction: row;
 	 width:100%;
-	 height:50px;
+	 <!-- height:50px; -->
 	 box-sizing:border-box;
  }
  .fleft {
@@ -1781,7 +1830,7 @@ function showWindow(winNumber)
 
 .markax {
   width: 100%;
-  height:50px;
+  <!-- height:50px; -->
   line-height:50px;
   background-color: black;
   font-weight:bold;
@@ -1792,8 +1841,8 @@ function showWindow(winNumber)
   
 }
 input[type='radio']:after {
-        width: 15px;
-        height: 15px;
+        width: 30px;
+        height: 30px;
         border-radius: 15px;
         top: -2px;
         left: -1px;
@@ -1806,9 +1855,9 @@ input[type='radio']:after {
     }
 
     input[type='radio']:checked:after {
-        width: 15px;
-        height: 15px;
-        border-radius: 15px;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
         top: -2px;
         left: -1px;
         position: relative;
@@ -1821,10 +1870,10 @@ input[type='radio']:after {
 	
 .btnn {
   <!-- background-color:white; -->
-  line-height:20px;
+  line-height:40px;
   border-radius:5px;
-  width:50px;
-  height:20px;
+  width:100px;
+  height:40px;
 }
 
 .markaA {
