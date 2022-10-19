@@ -128,13 +128,17 @@
   </div>
   <div id="motherPanel" style="background-color:blue;padding-top:5px;border:solid 2px white;">
 	<div id="evmPanel" class="flex-container1" style="margin:20px 0px 0px 20px; background-color:yellow;">
-		<div class="fleft" id="voteConfirmationPanel" style="display:none;color:black;background-color:white" >
 		
-		   <div style="display:grid;place-items:center;font-size:24;background-color:white;color:black">
-		       
-		       
-		       <div ><img id="symbolvoted" style="width:100%" src="bnp.png" /></div>
-			   <div id="voted"></div>
+		
+		<div class="fleft" id="voteConfirmationPanel" style="display:none;color:black;background-color:yellow;position:relative" >
+		   <div style="display:flex;flex-direction:column;position:relative; place-items:center;font-size:24;width:100%;height:100%;background-color:blue;color:black">    
+		       <div style="background-color:yellow;position:relative;width:100%;height:80%" >
+					<img id="symbolvoted" style="width:100%;height:80%;background-color:red" src="bnp.png" />
+				    <div  style="display:grid;place-items:center;height:20%;background-color:pink">
+						<div id="voted" style="display:grid;place-items:center;width:100%;background-color:red"> </div>
+					</div>
+				</div>
+			   
 		   </div>
 		</div>
 		<div class="fleft" id="blankLeftPanel" style="display:none;color:black;background-color:#e5e4e2" >
@@ -261,6 +265,32 @@
    timestart = null;
    timeend = null;
    diff = 0;
+   
+   function getFontSize(text, dimWidth) {
+  // re-use canvas object for better performance
+	const canvas = getFontSize.canvas || (getFontSize.canvas = document.createElement("canvas"));
+	const context = canvas.getContext("2d");
+    
+	var fontSize = 12;
+	var fontfamily = "";
+	var fontfamily1 = "";
+	for (fontSize = 12; fontSize < 100; fontSize++)
+	{
+	    fontfamily = "bold " + fontSize + "pt arial";
+		context.font =  fontfamily;
+		const metrics = context.measureText(text);
+		if (metrics.width > dimWidth)
+		{
+			fontSize--;
+			fontfamily1 = "bold " + fontSize + "pt arial";
+			break;
+		}
+	}
+	
+	console.log("Require FontSize " + fontSize + " to fit into " + dimWidth );
+	return fontfamily1;
+
+}
    
    function isMobile()
    {
@@ -1547,7 +1577,7 @@ function showWindow(winNumber)
 	 
 	 document.getElementById(id1).style.backgroundColor = clr;
 	 document.getElementById(id2).style.backgroundColor = clr;
-	 document.getElementById(id3).style.backgroundColor = clr;
+	 //document.getElementById(id3).style.backgroundColor = clr;
    
   }
   function selectCandidate(opt)
@@ -1568,6 +1598,14 @@ function showWindow(winNumber)
 	 
 	
     custVote(prevSelectedCanditateId);
+	var wid = document.getElementById("evmLeftCandidatePanel");
+	console.log("Name = " + wid.style.fontName);
+	wid = Math.floor( wid.clientWidth*.64);
+	console.log("Width = " + wid);
+	
+	var fsize = getFontSize(languagePack[17][languageSelection], wid);
+	console.log("Setting font to = " + fsize);
+	document.getElementById("voted").style.font = fsize;
 	stateMachine(6);	 
 	
     prevSelectedCanditateId = -1;
@@ -1658,6 +1696,44 @@ function showWindow(winNumber)
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
 	            inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
+
+@media (min-width:320px)  { 
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+ #voted
+ {
+    font-size:16px;
+ }
+}
+@media (min-width:480px)  { 
+/* smartphones, Android phones, landscape iPhone */ 
+ #voted
+ {
+    font-size:20px;
+ }
+}
+@media (min-width:600px)  { 
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+ #voted
+ {
+    font-size:24px;
+ }
+}
+@media (min-width:801px)  { 
+/* tablet, landscape iPad, lo-res laptops ands desktops */ 
+ #voted
+ {
+    font-size:28px;
+ }
+}
+@media (min-width:1025px) {
+ /* big landscape tablets, laptops, and desktops */ 
+ }
+@media (min-width:1281px) { 
+/* hi-res laptops and desktops */ 
+}
+
+
+
 
 .btnWhite {
     user-select:none;
