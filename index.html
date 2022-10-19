@@ -279,11 +279,16 @@
         let height = screen.height;		
 
         console.log("Detected mobile device");
-		
 		var ht = 600;
+		
+		if(screen.availHeight > screen.availWidth){
+			alert("Please use Landscape!");
+			ht = screen.availWidth;
+		}
+	
 	   	//document.getElementById("container").style.width= ht + "px";
 		var x = Math.floor(.6667*ht + 10) + "px";
-		var y = Math.floor((500/600)*ht + 20) + "px"
+		var y = Math.floor((500/ht)*ht + 20) + "px"
 		console.log(x + " -- " + y + " == " + width + " x " + height);
 		
 		document.getElementById("controlPanel").style.width=  x;// "410px";
@@ -295,8 +300,6 @@
 		document.getElementById("motherPanel").style.width= x; //"410px";
 		document.getElementById("motherPanel").style.height= y; //"520px";
 
-		
-		screen.orientation.lock("portrait");
 //		let portrait = window.matchMedia("(orientation: portrait)");
 
 
