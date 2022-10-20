@@ -1,26 +1,26 @@
-<html>
+<html id=""main">
 <body id="bdy" >
-<div id="container" oncontextmenu="return false" style="background-color:yellow;display:grid;place-items:center;position:relative">
+<div id="container" oncontextmenu="return false" style="background-color:lime;display:grid;place-items:center;position:relative">
 
-  <div id="controlPanel" class="controlPanel"  style="display:flex;flex-direction:row;position:relative; background-color:black;margin:5px 0px 0px 0px; border-bottom:4px solid white; border-radius:8px">
+  <div id="controlPanel" class="controlPanel"  style="display:flex;flex-direction:row;position:relative; background-color:lime;margin:5px 0px 0px 0px; border-bottom:4px solid white; border-radius:8px">
 
 	    <div  id="action2" style="display:grid;place-items:center;background-color:yellow;top:0px;right:0px;position:absolute" >
 			<input  id="z3" class="btnGreen"  type="button" style="width:100%;height:100%"  onclick="chooseLang()"  />		
 			<!-- <input  class="btnGreen"  type="button"  name="elect" value="CONFIRM"  onclick="confirmCandidate()" onmouseup="onup()" onmousedown="ondown()" ontouchstart="ondown()" ontouchend="onup()"/> -->
 		</div>
 	 
-	 <div style="background-color:black; height:100%;width:50%;display:grid;place-items:left;">			
+	 <div style="background-color:gray; height:100%;width:50%;display:grid;place-items:left;">			
 		<div id="options"  style="display:flex;flex-direction:column;position:relative;height:100%;color:white">		
-			<div  style="width:100%;height:50%;display:flex;place-items:center;margin-top:5px;margin-left:40px;border-bottom:2px solid white">
-				<div style="display:grid;place-items:center">
+			<div  style="width:100%;height:50%;display:flex;place-items:center;margin-top:5px;margin-left:5%;border-bottom:2px solid white;position:relative">
+				<div style="display:grid;place-items:center;">
 					<input id="x"  class="opt"  type="radio" checked name="elect" value="1"  onclick="failElection()" />
 				</div>
-				<label id="label1x" style="margin-left:40px;" for="x">Hello</label>
+				<label id="label1x" class="lbl lbl1"  for="x">Hello</label>
 			</div>
 			
-			<div style="width:100%;height:50%;margin-top:5px;margin-left:40px;display:flex;place-items:center;">
-				<input id="y"  class="opt" type="radio"  name="elect" value="2" onclick="stateMachine(3)" />
-				<label id="label1y" style="margin-left:40px;" for="y"></label>
+			<div style="width:100%;height:50%;margin-top:5px;margin-left:5%;display:flex;place-items:center;position:relative">
+				<input id="y"  class="opt"  type="radio"  name="elect" value="2" onclick="stateMachine(3)" />
+				<label id="label1y" class="lbl lbl1" for="y"></label>
 			</div>
 
 		</div>
@@ -28,8 +28,8 @@
 		      Vote rigging in progress
 		</div>
 	 </div>
-	 <div style="background-color:black;height:100%;width:50%">
-	    <div   style="display:grid;place-items:center;height:100%;background-color:black" >
+	 <div style="background-color:gray;height:100%;width:50%">
+	    <div   style="display:grid;place-items:center;height:100%;background-color:gray" >
 			<input  id="action" class="styled btnDim1"  type="button"  ontouchend="touchended()" onclick="action()" />		
 		</div>
 	 </div>
@@ -44,20 +44,20 @@
 				</div>
 				<div id="form_comparison" style="width:50%;display:flex;flex-direction:column;height:100%;background-color:black" class="field radio_field">
 					<div id="A" style="height:33%;">
-						<input type="radio" class="thief" id="form_comparison_0" style="margin-right:10px" name="form[comparison0]" value="1"  onclick="thiefType(1)" />
-						<label id="thieftype1" for="form_comparison_0" style="margin-left:20px"></label>
+						<input type="radio" class="thief" id="form_comparison_0" style="margin-right:10px" name="form1" value="1"  onclick="thiefType(1)" />
+						<label id="thieftype1" class="lbl lbl2" for="form_comparison_0" ></label>
 					</div>
 					<div id="B" style="height:33%">
-						<input type="radio" class="thief" id="form_comparison_1" style="margin-right:10px" name="form[comparison0]" value="2" onclick="thiefType(2)" />
-						<label id="thieftype2" for="form_comparison_1" style="margin-left:20px"></label>
+						<input type="radio" class="thief" id="form_comparison_1" style="margin-right:10px" name="form1" value="2" onclick="thiefType(2)" />
+						<label id="thieftype2" class="lbl lbl2" for="form_comparison_1" ></label>
 					</div>
 					<div id="C" style="height:33%">
-						<input type="radio" class="thief" id="form_comparison_2" style="margin-right:10px" name="form[comparison0]" value="2" onclick="thiefType(3)" />
-						<label id="thieftype3" for="form_comparison_2" style="margin-left:20px"></label>
+						<input type="radio" class="thief" id="form_comparison_2" style="margin-right:10px" name="form1" value="2" onclick="thiefType(3)" />
+						<label id="thieftype3" class="lbl lbl2" for="form_comparison_2" ></label>
 					</div>
 				</div>
-
 			</div>
+			
 			<div id="btnContainer" style="margin-top:20px;display:grid;place-items:center;height:10%">
 				<div style="display:grid;place-items:center;padding:30px">
 					<!-- <button id="btngohome1" onclick="goHome()" >Not a thief</button> -->
@@ -72,24 +72,24 @@
 					<div style="display:flex;flex-direction:row;width:100%;height:30%;background-color:black;margin-left:20px">
 						<div id="form_comparison" class="field radio_field" style="background-color:black;display:flex;flex-direction:column; width:50%" >
 							<div id="AA" style="height:20%">
-								<input type="radio" class="stealCode" id="form_comparison_0x" name="form[comparison]" value="1" onclick="stealmethod2(1)" />
-								<label for="form_comparison_0x" style="margin-left:30px" id="code1">197175100</label>
+								<input type="radio" class="stealCode" id="form_comparison_0x" name="form2" value="1" onclick="stealmethod2(1)" />
+								<label class="lbl lbl3" for="form_comparison_0x" id="code1">197175100</label>
 							</div>
 							<div id="AB" style="height:20%">
-								<input type="radio" class="stealCode" id="form_comparison_1x" name="form[comparison]" value="2" onclick="stealmethod2(2)" />
-								<label for="form_comparison_1x" style="margin-left:30px"  id="code2" >197175300</label>
+								<input type="radio" class="stealCode" id="form_comparison_1x" name="form2" value="2" onclick="stealmethod2(2)" />
+								<label class="lbl lbl3" for="form_comparison_1x" id="code2" >197175300</label>
 							</div>
 							<div id="AC" style="height:20%">
-								<input type="radio" class="stealCode" id="form_comparison_2x" name="form[comparison]" value="2" onclick="stealmethod2(3)" />
-								<label for="form_comparison_2x" style="margin-left:30px"  id="code3">197175500</label>
+								<input type="radio" class="stealCode" id="form_comparison_2x" name="form2" value="2" onclick="stealmethod2(3)" />
+								<label class="lbl lbl3" for="form_comparison_2x" id="code3">197175500</label>
 							</div>
 							<div id="AD" style="height:20%">
-								<input type="radio" class="stealCode" id="form_comparison_3x" name="form[comparison]" value="2" onclick="stealmethod2(4)" />
-								<label for="form_comparison_3x" style="margin-left:30px"  id="code4" >197175600</label>
+								<input type="radio" class="stealCode" id="form_comparison_3x" name="form2" value="2" onclick="stealmethod2(4)" />
+								<label class="lbl lbl3" for="form_comparison_3x" id="code4" >197175600</label>
 							</div>
 							<div id="AE" style="height:20%">
-								<input type="radio" class="stealCode" id="form_comparison_4x" name="form[comparison]" value="2" onclick="stealmethod2(5)" />
-								<label for="form_comparison_4x" style="margin-left:30px"  id="code5" >197175999</label>
+								<input type="radio" class="stealCode" id="form_comparison_4x" name="form2" value="2" onclick="stealmethod2(5)" />
+								<label class="lbl lbl3" for="form_comparison_4x" id="code5" >197175999</label>
 							</div>
 						</div>
 						<div style="margin-top:20px;width:50%;display:flex;flex-direction:column">
@@ -106,7 +106,7 @@
 
 					</div>
 					<div id="" style="height:30%;background-color:black;color:white">
-						<p id="th1Rule">
+						<p id="th1Rule" style="margin-left:20px" >
 						  Select the code number from the list. Last three digit of the code number determine
 						  by at least how many votes awamileague will win. give this code number to polling officer.
 						  You need a polling officer as your partner of crime. Without cooperating from polling officer
@@ -117,28 +117,52 @@
 				</div>
 				
 				<div id="thief2" style="display:none;flex-direction:column" >   
-				    <p id="th2Rule">Hold down the CONFIRM button for at least 15 seconds but not more than 25 seconds, 
+				    <p id="th2Rule" style="margin-left:20px">Hold down the CONFIRM button for at least 15 seconds but not more than 25 seconds, 
 					  After releasing the CONFIRM button, press CANCEL button, each time you press CANCEL
 					  button Awaimileague will be win by at least by 100 vote. As an Example, If you press
 					  CANCEL button 5 times, Awaimileague will be win by 500 votes. You need to press the 
 					  CANCEL button within 10 seconds after you release CONFIRM button.
 				    </p>
-				    <div style="margin-top:20px;display:flex;flex-direction:row">
+					
+					<div style="margin-top:20px;display:flex;flex-direction:row">
+						<div id="btnStart2" style="width:50%;display:grid;place-items:center;"> 
+							<!-- <button  id="startstealing"  onclick="startVoting()">Start Voting</button> -->
+							<input id="btnStart3" class="styled btnDim1"  type="button"  onclick="startVoting()"  />		
+						</div>
+						<div style="width:50%;height:50%;display:grid;place-items:center">
+							<!-- <button id="btngohome2" onclick="goHome()" >Cancel</button> -->
+							<input  id="btngohome3" class="styled btnDim1"  type="button"  onclick="goHome()"  />		
+						</div> 
+
+					</div>
+
+
+
+<!-- 				    <div style="margin-top:20px;display:flex;flex-direction:row">
 						<div style="width:50%"> 
 							<button id="btnStart3"  onclick="startVoting()"></button>
 						</div>
 						<div style="width:50%;">
 							<button id="btngohome3" onclick="goHome()" >Go back</button>
 						</div> 
-
 					</div>
+ -->					
 				</div>
 				<div id="thief3" style="display:none" >    
-				    <p id="th3Rule">Sorry, I have no idea how I can help for free. Please contact me for consultation.
+				    <p id="th3Rule" style="margin-left:20px">Sorry, I have no idea how I can help for free. Please contact me for consultation.
 				       As you are ready to sell the country to win the election, we have to do it secretly.
 					   Choose another option.
 				    </p>
-				    <div style="margin-top:20px;display:flex;flex-direction:row">
+					
+					<div style="margin-top:20px;display:flex;flex-direction:row">
+						<div style="width:100%;display:grid;place-items:center">
+							<!-- <button id="btngohome2" onclick="goHome()" >Cancel</button> -->
+							<input  id="btngohome4" class="styled btnDim1"  type="button"  onclick="goHome()"  />		
+						</div> 
+
+					</div>
+				
+		<!-- 		<div style="margin-top:20px;display:flex;flex-direction:row">
 						<div style="width:50%"> 
 							<button id="btnStart4" style="display:none" onclick="startVoting()">Start Voting</button>
 						</div>
@@ -146,13 +170,13 @@
 							<button id="btngohome4" onclick="goHome()" >Go back</button>
 						</div> 
 
-					</div>
+					</div> -->
 				</div>
 			</div>
 	   </div>
 
   </div>
-  <div id="motherPanel" style="background-color:blue;padding-top:5px;border:solid 2px white;">
+  <div id="motherPanel" style="background-color:black;padding-top:5px;border:solid 2px white;">
 	<div id="evmPanel" class="flex-container1" style="margin:20px 0px 0px 20px; background-color:yellow;">
 		
 		
@@ -183,7 +207,7 @@
 		   </div>
 		</div>
 		   
-		<div class="fleft" id="evmLeftCandidatePanel" style="background-color:lime">
+		<div class="fleft" id="evmLeftCandidatePanel" style="background-color:black">
 			<div class="flex-container4 candName">
 			  <div class="flex-container6" id="A1" >
 			    <div class="markaA" id="A11"></div>
@@ -243,24 +267,51 @@
 			</div>
 		</div>
 		
-		<div class="fright" id="evmRightPanel" style="background-color:green">
+		<div class="fright" id="evmRightPanel" style="background-color:green;display:flex;flex-direction:column;position:relative">
 		
-			<div class="flex-container4" style="background-color:red">
-			  <div class="markax" style="background-color:pink;position:relative;"> 
-				<input type="button" onclick="vote(cadi[0].Id)" class="btnn btnWhite"></input> 
+			<div class="flex-container4" style="background-color:black;">
+			  <div class="markax" > 
+				<div class="containerBtn" >
+					<input type="button" style="width:100%;height:33%;border-radius:5px"  onclick="vote(cadi[0].Id)"   class="btnn btnWhite"></input> 
+			    </div>
+			  </div>
+			  <div class="markax" > 
+				<div class="containerBtn">
+					<input type="button" style="width:100%;height:33%;border-radius:5px" onclick="vote(cadi[1].Id)"   class="btnWhite"></input> 
+			    </div>
 			  </div>
 			  <div class="markax"> 
-			     <input type="button" onclick="vote(cadi[1].Id)" class="btnn btnWhite"></input> 
+				<div class="containerBtn" >
+					<input type="button" style="width:100%;height:33%;border-radius:5px" onclick="vote(cadi[2].Id)"   class="btnWhite"></input> 
+			    </div>
 			  </div>
-			  <div class="markax"> <input type="button" onclick="vote(cadi[2].Id)" class="btnn btnWhite"></input> </div>
-			  <div class="markax"> <input type="button" onclick="vote(cadi[3].Id)" class="btnn btnWhite"></input> </div>
-			  <div class="markax"> <input type="button" onclick="vote(5)" class="btnn btnWhite"></input> </div>
-			  <div class="markax"> <input type="button" onclick="vote(6)" class="btnn btnWhite"></input> </div>
-			  <div class="markax"> <input type="button" onclick="vote(7)" class="btnn btnWhite"></input> </div>
-			  <div class="markax"> <input type="button" onclick="vote(8)" class="btnn btnWhite"></input> </div>
-			  <!--<div class="markax"> <div onclick="vote(9)" class="btnn"></div> </div>
-			  <div class="markax"> <div onclick="vote(10)" class="btnn"></div> </div>
-			  -->
+			  <div class="markax" > 
+				<div class="containerBtn" >
+					<input type="button" style="width:100%;height:33%;border-radius:5px" onclick="vote(cadi[3].Id)"   class="btnWhite"></input> 
+			    </div>
+			  </div>
+			  <div class="markax" > 
+				<div class="containerBtn" >
+					<input type="button" style="width:100%;height:33%;border-radius:5px" onclick="vote(cadi[4].Id)"   class="btnWhite"></input> 
+			    </div>
+			  </div>
+			  <div class="markax" > 
+				<div class="containerBtn" >
+					<input type="button" style="width:100%;height:33%;border-radius:5px" onclick="vote(cadi[5].Id)"   class="btnWhite"></input> 
+			    </div>
+			  </div>
+			  <div class="markax" > 
+				<div class="containerBtn" >
+					<input type="button" style="width:100%;height:33%;border-radius:5px" onclick="vote(cadi[6].Id)"   class="btnWhite"></input> 
+			    </div>
+			  </div>
+			  <div class="markax" > 
+				<div class="containerBtn" >
+					<input type="button" style="width:100%;height:33%;border-radius:5px" onclick="vote(cadi[7].Id)"   class="btnWhite"></input> 
+			    </div>
+			  </div>
+			  
+			  
 			</div>
 		</div>
 
@@ -276,8 +327,9 @@
 		
 			<div class="fright5">
 			    <div class="fleft3">
-					<div style="width:32%"></div>
+					
 					<input id="z2" style="width:36%" class="styled btnDim3" type="button"  name="elect" value="CANCEL"  onclick="cancel()" />
+					<div style="width:32%"></div>
 					<div style="width:32%"></div>
 				</div>
 			</div>
@@ -308,6 +360,49 @@ console.log("Document ready");
 });
     // DOM is loaded and ready for manipulation here
 
+
+function updateRadio()
+{
+	
+	var styleText1 = "input[type='radio']:after {";
+	var styleText2 = "input[type='radio']:checked:after {";
+    var styleText  = "top: -2px;";
+        styleText  += "left: -1px;";
+        styleText  += "position: relative;";     
+        styleText  += "content: '';";
+        styleText  += "display: inline-block;";
+        styleText  += "visibility: visible;";
+        styleText  += "border: 2px solid white;";
+	
+		console.log("Mobile width= " + mobileWidth);
+		var px = (mobileWidth / 100)*4;
+		console.log("Mobile width= " + px);
+		styleText += "width:" + px + "px;";
+		styleText += "height:" + px + "px;";
+		styleText += "border-radius:" + (px/2) + "px;";
+	
+	var styleTextX = styleText1 + styleText + "background-color: #d1d3d1;}";
+	var styleTextY = styleText2 + styleText + "background-color: #ffa500;}";
+
+	var styleElem = document.head.appendChild(document.createElement("style"));
+	styleElem.innerHTML = styleTextX + styleTextY;
+	
+	var elems = document.getElementsByClassName("lbl");
+	for (var i = 0; i < elems.length; i++)
+	{
+		elems[i].style.marginLeft = px + "px";	
+	}
+	
+	
+	console.log("updating input style");
+	document.getElementById("bdy").appendChild(styleElem);
+	highlightSelection("lbl1", 99);
+		
+}
+
+
+
+
 console.log("Ready to roll");	
 
 //function EVM(){
@@ -336,10 +431,10 @@ console.log("Ready to roll");
 	  { Id : 2, name : ["Sheikh Hasina", "শেখ হাসিনা"]    , vote : 0, symbol : "Boat.jpeg" },
 	  { Id : 3, name : ["GM Qader", "জিএম কাদের" ]  , vote : 0, symbol : "plough.jpeg" },
 	  { Id : 4, name : ["Golam Azam", "গোলাম আজম" ] , vote : 0, symbol : "scale.jpg" },
-	  { Id : 5, name : ["Chormonai Pir", "চরমোনাই পীর"]  , vote : 0, symbol : "plough.jpeg" },
-	  { Id : 6, name : ["Dr. Reza Kibria", "ডঃ রেজা কিবরিয়া"], vote : 0, symbol : "plough.jpeg" },
-	  { Id : 7, name : ["Rashed Khan Menon","রাশেদ খান মেনন"], vote : 0, symbol : "plough.jpeg" },
-	  { Id : 8, name : ["Junaid Saki", "জুনায়েদ সাকী"]  , vote : 0, symbol : "plough.jpeg" },
+	  { Id : 5, name : ["Chormonai Pir", "চরমোনাই পীর"]  , vote : 0, symbol : "hath_pakha.jpg" },
+	  { Id : 6, name : ["Dr. Reza Kibria", "ডঃ রেজা কিবরিয়া"], vote : 0, symbol : "rose.jpg" },
+	  { Id : 7, name : ["Rashed Khan Menon","রাশেদ খান মেনন"], vote : 0, symbol : "kastay.png" },
+	  { Id : 8, name : ["Junaid Saki", "জুনায়েদ সাকী"]  , vote : 0, symbol : "shapla.png" },
 	  { Id : 9, name : ["Local Leader 1", "স্থানীয় নেতা ১"]  , vote : 0, symbol : "plough.jpeg" },
 	  { Id : 10,name : ["Local Leader 2", "স্থানীয় নেতা ২"]  , vote : 0, symbol : "plough.jpeg" },
    ];
@@ -374,7 +469,7 @@ console.log("Ready to roll");
 		["Hold down the CONFIRM button for at least 15 seconds but not more than 25 seconds, After releasing the CONFIRM button, press CANCEL button, each time you press CANCEL button Awaimileague will be win by at least by 100 vote. As an Example, If you press CANCEL button 5 times, Awaimileague will be win by 500 votes. You need to press the CANCEL button within 10 seconds after you release CONFIRM button.", 
 					  "চুরি করতেও বুদ্ধি লাগে|  মাউস অথবা আঙ্গুল দিয়ে কনফার্ম বাটনটি চেপে ধরুন কমপক্ষে  ১৫ সেকেন্ড এবং সর্বোচ্চ ২৫ সেকেন্ড। পরবর্তী ১০ সেকেন্ড এর মধ্যে কেনসেল বাটনটি যতবার চাপ দিবেন, প্রতিটি চাপের জন্য ১০০ ভোটের ব্যবধান নিশ্চিত করা হবে। যেমন যদি পাচ বার চাপ দেন তাহলে কমপক্ষে ৫০০ ভোটে আওয়ামীলীগকে বিজয়ী করা হবে।"], //22
 		["Sorry, I have no idea how I can help for free. Please contact me for consultation. As you are ready to sell the country to win the election, we have to do it secretly. Choose another option.",
-		              "জানি না আমি আপনাকে কিভাবে সাহায্য করতে পারি।আগে অভিজ্ঞতা অর্জন করুন, তার পর ডাকাতি করতে  আসবেন।এখন অন্য অপশন সিলেক্ট করুন।"],  //23
+		              "জানি না আমি আপনাকে কিভাবে সাহায্য করতে পারি।আগে অভিজ্ঞতা অর্জন করুন, তার পর ডাকাতি করতে  আসবেন। ধরা পরলে নিশ্চিত ফাসি। এখন অন্য অপশন সিলেক্ট করুন।"],  //23
 		["", ""], // 24
 		["197175100","১৯৭১৭৫১০০"], // 25
 		["197175300","১৯৭১৭৫৩০০"], // 26
@@ -382,6 +477,9 @@ console.log("Ready to roll");
 		["197175700","১৯৭১৭৫৭০০"], // 28
 		["197175999","১৯৭১৭৫৫০০"], // 29
 		["Start stealing", "চুরি নিশ্চিত করুন"], // 30
+		["Don't want to do Robbery", "আমি ডাকাত হতে চাই না"],//31
+		["Sorry, for simplicity, any vote other than Awamileague and BNP candidate will not be counted",
+		  "সহজভাবে বুঝানোর  জন্য আওয়ামীলীগ এবং বিএনপি ছাড়া অন্য কারো ভোট গ্রহন করা হবে না। সেইজন্য আন্তরিক ভাবে  দুঃখিত।"],//32
 	
    
    ];
@@ -401,7 +499,7 @@ console.log("Ready to roll");
 	    fontfamily = "bold " + fontSize + "pt arial";
 		context.font =  fontfamily;
 		const metrics = context.measureText(text);
-		console.log(fontfamily + " will require for " + text + " width = " + metrics.width + " to fit in " + dimWidth);
+		//console.log(fontfamily + " will require for " + text + " width = " + metrics.width + " to fit in " + dimWidth);
 		if (metrics.width > dimWidth)
 		{
 			//fontSize--;
@@ -410,7 +508,7 @@ console.log("Ready to roll");
 		}
 	}
 	
-	console.log("Require FontSize " + fontSize + " to fit " + text + " into " + dimWidth );
+	//console.log("Require FontSize " + fontSize + " to fit " + text + " into " + dimWidth );
 	return fontSize;
 
 }
@@ -442,6 +540,7 @@ console.log("Ready to roll");
    function failElection()
    {
 		stealingCode = 0;
+		highlightSelection("lbl1", 0);
 		stateMachine(2);
    }
    function unselectGroup(grpIdentifier)
@@ -453,6 +552,33 @@ console.log("Ready to roll");
 		for (i = 0; i < elements.length; i++)
 		{
 			elements[i].checked = false;
+		}
+  
+   }
+   
+   function highlightSelection(grpIdentifier, index)
+   {
+        console.log("Group " + grpIdentifier);
+		var elements = document.getElementsByClassName(grpIdentifier);
+		if (!elements)
+		    return;
+
+		for (i = 0; i < elements.length; i++)
+		{
+		    if ( i === index)
+			{
+			    console.log("Adding highlight to index " + i + " of form " + grpIdentifier);
+				elements[i].classList.add("highlight");
+			}
+			else
+			{
+				console.log("Removing highlight to index " + i + " of form " + grpIdentifier);
+				console.log(elements[i]);
+				//console.log(elements[i].nextElementSibling);
+				
+				//if (elements[i].nextElementSibling.classList)
+					elements[i].classList.remove("highlight");
+			}
 		}
   
    }
@@ -523,17 +649,34 @@ console.log("Ready to roll");
    function  stealmethod2(opt)
    { 
 		document.getElementById('btnStart2').style.visibility = "visible";
+		document.getElementById("startstealing").style.visibility = "visible";
+		console.log("STEALING");
 		
 		if (opt == 1)
+		{
 			stealingCode = 100;//197175100;
+			highlightSelection("lbl3", 0);
+		}
 		else if (opt == 2)
+		{
 			stealingCode = 300;//197175300;
+			highlightSelection("lbl3", 1);
+		}
 		else if (opt == 3)
+		{
 			stealingCode = 500;//197175500;
+			highlightSelection("lbl3", 2);
+		}
 		else if (opt == 4)
+		{
 			stealingCode = 700;//197175700;
+			highlightSelection("lbl3", 3);
+		}
 		else if (opt == 5)
+		{
 			stealingCode = 1000;//197175999;
+			highlightSelection("lbl3", 4);
+		}
         			
    }  
    
@@ -551,9 +694,9 @@ console.log("Ready to roll");
 		   document.getElementById("thief3").style.display = "none";
 		   document.getElementById("btnStart2").style.visibility = "hidden";
 		   document.getElementById("btnContainer").style.display = "none";
-		   
-		   
+		   	   
 		   stealingCode = -1;
+		   highlightSelection("lbl2", 0);
 		   console.log("Thief 1");
 	   }
 	   else if (theifId === 2)
@@ -564,6 +707,7 @@ console.log("Ready to roll");
 			document.getElementById("thief3").style.display = "none";
 			//document.getElementById("btnStart").style.display = "inline-block";
 			stealingCode = 9999999;
+			highlightSelection("lbl2", 1);
 			//console.log("Thief 2");
 	   }
 	   else if (theifId === 3)
@@ -575,7 +719,9 @@ console.log("Ready to roll");
 		    document.getElementById("startstealing").style.visibility = "hidden";
 		    //console.log("Thief 3");
 		    stealingCode = -1;
+			highlightSelection("lbl2", 2);
 	   }
+	   highlightSelection("lbl3", 99);
    }
    
    function startVoting()
@@ -666,14 +812,18 @@ console.log("Ready to roll");
 	{
 		return;
 	}
-		
+	
+	if (who > 2)
+	{
+		alert(languagePack[32][languageSelection]);// "Sorry, for simplicity, any vote other than Awamileague and BNP candidate will not be counted");
+	}
 	selectCandidate(who);
 		
   }
    
 function updateLabel()
 {
-    console.log("updating label for selection " + languageSelection);
+    //console.log("updating label for selection " + languageSelection);
 	document.getElementById("label1x").innerText = languagePack[2][languageSelection];
 	document.getElementById("label1y").innerText = languagePack[3][languageSelection];
 	document.getElementById("z3").value = languagePack[18][languageSelection];
@@ -683,7 +833,7 @@ function updateLabel()
 	document.getElementById("th3Rule").innerText = languagePack[23][languageSelection];
 	document.getElementById("startstealing").value = languagePack[30][languageSelection];
 	console.log("SETTING  value to " + languagePack[30][languageSelection]);
-	document.getElementById("btnStart3").textContent = languagePack[30][languageSelection];
+	document.getElementById("btnStart3").value = languagePack[30][languageSelection];
 	
 	
 	
@@ -710,7 +860,7 @@ function updateLabel()
 	}*/
 
 	
-	console.log("Lang = " + languagePack[0][languageSelection]);
+	//console.log("Lang = " + languagePack[0][languageSelection]);
 	if (electionState == 1 )
 		document.getElementById('action').value = languagePack[0][languageSelection];// "শুরু করুন";
 	else if (electionState == 2)
@@ -725,9 +875,9 @@ function updateLabel()
 		document.getElementById("thieftype3").innerText = languagePack[7][languageSelection];
 		document.getElementById("whoami").innerText = languagePack[14][languageSelection];
 		document.getElementById("btngohome1").innerText = languagePack[15][languageSelection];
-		document.getElementById("btngohome2").innerText = languagePack[15][languageSelection];
-		document.getElementById("btngohome3").innerText = languagePack[15][languageSelection];
-		document.getElementById("btngohome4").innerText = languagePack[15][languageSelection];
+		document.getElementById("btngohome2").value = languagePack[15][languageSelection];
+		document.getElementById("btngohome3").value = languagePack[15][languageSelection];
+		document.getElementById("btngohome4").value = languagePack[31][languageSelection];
 	
 	}
 	else if (electionState == 4)
@@ -793,7 +943,7 @@ function showWindow(winNumber)
 		//document.getElementById('evmLeftCandidatePanel').style.display = 'none';
 		//document.getElementById('evmRightPanel').style.display = 'none';	
 		//document.getElementById('blankLeftPanel').style.display = 'none';
-		//document.getElementById('infoPanel').style.display = 'none';
+		document.getElementById('infoPanel').style.display = 'block';
 		//document.getElementById('voteConfirmationPanel').style.display = 'none';
 			
 		//document.getElementById('voteConfirmationPanel').style.color = 'white';
@@ -962,11 +1112,11 @@ function showWindow(winNumber)
   
   function setCandidateSelectionButtonColor(clr, shouldDisable)
   {
-	buttons = document.getElementsByClassName('btnn');
+	buttons = document.getElementsByClassName('btnWhite');
 	for (i = 0; i < buttons.length; i++)
 	{
 	    buttons[i].style.backgroundColor = clr;
-		console.log("selection disabled = " + shouldDisable + " with color = " + clr);
+		//console.log("selection disabled = " + shouldDisable + " with color = " + clr);
 		buttons[i].disabled = shouldDisable;
 	}
   }
@@ -1012,7 +1162,7 @@ function showWindow(winNumber)
   function showResultInPanel(show)
   {
     
-	console.log("showResultInPanel");
+	//console.log("showResultInPanel");
     buttons = document.getElementsByClassName('markaC');
 	
 	console.log("show = " + show + " stealingcode = " + stealingCode);
@@ -1029,14 +1179,14 @@ function showWindow(winNumber)
 		  buttons[i].style.borderLeftColor = 'black';
 	  
 		  var vote1 = cadi[i].vote;
-		  console.log(i + ": " + vote1 + " lang = " + languageSelection);
+		  //console.log(i + ": " + vote1 + " lang = " + languageSelection);
 		  if (languageSelection === 1)
 		  {
 		     vote1 = convertEnglishToBangla(vote1);
 		  }
 		  
 		  //var res = languageSelection == 0 ? vote1 : convertEnglishToBangla(vote1);
-		  console.log(vote1);
+		  //console.log(vote1);
 		  buttons[i].innerText =   vote1;
 		 // votingInProgress = true;
 		}
@@ -1165,7 +1315,7 @@ function showWindow(winNumber)
 		deselectElectionTypes();
 		setCandidateSelectionButtonColor('gray', true);
 		document.getElementById("action").style.display = "none";
-		console.log("Lang = " + languagePack[0][languageSelection]);
+		//console.log("Lang = " + languagePack[0][languageSelection]);
 		
 		////document.getElementById('action').value = languagePack[0][languageSelection];// "শুরু করুন";
 		resetData();
@@ -1202,7 +1352,8 @@ function showWindow(winNumber)
 		////document.getElementById("btngohome4").innerText = languagePack[15][languageSelection];
 		
 	
-
+		highlightSelection("lbl2", 99);
+		highlightSelection("lbl1", 1);
 		
 		showWindow(3);
 		
@@ -1453,7 +1604,7 @@ function showWindow(winNumber)
 				{
 					var digit = engNumber%10;
 					engNumber = Math.floor( engNumber / 10);
-					console.log("digit: " + digit + " -> " + engNumber);
+					//console.log("digit: " + digit + " -> " + engNumber);
 					var banglaDigit = banglaNumberMapping[digit];				
 					banglaNumber = banglaDigit + '' + banglaNumber;
 				}
@@ -1583,9 +1734,9 @@ function showWindow(winNumber)
    	    let width  = window.innerWidth;
         let height = window.innerHeight;
   
-	   document.getElementById("log").innerText = "LOG: " + wid;
+	   //document.getElementById("log").innerText = "LOG: " + wid;
 	
-        console.log("wid = " + wid + "  wid1 = " + wid1);	
+       // console.log("wid = " + wid + "  wid1 = " + wid1);	
 
         console.log("Detected mobile device");
 		var desiredWidth = 600;
@@ -1653,7 +1804,12 @@ function showWindow(winNumber)
 		document.getElementById("startstealing").value = languagePack[30][languageSelection];
 		
 		document.getElementById("th1Rule").style.fontSize = fonty;
+		document.getElementById("th2Rule").style.fontSize = fonty;	
+		document.getElementById("th3Rule").style.fontSize = fonty;	
 		
+		document.getElementById("btnStart3").style.fontSize = fonty;
+		document.getElementById("btngohome3").style.fontSize = fonty;
+		document.getElementById("btngohome4").style.fontSize = fonty;						
 		//document.getElementById("startstealing").value = languagePack[15][languageSelection];
 	
 	
@@ -1803,6 +1959,9 @@ function showWindow(winNumber)
 		document.getElementById("startstealing").value = languagePack[30][languageSelection];
 		
 		document.getElementById("th1Rule").style.fontSize = fonty;
+		document.getElementById("th2Rule").style.fontSize = fonty;	
+		document.getElementById("btnStart3").style.fontSize = fonty;
+		document.getElementById("btngohome3").style.fontSize = fonty;				
 		
 		//document.getElementById("startstealing").value = languagePack[15][languageSelection];
 	
@@ -1903,7 +2062,7 @@ function showWindow(winNumber)
    }
 
     
-  
+  updateRadio();
   updateCandidateName();
   stateMachine(1); 
   
@@ -2041,6 +2200,10 @@ function showWindow(winNumber)
 	            inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
+.highlight
+{
+	color:yellow;
+}
 .btnGreen {
     user-select:none;
 	border:0;		
@@ -2178,51 +2341,46 @@ function showWindow(winNumber)
 }
 
 .markax {
-  width: 100%;
+  <!-- width: 100%; -->
   <!-- height:50px; -->
   <!-- line-height:50px; -->
   background-color: black;
   font-weight:bold;
   box-sizing:border-box;
-  border: 2px solid black;
+  <!-- border: 2px solid black; -->
+  <!-- display:flex; -->
+  <!-- place-items:center; -->
+  
+  position:relative;
+  width:100%;
   display:grid;
   place-items:center;
+  border-bottom:2px solid gray;
   
 }
-input[type='radio']:after {
-        width: 30px;
-        height: 30px;
-        border-radius: 15px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: #d1d3d1;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid white;
-    }
 
-    input[type='radio']:checked:after {
-        width: 30px;
-        height: 30px;
-        border-radius: 30px;
-        top: -2px;
-        left: -1px;
-        position: relative;
-        background-color: #ffa500;
-        content: '';
-        display: inline-block;
-        visibility: visible;
-        border: 2px solid white;
-    }
-	
+.containerBtn
+{
+	width:80%;
+	background-color:black;
+	diaplay:grid;
+	place-items:center;
+	position:relative;
+
+}
+
 .btnn {
   <!-- background-color:white; -->
-  line-height:40px;
+  <!-- line-height:40px; -->
   border-radius:5px;
-  width:100px;
-  height:40px;
+  <!-- width:100px; -->
+  <!-- height:40px; -->
+  <!-- width:80%; -->
+  <!-- line-height:80%; -->
+  <!-- height:33%; -->
+  
+  <!-- width:100%; -->
+  <!-- height:33%; -->
 }
 
 .markaA {
