@@ -36,13 +36,13 @@
   </div>
   <br>
  	
-  <div id="stealingPanel" style="background-color:pink;color:white;position:relative;display:none;padding-top:5px;border:solid 2px white;">
+  <div id="stealingPanel" style="background-color:black;color:white;position:relative;display:none;padding-top:5px;border:solid 2px white;">
 	   <div style="display:flex;flex-direction:column;font-size:20;background-color:yellow;height:100%">
-	        <div style="width:100%;display:flex;flex-direction:row;border:2px solid white;height:21%;background-color:pink">
+	        <div style="width:100%;display:flex;flex-direction:row;border:2px solid white;height:21%;background-color:black">
 				<div style="width:50%;height:100%;display:grid;place-items:center;">
 					<p id="whoami" style="width:50%;padding:0px"></p>
 				</div>
-				<div id="form_comparison" style="width:50%;display:flex;flex-direction:column;height:100%;background-color:gray" class="field radio_field">
+				<div id="form_comparison" style="width:50%;display:flex;flex-direction:column;height:100%;background-color:black" class="field radio_field">
 					<div id="A" style="height:33%;">
 						<input type="radio" class="thief" id="form_comparison_0" style="margin-right:10px" name="form[comparison0]" value="1"  onclick="thiefType(1)" />
 						<label id="thieftype1" for="form_comparison_0" style="margin-left:20px"></label>
@@ -66,7 +66,7 @@
 				</div> 
 			</div>
 			
-			<div style="width:100%;height:75%;position:relative;background-color:gray">
+			<div style="width:100%;height:75%;position:relative;background-color:black">
 				<div id="thief1" style="display:none;flex-direction:column;" >
 					<p style="padding:0px;margin:0px 0px 10px 0px; height:10%;background-color:yellow"></p>
 					<div style="display:flex;flex-direction:row;width:100%;height:30%;background-color:black;margin-left:20px">
@@ -105,7 +105,7 @@
 						</div>
 
 					</div>
-					<div style="height:40%;background-color:pink">
+					<div id="" style="height:30%;background-color:black;color:white">
 						<p id="th1Rule">
 						  Select the code number from the list. Last three digit of the code number determine
 						  by at least how many votes awamileague will win. give this code number to polling officer.
@@ -156,12 +156,12 @@
 	<div id="evmPanel" class="flex-container1" style="margin:20px 0px 0px 20px; background-color:yellow;">
 		
 		
-		<div class="fleft" id="voteConfirmationPanel" style="display:none;color:black;background-color:yellow;position:relative" >
-		   <div style="display:flex;flex-direction:column;position:relative; place-items:center;font-size:24;width:100%;height:100%;background-color:blue;color:black">    
-		       <div style="background-color:yellow;position:relative;width:100%;height:80%" >
-					<img id="symbolvoted" style="width:100%;height:80%;background-color:red" src="bnp.png" />
-				    <div  style="display:grid;place-items:center;height:20%;background-color:pink">
-						<div id="voted" style="display:grid;place-items:center;width:100%;background-color:red"> </div>
+		<div class="fleft" id="voteConfirmationPanel" style="display:none;color:black;background-color:white;position:relative" >
+		   <div style="display:flex;flex-direction:column;position:relative; place-items:center;font-size:24;width:100%;height:100%;background-color:white;color:black">    
+		       <div style="background-color:white;position:relative;width:100%;height:80%" >
+					<img id="symbolvoted" style="width:100%;height:80%;background-color:white" src="bnp.png" />
+				    <div  style="display:grid;place-items:center;height:20%;background-color:white">
+						<div id="voted" style="display:grid;place-items:center;width:100%;background-color:white"> </div>
 					</div>
 				</div>
 			   
@@ -172,7 +172,7 @@
 		</div>
 		
 		<div class="fleft" id="infoPanel" style="display:none;color:while" >
-		   <div style="height:100%;background-color:gray">
+		   <div style="height:100%;background-color:black">
 		    Hi, my name is EVM, I am just an innocent machine. I just follow the instruction
 			given by my master (Software Engineer). I never disobey my master. 
 			If there is anything wrong, it is not me, my master told me to do so.
@@ -243,10 +243,10 @@
 			</div>
 		</div>
 		
-		<div class="fright" id="evmRightPanel">
+		<div class="fright" id="evmRightPanel" style="background-color:green">
 		
-			<div class="flex-container4">
-			  <div class="markax"> 
+			<div class="flex-container4" style="background-color:red">
+			  <div class="markax" style="background-color:pink;position:relative;"> 
 				<input type="button" onclick="vote(cadi[0].Id)" class="btnn btnWhite"></input> 
 			  </div>
 			  <div class="markax"> 
@@ -370,7 +370,7 @@ console.log("Ready to roll");
 		["x", "x"], //19
 		["x", "x"], //20
 		["Select the code number from the list. Last three digit of the code number determine by at least how many votes awamileague will win. give this code number to polling officer. You need a polling officer as your partner of crime. Without cooperating from polling officer you can not steal. Polling offer must be your man and who will not tell the secret to other people. Otherwise you and election commissioner will be in trouble.", 
-						  "এই তালিকা থেকে কোড নামবার সিলেক্ট করুন। শেষের তিনটি নামবার বলে দিবে কত ভোটে আওয়ামীলীগকে জয়ী করাতে চান। এই কোডটি পোলিং   অফিসারকে দিবেন। পোলিং অফিসারটি যেন বিশ্বস্থ হয়।"], //21
+						  "এই তালিকা থেকে কোড নামবার সিলেক্ট করুন। শেষের তিনটি সংক্ষ্যা বলে দিবে কত ভোটে আওয়ামীলীগকে জয়ী করাতে চান। এই কোডটি পোলিং   অফিসারকে দিবেন। পোলিং অফিসারটি যেন বিশ্বস্থ হয়।"], //21
 		["Hold down the CONFIRM button for at least 15 seconds but not more than 25 seconds, After releasing the CONFIRM button, press CANCEL button, each time you press CANCEL button Awaimileague will be win by at least by 100 vote. As an Example, If you press CANCEL button 5 times, Awaimileague will be win by 500 votes. You need to press the CANCEL button within 10 seconds after you release CONFIRM button.", 
 					  "চুরি করতেও বুদ্ধি লাগে|  মাউস অথবা আঙ্গুল দিয়ে কনফার্ম বাটনটি চেপে ধরুন কমপক্ষে  ১৫ সেকেন্ড এবং সর্বোচ্চ ২৫ সেকেন্ড। পরবর্তী ১০ সেকেন্ড এর মধ্যে কেনসেল বাটনটি যতবার চাপ দিবেন, প্রতিটি চাপের জন্য ১০০ ভোটের ব্যবধান নিশ্চিত করা হবে। যেমন যদি পাচ বার চাপ দেন তাহলে কমপক্ষে ৫০০ ভোটে আওয়ামীলীগকে বিজয়ী করা হবে।"], //22
 		["Sorry, I have no idea how I can help for free. Please contact me for consultation. As you are ready to sell the country to win the election, we have to do it secretly. Choose another option.",
@@ -1549,9 +1549,9 @@ function showWindow(winNumber)
 	wid = Math.floor( wid.clientWidth*.64);
 	console.log("Width = " + wid);
 	
-	var fsize = getFontSize(languagePack[17][languageSelection], wid);
-	console.log("Setting font to = " + fsize);
-	document.getElementById("voted").style.font = fsize;
+	//var fsize = getFontSize(languagePack[17][languageSelection], wid);
+	console.log("Setting font to = " + fontSz);
+	document.getElementById("voted").style.fontSize = fontSz;
 	stateMachine(6);	 
 	
     prevSelectedCanditateId = -1;
@@ -1574,40 +1574,43 @@ function showWindow(winNumber)
 	 
   }
   
-     if (isMobile() === true)
+   if (isMobile() === true)
    {
+       // in mobile device I know the exact size of the screen.
+	   // In this mode app's width and device width will match
+	   // once I know the device width, I can calculate the 
+	   // dimension of the other sub component within main window.
    	    let width  = window.innerWidth;
         let height = window.innerHeight;
-        var wid = document.getElementById("bdy").style.width;
-		var wid1 = document.getElementById("container").style.width;
-		//alert(width + " x " + height);
-
+  
 	   document.getElementById("log").innerText = "LOG: " + wid;
 	
         console.log("wid = " + wid + "  wid1 = " + wid1);	
 
         console.log("Detected mobile device");
-		var ht = 600;
+		var desiredWidth = 600;
 		
 		if(screen.availHeight > screen.availWidth){
 			//alert("Please use Landscape!");
 			console.log("Type is " + typeof screen.availHeight);
-			ht = width;
-			mobileWidth = ht;
-			console.log("width " + ht);
+			desiredWidth = width;
+			mobileWidth = desiredWidth;
+			console.log("width " + desiredWidth);
 		}
 		else{
 		    console.log("Type is " + typeof screen.availHeight);
-			ht = screen.availWidth;
-			console.log("width2 " + ht);	
+			desiredWidth = screen.availWidth;
+			console.log("width2 " + desiredWidth);
+
+            alert("Rotate your device, otherwise EVM may not work properly")			
 		}
 	    
 		var wRatio = width/400;
 		
 		
-	   	//document.getElementById("container").style.width= ht + "px";
-		var x = ht + "px";// Math.floor(.6667*ht + 10) + "px";
-		var y = Math.floor((ht/400)*500 + 20) + "px"
+	   	//document.getElementById("container").style.width= desiredWidth + "px";
+		var x = desiredWidth + "px";// Math.floor(.6667*desiredWidth + 10) + "px";
+		var y = Math.floor((desiredWidth/400)*500 + 20) + "px"
 		console.log(x + " -- " + y + " == " + width + " x " + height);
 		alert(x + " -- " + y + " == " + width + " x " + height);
 		document.getElementById("container").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
@@ -1648,6 +1651,9 @@ function showWindow(winNumber)
 		
 		document.getElementById("startstealing").style.fontSize = fonty;
 		document.getElementById("startstealing").value = languagePack[30][languageSelection];
+		
+		document.getElementById("th1Rule").style.fontSize = fonty;
+		
 		//document.getElementById("startstealing").value = languagePack[15][languageSelection];
 	
 	
@@ -1708,15 +1714,159 @@ function showWindow(winNumber)
 //		document.getElementById("motherPanel").style.height="80%";
 
    }
+   else if (isMobile() === false)
+   {
+       // in mobile device I know the exact size of the screen.
+	   // In this mode app's width and device width will match
+	   // once I know the device width, I can calculate the 
+	   // dimension of the other sub component within main window.
+ 	    let width  = screen.width;
+        let height = screen.height;	
+
+  	    let width1  = window.innerWidth;
+        let height1 = window.innerHeight
+        console.log(width + " x " + height + " == " + width1 + " x " + height1);	
+        
+		// if it is laptop, I want to use one third of screen width 
+		// as my app's main window width.
+		var desiredWidth = width/3;
+		console.log("desired width = " + desiredWidth);
+ 
+	    document.getElementById("log").innerText = "LOG: " + width + " x " + height + " == " + width1 + " x " + height1;;
+	
+        //console.log("wid = " + wid + "  wid1 = " + wid1);	
+
+        console.log("Detected mobile device");
+		//var desiredWidth = 600;
+		mobileWidth = desiredWidth;
+		
+/* 		if(screen.availHeight > screen.availWidth){
+			//alert("Please use Landscape!");
+			console.log("Type is " + typeof screen.availHeight);
+			desiredWidth = width;
+			mobileWidth = desiredWidth;
+			console.log("width " + desiredWidth);
+		}
+		else{
+		    console.log("Type is " + typeof screen.availHeight);
+			desiredWidth = screen.availWidth;
+			console.log("width2 " + desiredWidth);
+
+            alert("Rotate your device, otherwise EVM may not work properly")			
+		}
+ */	    
+		var wRatio = desiredWidth/400;
+		
+		
+	   	//document.getElementById("container").style.width= desiredWidth + "px";
+		var x = desiredWidth + "px";// Math.floor(.6667*desiredWidth + 10) + "px";
+		var y = Math.floor((desiredWidth/400)*500 + 20) + "px"
+		console.log(x + " -- " + y + " == " + width + " x " + height);
+		alert(x + " -- " + y + " == " + width + " x " + height);
+		document.getElementById("container").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
+
+		document.getElementById("controlPanel").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
+		
+		document.getElementById("controlPanel").style.width=  x;// "410px";
+		document.getElementById("controlPanel").style.height= Math.floor(80*wRatio) + "px";//"80px";
+		
+		document.getElementById("stealingPanel").style.width= x; //"410px";
+		document.getElementById("stealingPanel").style.height=  y;// "520px";
+
+		document.getElementById("motherPanel").style.width= x; //"410px";
+		document.getElementById("motherPanel").style.height= y; //"520px";
+
+		document.getElementById("action2").style.height = Math.floor(30*wRatio) + "px";
+		document.getElementById("action2").style.width = Math.floor(60*wRatio) + "px";
+		document.getElementById("action2").style.lineHeight = Math.floor(30*wRatio)+"px";
+		document.getElementById("action2").style.fontSize = 24;
+		document.getElementById('z3').value = languagePack[18][languageSelection];	
+		var fontx = getFontSize(languagePack[18][languageSelection], Math.floor(60*wRatio));
+		var fonty = getFontSize(languagePack[18][(languageSelection+1)%2], Math.floor(60*wRatio));
+		
+		console.log("Setting font sizeX to " + fontx + " and value to " + document.getElementById('z3').value);
+		document.getElementById("z3").style.fontSize = fontx;
+		document.getElementById("x").style.fontSize = fontx;
+		document.getElementById("y").style.fontSize = fontx;
+		
+		document.getElementById("A").style.fontSize = fonty;
+		document.getElementById("B").style.fontSize = fonty;
+		document.getElementById("C").style.fontSize = fonty;
+		
+		document.getElementById("whoami").style.fontSize = fonty;
+		document.getElementById("btngohome1").style.fontSize = fonty;
+		document.getElementById("btngohome1").value = languagePack[15][languageSelection];
+		document.getElementById("btngohome2").style.fontSize = fonty;
+		document.getElementById("btngohome2").value = languagePack[15][languageSelection];
+		
+		document.getElementById("startstealing").style.fontSize = fonty;
+		document.getElementById("startstealing").value = languagePack[30][languageSelection];
+		
+		document.getElementById("th1Rule").style.fontSize = fonty;
+		
+		//document.getElementById("startstealing").value = languagePack[15][languageSelection];
+	
+	
+		document.getElementById("AA").style.fontSize = fonty;
+		document.getElementById("AB").style.fontSize = fonty;
+		document.getElementById("AC").style.fontSize = fonty;
+		document.getElementById("AD").style.fontSize = fonty;
+		document.getElementById("AE").style.fontSize = fonty;
+
+		
+
+		// font for current language
+		fontSz = fonty;		
+		
+		document.getElementById("action").style.lineHeight = 2.0;//*wRatio;
+		document.getElementById("action").style.fontSize = (1*wRatio)+"rem";// "1rem";
+		
+		
+		
+		document.getElementById("confirmButtonPanel").style.height= (60*wRatio) + "px"; //"60px";
+		document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
+		
+		var butWidth = Math.floor( mobileWidth/6);
+		document.getElementById("z1").style.width = butWidth + "px";
+		document.getElementById("z2").style.width = butWidth + "px";
+		
+		
+		var font = getFontSize("CONFIRM", butWidth);
+		console.log("Setting font size to " + font);
+		document.getElementById("z1").style.fontSize = font;
+		document.getElementById("z2").style.fontSize = font;
+		
+		
+		var elems = document.getElementsByClassName("flex-container6");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50*wRatio) + "px";
+		}
+	
+		elems = document.getElementsByClassName("markax");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50*wRatio) + "px";
+		}  
+   
+   }
    else
    {
         console.log("Not a mobile device");
 	    let width  = screen.width;
-        let height = screen.height;		
+        let height = screen.height;	
+
+  	    let width1  = window.innerWidth;
+        let height1 = window.innerHeight
+        console.log(width + " x " + height + " == " + width1 + " x " + height1);	
+        
+		var desiredWidth = width/3;
+		
+		
 
 		var ht = 600;
 		var wRatio = 1;
-	   	//document.getElementById("container").style.width= ht + "px";
+	 
 		var x = Math.floor(.6667*ht + 10) + "px";
 		var y = Math.floor((500/600)*ht + 20) + "px"
 		console.log(x + " -- " + y + " == " + width + " x " + height);
