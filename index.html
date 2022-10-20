@@ -3,17 +3,24 @@
 <div id="container" oncontextmenu="return false" style="background-color:yellow;display:grid;place-items:center;position:relative">
 
   <div id="controlPanel" class="controlPanel"  style="display:flex;flex-direction:row;position:relative; background-color:black;margin:5px 0px 0px 0px; border-bottom:4px solid white; border-radius:8px">
-     <input  id="action2" class=""  type="button" style="top:0px;right:0px;position:absolute"  ontouchend="touchended()" onclick="chooseLang()" />		
-	 <div style="background-color:black; height:100%;width:50%;display:grid;place-items:center;">
-			
-		<div id="options"  style="display:flex;flex-direction:column;height:100%;color:white">		
-			<div  style="width:100%;height:50%;margin-top:5px">
-				<input id=x"  class="opt"  type="radio" style="height:50px; checked name="elect" value="1"  onclick="failElection()" />
-				<label id="label1x" for="x"></label>
+
+	    <div  id="action2" style="display:grid;place-items:center;background-color:yellow;top:0px;right:0px;position:absolute" >
+			<input  id="z3" class="btnGreen"  type="button" style="width:100%;height:100%"  onclick="chooseLang()"  />		
+			<!-- <input  class="btnGreen"  type="button"  name="elect" value="CONFIRM"  onclick="confirmCandidate()" onmouseup="onup()" onmousedown="ondown()" ontouchstart="ondown()" ontouchend="onup()"/> -->
+		</div>
+	 
+	 <div style="background-color:black; height:100%;width:50%;display:grid;place-items:left;">			
+		<div id="options"  style="display:flex;flex-direction:column;position:relative;height:100%;color:white">		
+			<div  style="width:100%;height:50%;display:flex;place-items:center;margin-top:5px;margin-left:40px;border-bottom:2px solid white">
+				<div style="display:grid;place-items:center">
+					<input id="x"  class="opt"  type="radio" checked name="elect" value="1"  onclick="failElection()" />
+				</div>
+				<label id="label1x" style="margin-left:40px;" for="x">Hello</label>
 			</div>
-			<div style="width:100%;margin-top:5px">
+			
+			<div style="width:100%;height:50%;margin-top:5px;margin-left:40px;display:flex;place-items:center;">
 				<input id="y"  class="opt" type="radio"  name="elect" value="2" onclick="stateMachine(3)" />
-				<label id="label1y" for="y"></label>
+				<label id="label1y" style="margin-left:40px;" for="y"></label>
 			</div>
 
 		</div>
@@ -29,56 +36,76 @@
   </div>
   <br>
  	
-  <div id="stealingPanel" style="background-color:black;color:white;display:none;padding-top:5px;border:solid 2px white;">
-	   <div style="display:flex;flex-direction:column;font-size:20">
-	        <div style="width:100%;display:flex;flex-direction:row;border:2px solid white">
-				<p id="whoami" style="width:50%;padding:0px"></p>
-				<div id="form_comparison" style="width:50%" class="field radio_field">
-					<input type="radio" class="thief" id="form_comparison_0" style="margin-right:10px" name="form[comparison0]" value="1"  onclick="thiefType(1)" />
-					<label id="thieftype1" for="form_comparison_0"></label>
-					<input type="radio" class="thief" id="form_comparison_1" style="margin-right:10px" name="form[comparison0]" value="2" onclick="thiefType(2)" />
-					<label id="thieftype2" for="form_comparison_1"></label>
-					<input type="radio" class="thief" id="form_comparison_2" style="margin-right:10px" name="form[comparison0]" value="2" onclick="thiefType(3)" />
-					<label id="thieftype3" for="form_comparison_2"></label>
-
+  <div id="stealingPanel" style="background-color:pink;color:white;position:relative;display:none;padding-top:5px;border:solid 2px white;">
+	   <div style="display:flex;flex-direction:column;font-size:20;background-color:yellow;height:100%">
+	        <div style="width:100%;display:flex;flex-direction:row;border:2px solid white;height:21%;background-color:pink">
+				<div style="width:50%;height:100%;display:grid;place-items:center;">
+					<p id="whoami" style="width:50%;padding:0px"></p>
+				</div>
+				<div id="form_comparison" style="width:50%;display:flex;flex-direction:column;height:100%;background-color:gray" class="field radio_field">
+					<div id="A" style="height:33%;">
+						<input type="radio" class="thief" id="form_comparison_0" style="margin-right:10px" name="form[comparison0]" value="1"  onclick="thiefType(1)" />
+						<label id="thieftype1" for="form_comparison_0" style="margin-left:20px"></label>
+					</div>
+					<div id="B" style="height:33%">
+						<input type="radio" class="thief" id="form_comparison_1" style="margin-right:10px" name="form[comparison0]" value="2" onclick="thiefType(2)" />
+						<label id="thieftype2" for="form_comparison_1" style="margin-left:20px"></label>
+					</div>
+					<div id="C" style="height:33%">
+						<input type="radio" class="thief" id="form_comparison_2" style="margin-right:10px" name="form[comparison0]" value="2" onclick="thiefType(3)" />
+						<label id="thieftype3" for="form_comparison_2" style="margin-left:20px"></label>
+					</div>
 				</div>
 
 			</div>
-			<div style="margin-top:20px;display:grid;place-items:center;">
-				<div style="width:50%;display:grid;place-items:center;">
-					<button id="btngohome1" onclick="goHome()" >Not a thief</button>
+			<div id="btnContainer" style="margin-top:20px;display:grid;place-items:center;height:10%">
+				<div style="display:grid;place-items:center;padding:30px">
+					<!-- <button id="btngohome1" onclick="goHome()" >Not a thief</button> -->
+					<input  id="btngohome1" class="styled btnDim1"  type="button" value="Hello World"  onclick="goHome()"  />		
+	
 				</div> 
 			</div>
 			
-			<div style="width:100%">
-				<div id="thief1" style="display:none" >
-					<p style="padding:0px;margin:0px 0px 10px 0px"></p>
-					<div style="display:flex;flex-direction:row;width:100%;margin-left:20px">
-						<div id="form_comparison" class="field radio_field" style="background-color:black; height:120px;width:50%" >
-							<input type="radio" class="stealCode" id="form_comparison_0x" name="form[comparison]" value="1" onclick="stealmethod2(1)" />
-							<label for="form_comparison_0x" id="code1">197175100</label>
-							<input type="radio" class="stealCode" id="form_comparison_1x" name="form[comparison]" value="2" onclick="stealmethod2(2)" />
-							<label for="form_comparison_1x" id="code2" >197175300</label>
-							<input type="radio" class="stealCode" id="form_comparison_2x" name="form[comparison]" value="2" onclick="stealmethod2(3)" />
-							<label for="form_comparison_2x" id="code3">197175500</label>
-							<input type="radio" class="stealCode" id="form_comparison_3x" name="form[comparison]" value="2" onclick="stealmethod2(4)" />
-							<label for="form_comparison_3x" id="code4" >197175600</label>
-							<input type="radio" class="stealCode" id="form_comparison_4x" name="form[comparison]" value="2" onclick="stealmethod2(5)" />
-							<label for="form_comparison_4x" id="code5" >197175999</label>
-	
-						</div>
-						<div style="margin-top:20px;display:flex;flex-direction:column">
-							<div id="btnStart2" style="width:100%;margin-top:20px;"> 
-								<button  id="startstealing"  onclick="startVoting()">Start Voting</button>
+			<div style="width:100%;height:75%;position:relative;background-color:gray">
+				<div id="thief1" style="display:none;flex-direction:column;" >
+					<p style="padding:0px;margin:0px 0px 10px 0px; height:10%;background-color:yellow"></p>
+					<div style="display:flex;flex-direction:row;width:100%;height:30%;background-color:black;margin-left:20px">
+						<div id="form_comparison" class="field radio_field" style="background-color:black;display:flex;flex-direction:column; width:50%" >
+							<div id="AA" style="height:20%">
+								<input type="radio" class="stealCode" id="form_comparison_0x" name="form[comparison]" value="1" onclick="stealmethod2(1)" />
+								<label for="form_comparison_0x" style="margin-left:30px" id="code1">197175100</label>
 							</div>
-							<div style="width:100%;margin-top:25px">
-								<button id="btngohome2" onclick="goHome()" >Cancel</button>
+							<div id="AB" style="height:20%">
+								<input type="radio" class="stealCode" id="form_comparison_1x" name="form[comparison]" value="2" onclick="stealmethod2(2)" />
+								<label for="form_comparison_1x" style="margin-left:30px"  id="code2" >197175300</label>
+							</div>
+							<div id="AC" style="height:20%">
+								<input type="radio" class="stealCode" id="form_comparison_2x" name="form[comparison]" value="2" onclick="stealmethod2(3)" />
+								<label for="form_comparison_2x" style="margin-left:30px"  id="code3">197175500</label>
+							</div>
+							<div id="AD" style="height:20%">
+								<input type="radio" class="stealCode" id="form_comparison_3x" name="form[comparison]" value="2" onclick="stealmethod2(4)" />
+								<label for="form_comparison_3x" style="margin-left:30px"  id="code4" >197175600</label>
+							</div>
+							<div id="AE" style="height:20%">
+								<input type="radio" class="stealCode" id="form_comparison_4x" name="form[comparison]" value="2" onclick="stealmethod2(5)" />
+								<label for="form_comparison_4x" style="margin-left:30px"  id="code5" >197175999</label>
+							</div>
+						</div>
+						<div style="margin-top:20px;width:50%;display:flex;flex-direction:column">
+							<div id="btnStart2" style="width:100%;height:50%;margin-top:20px;display:grid;place-items:center;"> 
+								<!-- <button  id="startstealing"  onclick="startVoting()">Start Voting</button> -->
+								<input  id="startstealing" class="styled btnDim1"  type="button"  onclick="startVoting()"  />		
+							</div>
+							<div style="width:100%;height:50%;margin-top:25px;display:grid;place-items:center">
+								<!-- <button id="btngohome2" onclick="goHome()" >Cancel</button> -->
+								<input  id="btngohome2" class="styled btnDim1"  type="button"  onclick="goHome()"  />		
 							</div> 
 
 						</div>
 
 					</div>
-					<div>
+					<div style="height:40%;background-color:pink">
 						<p id="th1Rule">
 						  Select the code number from the list. Last three digit of the code number determine
 						  by at least how many votes awamileague will win. give this code number to polling officer.
@@ -87,9 +114,8 @@
 						  otherwise you and election commissioner will be in trouble.			  
 						</p>
 					</div>
-
-	  
 				</div>
+				
 				<div id="thief2" style="display:none;flex-direction:column" >   
 				    <p id="th2Rule">Hold down the CONFIRM button for at least 15 seconds but not more than 25 seconds, 
 					  After releasing the CONFIRM button, press CANCEL button, each time you press CANCEL
@@ -242,13 +268,17 @@
 	<div id="confirmButtonPanel" class="flex-containerx" style="margin:5px 0px 0px 20px;">
 			<div class="fleft5">
 				<div class="fleft3" style="background-color:black">
-					<input id="z"  class="btnGreen btnDim3"  type="button"  name="elect" value="CONFIRM"  onclick="confirmCandidate()" onmouseup="onup()" onmousedown="ondown()" />
+				    <div style="width:32%"></div>
+					<input id="z1" style="width:36%"  class="btnGreen btnDim3"  type="button"  name="elect" value="CONFIRM"  onclick="confirmCandidate()" onmouseup="onup()" onmousedown="ondown()" ontouchstart="ondown()" ontouchend="onup()"/>
+					<div style="width:32%"></div>
 				</div>
 			</div>
 		
 			<div class="fright5">
 			    <div class="fleft3">
-					<input id="z1"  class="styled btnDim3" type="button"  name="elect" value="CANCEL"  onclick="cancel()" />
+					<div style="width:32%"></div>
+					<input id="z2" style="width:36%" class="styled btnDim3" type="button"  name="elect" value="CANCEL"  onclick="cancel()" />
+					<div style="width:32%"></div>
 				</div>
 			</div>
 	</div>
@@ -262,9 +292,101 @@
 
 <script>
 
+function docReady(fn) {
+    // see if DOM is already available
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        // call on next available tick
+		console.log("Document loaded");
+        setTimeout(fn, 1);
+    } else {
+        document.addEventListener("DOMContentLoaded", fn);
+    }
+}    
+
+docReady(function(){
+console.log("Document ready");
+});
+    // DOM is loaded and ready for manipulation here
+
+console.log("Ready to roll");	
+
+//function EVM(){
    timestart = null;
    timeend = null;
    diff = 0;
+// initial values
+  votingInProgress = false;
+  votingStarted = false;
+  electionState = 1; // 0: not started; 1: started fair election; 2: Election rigging started;
+  count = 0;
+  riggingIntentionConfirmed = false;
+  voteCastedSoFar = 0;
+  prevSelectedCanditateId = -1;
+  stealingCode = -1;
+  languageSelection = 1;
+  riggingIntended = false;
+  var mobileWidth = 0; 
+  var fontSz = 44;  
+   
+   var pwid = document.getElementById("blankLeftPanel").clientWidth;
+   console.log("WIDTH: " + pwid);
+   
+   const cadi = [
+      { Id : 1, name : ["Khaleda Zia", "খালেদা জিয়া"]  ,  vote : 0, symbol : "bnp.png" },
+	  { Id : 2, name : ["Sheikh Hasina", "শেখ হাসিনা"]    , vote : 0, symbol : "Boat.jpeg" },
+	  { Id : 3, name : ["GM Qader", "জিএম কাদের" ]  , vote : 0, symbol : "plough.jpeg" },
+	  { Id : 4, name : ["Golam Azam", "গোলাম আজম" ] , vote : 0, symbol : "scale.jpg" },
+	  { Id : 5, name : ["Chormonai Pir", "চরমোনাই পীর"]  , vote : 0, symbol : "plough.jpeg" },
+	  { Id : 6, name : ["Dr. Reza Kibria", "ডঃ রেজা কিবরিয়া"], vote : 0, symbol : "plough.jpeg" },
+	  { Id : 7, name : ["Rashed Khan Menon","রাশেদ খান মেনন"], vote : 0, symbol : "plough.jpeg" },
+	  { Id : 8, name : ["Junaid Saki", "জুনায়েদ সাকী"]  , vote : 0, symbol : "plough.jpeg" },
+	  { Id : 9, name : ["Local Leader 1", "স্থানীয় নেতা ১"]  , vote : 0, symbol : "plough.jpeg" },
+	  { Id : 10,name : ["Local Leader 2", "স্থানীয় নেতা ২"]  , vote : 0, symbol : "plough.jpeg" },
+   ];
+   
+   
+   
+   //languageSelection = 0;
+   const languagePack = [
+		["Start voting", "ভোট শুরু করুন" ], 				  // 0
+		["Start over", "আবার শুরু করুন" ], 			  // 1
+		["Fair Election", "সুষ্ঠু নির্বাচন করুন" ],  // 2
+		["Rigged Election", "ভোট চুরি করুন" ],     // 3
+		["Result", "ফলাফল" ],                       // 4
+		["New thief", "নুতন চোর" ],                   // 5
+		["Experienced theif", "অভিজ্ঞ চোর" ],          // 6
+		["Robber", "ডাকাত" ],                        // 7
+		["Fair election in progress", "শুষ্ট নির্বাচন চলছে"],// 8
+		["Vote rigging in progress", "ভোট চুরি চলছে"],  // 9
+		["Cancel", ""],                            // 10
+		["CONFIRM", "কনফার্ম করুন"],                    // 11
+		["Go back","চুরি করতে চাই না"],                   // 12
+		["Start stealing", "চুরি করবই"],               // 13
+		["You are", "আপনি কে?"],                     // 14
+		["Not a thief", "আমি চোর নহি"],                // 15
+		["Election over", "ভোট প্রদান শেষ হয়েছে"], // 16
+		["Your vote has taken", "আপনার ভোট দেওয়া হয়েছে"], // 17
+		["বাংলা", "English"], //18
+		["x", "x"], //19
+		["x", "x"], //20
+		["Select the code number from the list. Last three digit of the code number determine by at least how many votes awamileague will win. give this code number to polling officer. You need a polling officer as your partner of crime. Without cooperating from polling officer you can not steal. Polling offer must be your man and who will not tell the secret to other people. Otherwise you and election commissioner will be in trouble.", 
+						  "এই তালিকা থেকে কোড নামবার সিলেক্ট করুন। শেষের তিনটি নামবার বলে দিবে কত ভোটে আওয়ামীলীগকে জয়ী করাতে চান। এই কোডটি পোলিং   অফিসারকে দিবেন। পোলিং অফিসারটি যেন বিশ্বস্থ হয়।"], //21
+		["Hold down the CONFIRM button for at least 15 seconds but not more than 25 seconds, After releasing the CONFIRM button, press CANCEL button, each time you press CANCEL button Awaimileague will be win by at least by 100 vote. As an Example, If you press CANCEL button 5 times, Awaimileague will be win by 500 votes. You need to press the CANCEL button within 10 seconds after you release CONFIRM button.", 
+					  "চুরি করতেও বুদ্ধি লাগে|  মাউস অথবা আঙ্গুল দিয়ে কনফার্ম বাটনটি চেপে ধরুন কমপক্ষে  ১৫ সেকেন্ড এবং সর্বোচ্চ ২৫ সেকেন্ড। পরবর্তী ১০ সেকেন্ড এর মধ্যে কেনসেল বাটনটি যতবার চাপ দিবেন, প্রতিটি চাপের জন্য ১০০ ভোটের ব্যবধান নিশ্চিত করা হবে। যেমন যদি পাচ বার চাপ দেন তাহলে কমপক্ষে ৫০০ ভোটে আওয়ামীলীগকে বিজয়ী করা হবে।"], //22
+		["Sorry, I have no idea how I can help for free. Please contact me for consultation. As you are ready to sell the country to win the election, we have to do it secretly. Choose another option.",
+		              "জানি না আমি আপনাকে কিভাবে সাহায্য করতে পারি।আগে অভিজ্ঞতা অর্জন করুন, তার পর ডাকাতি করতে  আসবেন।এখন অন্য অপশন সিলেক্ট করুন।"],  //23
+		["", ""], // 24
+		["197175100","১৯৭১৭৫১০০"], // 25
+		["197175300","১৯৭১৭৫৩০০"], // 26
+		["197175500","১৯৭১৭৫৫০০"], // 27
+		["197175700","১৯৭১৭৫৭০০"], // 28
+		["197175999","১৯৭১৭৫৫০০"], // 29
+		["Start stealing", "চুরি নিশ্চিত করুন"], // 30
+	
+   
+   ];
+   // ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ০
+   
    
    function getFontSize(text, dimWidth) {
   // re-use canvas object for better performance
@@ -279,19 +401,20 @@
 	    fontfamily = "bold " + fontSize + "pt arial";
 		context.font =  fontfamily;
 		const metrics = context.measureText(text);
+		console.log(fontfamily + " will require for " + text + " width = " + metrics.width + " to fit in " + dimWidth);
 		if (metrics.width > dimWidth)
 		{
-			fontSize--;
+			//fontSize--;
 			fontfamily1 = "bold " + fontSize + "pt arial";
 			break;
 		}
 	}
 	
-	console.log("Require FontSize " + fontSize + " to fit into " + dimWidth );
-	return fontfamily1;
+	console.log("Require FontSize " + fontSize + " to fit " + text + " into " + dimWidth );
+	return fontSize;
 
 }
-   
+ 
    function isMobile()
    {
 		if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
@@ -303,131 +426,6 @@
 		}  
    }
    
-   if (isMobile() === true)
-   {
-   	    let width  = window.innerWidth;
-        let height = window.innerHeight;
-        var wid = document.getElementById("bdy").style.width;
-		var wid1 = document.getElementById("container").style.width;
-		//alert(width + " x " + height);
-
-	   document.getElementById("log").innerText = "LOG: " + wid;
-	
-        console.log("wid = " + wid + "  wid1 = " + wid1);	
-
-        console.log("Detected mobile device");
-		var ht = 600;
-		
-		if(screen.availHeight > screen.availWidth){
-			//alert("Please use Landscape!");
-			console.log("Type is " + typeof screen.availHeight);
-			ht = width;
-			console.log("width " + ht);
-		}
-		else{
-		    console.log("Type is " + typeof screen.availHeight);
-			ht = screen.availWidth;
-			console.log("width2 " + ht);	
-		}
-	    
-		var wRatio = width/400;
-		
-		
-	   	//document.getElementById("container").style.width= ht + "px";
-		var x = ht + "px";// Math.floor(.6667*ht + 10) + "px";
-		var y = Math.floor((ht/400)*500 + 20) + "px"
-		console.log(x + " -- " + y + " == " + width + " x " + height);
-		alert(x + " -- " + y + " == " + width + " x " + height);
-		document.getElementById("container").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
-
-		document.getElementById("controlPanel").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
-		
-		document.getElementById("controlPanel").style.width=  x;// "410px";
-		document.getElementById("controlPanel").style.height= Math.floor(80*wRatio) + "px";//"80px";
-		
-		document.getElementById("stealingPanel").style.width= x; //"410px";
-		document.getElementById("stealingPanel").style.height=  y;// "520px";
-
-		document.getElementById("motherPanel").style.width= x; //"410px";
-		document.getElementById("motherPanel").style.height= y; //"520px";
-
-		document.getElementById("action2").style.height = Math.floor(30*wRatio) + "px";
-		document.getElementById("action").style.lineHeight = 2.0;//*wRatio;
-		document.getElementById("action").style.fontSize = (1*wRatio)+"rem";// "1rem";
-		
-		document.getElementById("confirmButtonPanel").style.height= (60*wRatio) + "px"; //"60px";
-		document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
-		
-		var elems = document.getElementsByClassName("flex-container6");
-		for (var i = 0; i < elems.length; i++)
-		{
-			elems[i].style.height = Math.floor(50*wRatio) + "px";
-		}
-	
-		elems = document.getElementsByClassName("markax");
-		for (var i = 0; i < elems.length; i++)
-		{
-			elems[i].style.height = Math.floor(50*wRatio) + "px";
-		}
-
-		
-
-		alert(document.getElementById("controlPanel").style.height);
-		
-		
-
-
-
-
-		
-//		document.getElementById("controlPanel").style.height="20%";
-//		document.getElementById("stealingPanel").style.height="80%";
-//		document.getElementById("motherPanel").style.height="80%";
-
-   }
-   else
-   {
-        console.log("Not a mobile device");
-	    let width  = screen.width;
-        let height = screen.height;		
-
-		var ht = 600;
-		var wRatio = 1;
-	   	//document.getElementById("container").style.width= ht + "px";
-		var x = Math.floor(.6667*ht + 10) + "px";
-		var y = Math.floor((500/600)*ht + 20) + "px"
-		console.log(x + " -- " + y + " == " + width + " x " + height);
-		
-		document.getElementById("controlPanel").style.width=  x;// "410px";
-		document.getElementById("controlPanel").style.height="80px";
-		
-		document.getElementById("stealingPanel").style.width= x; //"410px";
-		document.getElementById("stealingPanel").style.height=  y;// "520px";
-
-		document.getElementById("motherPanel").style.width= x; //"410px";
-		document.getElementById("motherPanel").style.height= y; //"520px";
-		
-		document.getElementById("action2").style.height = "30px";
-		document.getElementById("action").style.lineHeight = "2.0";
-		document.getElementById("action").style.fontSize = "1rem";
-		document.getElementById("confirmButtonPanel").style.height= (60*wRatio) + "px"; //"60px";
-		document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
-
-		//document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
-		var elems = document.getElementsByClassName("flex-container6");
-		for (var i = 0; i < elems.length; i++)
-		{
-			elems[i].style.height = Math.floor(50) + "px";
-		}
-	
-		elems = document.getElementsByClassName("markax");
-		for (var i = 0; i < elems.length; i++)
-		{
-			elems[i].style.height = Math.floor(50) + "px";
-		}
-		
-
-   }
    
    function chooseLang()
    {
@@ -552,6 +550,8 @@
 		   document.getElementById("thief2").style.display = "none";
 		   document.getElementById("thief3").style.display = "none";
 		   document.getElementById("btnStart2").style.visibility = "hidden";
+		   document.getElementById("btnContainer").style.display = "none";
+		   
 		   
 		   stealingCode = -1;
 		   console.log("Thief 1");
@@ -608,6 +608,7 @@
    
    function ondown()
    {
+      console.log("ONDOWN");
       timestart = new Date();
 	  diff = 0;
    }
@@ -657,62 +658,6 @@
 
    }
    
-   const cadi = [
-      { Id : 1, name : ["Khaleda Zia", "খালেদা জিয়া"]  ,  vote : 0, symbol : "bnp.png" },
-	  { Id : 2, name : ["Sheikh Hasina", "শেখ হাসিনা"]    , vote : 0, symbol : "Boat.jpeg" },
-	  { Id : 3, name : ["GM Qader", "জিএম কাদের" ]  , vote : 0, symbol : "plough.jpeg" },
-	  { Id : 4, name : ["Golam Azam", "গোলাম আজম" ] , vote : 0, symbol : "scale.jpg" },
-	  { Id : 5, name : ["Chormonai Pir", "চরমোনাই পীর"]  , vote : 0, symbol : "plough.jpeg" },
-	  { Id : 6, name : ["Dr. Reza Kibria", "ডঃ রেজা কিবরিয়া"], vote : 0, symbol : "plough.jpeg" },
-	  { Id : 7, name : ["Rashed Khan Menon","রাশেদ খান মেনন"], vote : 0, symbol : "plough.jpeg" },
-	  { Id : 8, name : ["Junaid Saki", "জুনায়েদ সাকী"]  , vote : 0, symbol : "plough.jpeg" },
-	  { Id : 9, name : ["Local Leader 1", "স্থানীয় নেতা ১"]  , vote : 0, symbol : "plough.jpeg" },
-	  { Id : 10,name : ["Local Leader 2", "স্থানীয় নেতা ২"]  , vote : 0, symbol : "plough.jpeg" },
-   ];
-   
-   
-   
-   //languageSelection = 0;
-   const languagePack = [
-		["Start voting", "ভোট শুরু করুন" ], 				  // 0
-		["Start over", "আবার শুরু করুন" ], 			  // 1
-		["Conduct fair election", "সুষ্ঠু নির্বাচন করুন" ],  // 2
-		["Conduct vote rigging", "ভোট চুরি করুন" ],     // 3
-		["Result", "ফলাফল" ],                       // 4
-		["New thief", "নুতন চোর" ],                   // 5
-		["Experienced theif", "অভিজ্ঞ চোর" ],          // 6
-		["Robber", "ডাকাত" ],                        // 7
-		["Fair election in progress", "শুষ্ট নির্বাচন চলছে"],// 8
-		["Vote rigging in progress", "ভোট চুরি চলছে"],  // 9
-		["Cancel", ""],                            // 10
-		["CONFIRM", "কনফার্ম করুন"],                    // 11
-		["Go back","চুরি করতে চাই না"],                   // 12
-		["Start stealing", "চুরি করবই"],               // 13
-		["You are", "আপনি কে?"],                     // 14
-		["Not a thief", "আমি চোর নহি"],                // 15
-		["Election over", "ভোট প্রদান শেষ হয়েছে"], // 16
-		["Your vote has taken", "আপনার ভোট দেওয়া হয়েছে"], // 17
-		["বাংলা", 
-		 "English"], //18
-		["x", "x"], //19
-		["x", "x"], //20
-		["Select the code number from the list. Last three digit of the code number determine by at least how many votes awamileague will win. give this code number to polling officer. You need a polling officer as your partner of crime. Without cooperating from polling officer you can not steal. Polling offer must be your man and who will not tell the secret to other people. Otherwise you and election commissioner will be in trouble.", 
-						  "এই তালিকা থেকে কোড নামবার সিলেক্ট করুন। শেষের তিনটি নামবার বলে দিবে কত ভোটে আওয়ামীলীগকে জয়ী করাতে চান। এই কোডটি পোলিং   অফিসারকে দিবেন। পোলিং অফিসারটি যেন বিশ্বস্থ হয়।"], //21
-		["Hold down the CONFIRM button for at least 15 seconds but not more than 25 seconds, After releasing the CONFIRM button, press CANCEL button, each time you press CANCEL button Awaimileague will be win by at least by 100 vote. As an Example, If you press CANCEL button 5 times, Awaimileague will be win by 500 votes. You need to press the CANCEL button within 10 seconds after you release CONFIRM button.", 
-					  "চুরি করতেও বুদ্ধি লাগে|  মাউস অথবা আঙ্গুল দিয়ে কনফার্ম বাটনটি চেপে ধরুন কমপক্ষে  ১৫ সেকেন্ড এবং সর্বোচ্চ ২৫ সেকেন্ড। পরবর্তী ১০ সেকেন্ড এর মধ্যে কেনসেল বাটনটি যতবার চাপ দিবেন, প্রতিটি চাপের জন্য ১০০ ভোটের ব্যবধান নিশ্চিত করা হবে। যেমন যদি পাচ বার চাপ দেন তাহলে কমপক্ষে ৫০০ ভোটে আওয়ামীলীগকে বিজয়ী করা হবে।"], //22
-		["Sorry, I have no idea how I can help for free. Please contact me for consultation. As you are ready to sell the country to win the election, we have to do it secretly. Choose another option.",
-		              "জানি না আমি আপনাকে কিভাবে সাহায্য করতে পারি।আগে অভিজ্ঞতা অর্জন করুন, তার পর ডাকাতি করতে  আসবেন।এখন অন্য অপশন সিলেক্ট করুন।"],  //23
-		["", ""], // 24
-		["197175100","১৯৭১৭৫১০০"], // 25
-		["197175300","১৯৭১৭৫৩০০"], // 26
-		["197175500","১৯৭১৭৫৫০০"], // 27
-		["197175700","১৯৭১৭৫৭০০"], // 28
-		["197175999","১৯৭১৭৫৫০০"], // 29
-		["Start stealing", "চুরি নিশ্চিত করুন"], // 30
-	
-   
-   ];
-   // ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ০
  
   function vote(who)
   {  
@@ -728,15 +673,15 @@
    
 function updateLabel()
 {
-
+    console.log("updating label for selection " + languageSelection);
 	document.getElementById("label1x").innerText = languagePack[2][languageSelection];
 	document.getElementById("label1y").innerText = languagePack[3][languageSelection];
-	document.getElementById("action2").value = languagePack[18][languageSelection];
+	document.getElementById("z3").value = languagePack[18][languageSelection];
 	
 	document.getElementById("th1Rule").innerText = languagePack[21][languageSelection];
 	document.getElementById("th2Rule").innerText = languagePack[22][languageSelection];
 	document.getElementById("th3Rule").innerText = languagePack[23][languageSelection];
-	document.getElementById("startstealing").innerText = languagePack[30][languageSelection];
+	document.getElementById("startstealing").value = languagePack[30][languageSelection];
 	console.log("SETTING  value to " + languagePack[30][languageSelection]);
 	document.getElementById("btnStart3").textContent = languagePack[30][languageSelection];
 	
@@ -896,6 +841,7 @@ function showWindow(winNumber)
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'block';
 		document.getElementById('motherPanel').style.display = 'none';
+		document.getElementById("btnContainer").style.display = "block";
 		//document.getElementById('evmPanel').style.display = 'flex';
  		//document.getElementById('evmLeftCandidatePanel').style.display = 'block';
 		//document.getElementById('evmRightPanel').style.display = 'block';		
@@ -1627,20 +1573,191 @@ function showWindow(winNumber)
 	 }
 	 
   }
+  
+     if (isMobile() === true)
+   {
+   	    let width  = window.innerWidth;
+        let height = window.innerHeight;
+        var wid = document.getElementById("bdy").style.width;
+		var wid1 = document.getElementById("container").style.width;
+		//alert(width + " x " + height);
+
+	   document.getElementById("log").innerText = "LOG: " + wid;
+	
+        console.log("wid = " + wid + "  wid1 = " + wid1);	
+
+        console.log("Detected mobile device");
+		var ht = 600;
+		
+		if(screen.availHeight > screen.availWidth){
+			//alert("Please use Landscape!");
+			console.log("Type is " + typeof screen.availHeight);
+			ht = width;
+			mobileWidth = ht;
+			console.log("width " + ht);
+		}
+		else{
+		    console.log("Type is " + typeof screen.availHeight);
+			ht = screen.availWidth;
+			console.log("width2 " + ht);	
+		}
+	    
+		var wRatio = width/400;
+		
+		
+	   	//document.getElementById("container").style.width= ht + "px";
+		var x = ht + "px";// Math.floor(.6667*ht + 10) + "px";
+		var y = Math.floor((ht/400)*500 + 20) + "px"
+		console.log(x + " -- " + y + " == " + width + " x " + height);
+		alert(x + " -- " + y + " == " + width + " x " + height);
+		document.getElementById("container").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
+
+		document.getElementById("controlPanel").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
+		
+		document.getElementById("controlPanel").style.width=  x;// "410px";
+		document.getElementById("controlPanel").style.height= Math.floor(80*wRatio) + "px";//"80px";
+		
+		document.getElementById("stealingPanel").style.width= x; //"410px";
+		document.getElementById("stealingPanel").style.height=  y;// "520px";
+
+		document.getElementById("motherPanel").style.width= x; //"410px";
+		document.getElementById("motherPanel").style.height= y; //"520px";
+
+		document.getElementById("action2").style.height = Math.floor(30*wRatio) + "px";
+		document.getElementById("action2").style.width = Math.floor(60*wRatio) + "px";
+		document.getElementById("action2").style.lineHeight = Math.floor(30*wRatio)+"px";
+		document.getElementById("action2").style.fontSize = 24;
+		document.getElementById('z3').value = languagePack[18][languageSelection];	
+		var fontx = getFontSize(languagePack[18][languageSelection], Math.floor(60*wRatio));
+		var fonty = getFontSize(languagePack[18][(languageSelection+1)%2], Math.floor(60*wRatio));
+		
+		console.log("Setting font sizeX to " + fontx + " and value to " + document.getElementById('z3').value);
+		document.getElementById("z3").style.fontSize = fontx;
+		document.getElementById("x").style.fontSize = fontx;
+		document.getElementById("y").style.fontSize = fontx;
+		
+		document.getElementById("A").style.fontSize = fonty;
+		document.getElementById("B").style.fontSize = fonty;
+		document.getElementById("C").style.fontSize = fonty;
+		
+		document.getElementById("whoami").style.fontSize = fonty;
+		document.getElementById("btngohome1").style.fontSize = fonty;
+		document.getElementById("btngohome1").value = languagePack[15][languageSelection];
+		document.getElementById("btngohome2").style.fontSize = fonty;
+		document.getElementById("btngohome2").value = languagePack[15][languageSelection];
+		
+		document.getElementById("startstealing").style.fontSize = fonty;
+		document.getElementById("startstealing").value = languagePack[30][languageSelection];
+		//document.getElementById("startstealing").value = languagePack[15][languageSelection];
+	
+	
+		document.getElementById("AA").style.fontSize = fonty;
+		document.getElementById("AB").style.fontSize = fonty;
+		document.getElementById("AC").style.fontSize = fonty;
+		document.getElementById("AD").style.fontSize = fonty;
+		document.getElementById("AE").style.fontSize = fonty;
+
+		
+
+		// font for current language
+		fontSz = fonty;		
+		
+		document.getElementById("action").style.lineHeight = 2.0;//*wRatio;
+		document.getElementById("action").style.fontSize = (1*wRatio)+"rem";// "1rem";
+		
+		
+		
+		document.getElementById("confirmButtonPanel").style.height= (60*wRatio) + "px"; //"60px";
+		document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
+		
+		var butWidth = Math.floor( mobileWidth/6);
+		document.getElementById("z1").style.width = butWidth + "px";
+		document.getElementById("z2").style.width = butWidth + "px";
+		
+		
+		var font = getFontSize("CONFIRM", butWidth);
+		console.log("Setting font size to " + font);
+		document.getElementById("z1").style.fontSize = font;
+		document.getElementById("z2").style.fontSize = font;
+		
+		
+		var elems = document.getElementsByClassName("flex-container6");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50*wRatio) + "px";
+		}
+	
+		elems = document.getElementsByClassName("markax");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50*wRatio) + "px";
+		}
+
+		
+
+		alert(document.getElementById("controlPanel").style.height);
+		
+		
+
+
+
+
+		
+//		document.getElementById("controlPanel").style.height="20%";
+//		document.getElementById("stealingPanel").style.height="80%";
+//		document.getElementById("motherPanel").style.height="80%";
+
+   }
+   else
+   {
+        console.log("Not a mobile device");
+	    let width  = screen.width;
+        let height = screen.height;		
+
+		var ht = 600;
+		var wRatio = 1;
+	   	//document.getElementById("container").style.width= ht + "px";
+		var x = Math.floor(.6667*ht + 10) + "px";
+		var y = Math.floor((500/600)*ht + 20) + "px"
+		console.log(x + " -- " + y + " == " + width + " x " + height);
+		
+		document.getElementById("controlPanel").style.width=  x;// "410px";
+		document.getElementById("controlPanel").style.height="80px";
+		
+		document.getElementById("stealingPanel").style.width= x; //"410px";
+		document.getElementById("stealingPanel").style.height=  y;// "520px";
+
+		document.getElementById("motherPanel").style.width= x; //"410px";
+		document.getElementById("motherPanel").style.height= y; //"520px";
+		
+		document.getElementById("action2").style.height = "30px";
+		document.getElementById("action").style.lineHeight = "2.0";
+		document.getElementById("action").style.fontSize = "1rem";
+		document.getElementById("confirmButtonPanel").style.height= (60*wRatio) + "px"; //"60px";
+		document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
+
+		//document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
+		var elems = document.getElementsByClassName("flex-container6");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50) + "px";
+		}
+	
+		elems = document.getElementsByClassName("markax");
+		for (var i = 0; i < elems.length; i++)
+		{
+			elems[i].style.height = Math.floor(50) + "px";
+		}
+		
+
+   }
+
     
-  // initial values
-  votingInProgress = false;
-  votingStarted = false;
-  electionState = 1; // 0: not started; 1: started fair election; 2: Election rigging started;
-  count = 0;
-  riggingIntentionConfirmed = false;
-  voteCastedSoFar = 0;
-  prevSelectedCanditateId = -1;
-  stealingCode = -1;
-  languageSelection = 0;
   
   updateCandidateName();
   stateMachine(1); 
+  
+ // }
    
 </script>
 
@@ -1667,7 +1784,7 @@ function showWindow(winNumber)
 
 .btnDim3
 {
-   height:100%;
+   height:80%;
    <!-- width:100%; -->
 }
 
@@ -1699,37 +1816,50 @@ function showWindow(winNumber)
 
 @media (min-width:320px)  { 
 /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
- #voted
+ .btnDim3
  {
-    font-size:16px;
+    <!-- font-size:20px; -->
  }
 }
 @media (min-width:480px)  { 
 /* smartphones, Android phones, landscape iPhone */ 
- #voted
+ .btnDim3
  {
-    font-size:20px;
+    <!-- font-size:24px; -->
  }
 }
 @media (min-width:600px)  { 
 /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
- #voted
+ .btnDim3
+ .btnDim3
  {
-    font-size:24px;
+    <!-- font-size:28px; -->
  }
 }
 @media (min-width:801px)  { 
 /* tablet, landscape iPad, lo-res laptops ands desktops */ 
- #voted
+ .btnDim3
  {
-    font-size:28px;
+    <!-- font-size:32px; -->
+	height:100%;
+	
  }
 }
 @media (min-width:1025px) {
  /* big landscape tablets, laptops, and desktops */ 
+ .btnDim3
+ {
+    <!-- font-size:36px; -->
+ }
+
  }
 @media (min-width:1281px) { 
 /* hi-res laptops and desktops */ 
+ .btnDim3
+ {
+    <!-- font-size:44px; -->
+ }
+
 }
 
 
@@ -1804,15 +1934,6 @@ function showWindow(winNumber)
 	 flex-direction: row;
 	 background-color:black;
 	 height:80%;
-	 box-sizing:border-box;
- }
- .flex-container2 {
-     display: flex;
-	 flex-direction: row;
-	 background-color:black;
-	 height:60px;
-	 width:75%;
-	 padding:5px;
 	 box-sizing:border-box;
  }
  
@@ -1891,10 +2012,12 @@ function showWindow(winNumber)
 .fleft3 {
   width: 100%;
   height:100%;
-  display:grid;
-  place-items:center;
+  display:flex;
+  flex-direction:row;
+  
+  <!-- place-items:center; -->
   <!-- height: 35px; -->
-  line-height:35px;
+  <!-- line-height:35px; -->
   margin: 2px 0px 2px 0px;
   background-color:black;
   padding: 2px;
@@ -1907,7 +2030,7 @@ function showWindow(winNumber)
 .markax {
   width: 100%;
   <!-- height:50px; -->
-  line-height:50px;
+  <!-- line-height:50px; -->
   background-color: black;
   font-weight:bold;
   box-sizing:border-box;
