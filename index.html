@@ -202,13 +202,20 @@
 		          Hi,<br> My name is EVM, I am just an innocent machine. I just follow the instructions
 			      given by my master (Software Engineer). I never disobey my master. 
 			     If there is anything wrong, it is not me, my master told me to do so.
-			     Please do not blame me. <br><br> Faithfully, <br> Your EVM
+			     Please do not blame me. <br>
 			  </p>
+			  <div style="display:flex;flex-direction:row">
+					<p id="plea2" style="width:50%">Faithfully, <br> Your EVM </p>
+				  	<div style="display:grid;place-items:center;width:50%" >
+						<input id="evmPlea" class="styled" type="button" ontouchend="touchended()" onclick="evmCry()" />		
+					</div>
+			       
+			  </div><!--
 			  <div style="width:100%">
 				<div   style="display:grid;place-items:center;" >
 					<input  id="evmPlea" class="styled"  type="button"  ontouchend="touchended()" onclick="evmCry()" />		
 				</div>
-			  </div>
+			  </div> -->
 
 			</div>
 		   </div>
@@ -337,7 +344,7 @@
 					
 					<input id="z2" style="width:36%" class="styled btnDim3" type="button"  name="elect" value="CANCEL"  onclick="cancel()" />
 					<div style="width:32%"></div>
-					<div style="width:32%"></div>
+					<div id="sec" style="width:32%;color:white"></div>
 				</div>
 			</div>
 	</div>
@@ -494,9 +501,10 @@ function evmCry()
 		["Sorry, for simplicity, any vote other than Awamileague and BNP candidate will not be counted",
 		  "সহজভাবে বুঝানোর  জন্য আওয়ামীলীগ এবং বিএনপি ছাড়া অন্য কারো ভোট গ্রহন করা হবে না। সেইজন্য আন্তরিক ভাবে  দুঃখিত।"],//32
 	    ["Yes I understood", "বুঝতে পেরেছি"],//33
-		["Hi,<br> My name is EVM, I am just an innocent machine. I just follow the instructions given by my master (Software Engineer). I never disobey my master. If there is anything wrong, it is not me, my master told me to do so. Please do not blame me. <br><br> Faithfully, <br> Your EVM",
-		  "সম্মানিত ভোটারবৃন্দ, <br> আমি একটি ইভিএম।  আমি শুধুমাত্র একটি নিরীহ যন্ত্র। আমার  কাজ হল, আমার মনিবের ( ) আদেশ পালন করা। আমি কখনও মনিবের আদেশ অমান্য করি না। যদি কোন ভুল ধরা পড়ে, সেটা আমি করি নাই, আমাকে করতে বলা হয়েছে। দয়াকরে সেজন্য আমাকে দোষারোপ করিবেন না।  <br><br>আপনার বিশ্বস্ত <br>ইভিএম"],
+		["Hi,<br> My name is EVM, I am just an innocent machine. I just follow the instructions given by my master (Software Engineer). I never disobey my master. If there is anything wrong, it is not me, my master told me to do so. Please do not blame me. <br>",
+		  "সম্মানিত ভোটারবৃন্দ, <br> আমি একটি ইভিএম।  আমি শুধুমাত্র একটি নিরীহ যন্ত্র। আমার  কাজ হল, আমার মনিবের ( ) আদেশ পালন করা। আমি কখনও মনিবের আদেশ অমান্য করি না। যদি কোন ভুল ধরা পড়ে, সেটা আমি করি নাই, আমাকে করতে বলা হয়েছে। দয়াকরে সেজন্য আমাকে দোষারোপ করিবেন না।  <br>"],
 		   // 34
+		["Faithfully, <br> Your EVM", "আপনার বিশ্বস্ত <br>ইভিএম"], //35
    
    ];
    // ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ০
@@ -786,17 +794,32 @@ function evmCry()
 //     showWindow(4);
 	 
    }
-   
+   seconds = 0;
+   handle = null;
    function ondown()
    {
       console.log("ONDOWN");
       timestart = new Date();
+	  seconds = 0;
+	  handle = setInterval( updateTime(), 1000);
+	  console.log("Timer started");
 	  diff = 0;
    }
    
+   function updateTime()
+   {
+      seconds++;
+	  console.log("timer = " + seconds);
+	  if (seconds >= 5)
+		document.getElementById("sec").innerText = seconds;
+	  
+   }
    function onup()
    {
       console.log("ONUP");
+	  //document.getElementById("sec").innerText = "";
+	  clearInterval(handle);
+	  seconds = 0;
       //riggingIntended = false;
 	  //riggingIntentionConfirmed = false;
 	  count = 0;
@@ -900,12 +923,19 @@ function updateLabel()
 	{
 	   document.getElementById('evmPlea').value = languagePack[33][languageSelection];// "শুরু করুন";
 	   document.getElementById('plea1').innerHTML = languagePack[34][languageSelection];// "শুরু করুন";
+	   document.getElementById('plea2').innerHTML = languagePack[35][languageSelection];// "শুরু করুন";	   
 	   document.getElementById('evmPlea').style.fontSize = fontSz;// "শুরু করুন";
 	   
 	   if (languageSelection === 0)
+	   {
 			document.getElementById('plea1').style.fontSize = fontSz;
+			document.getElementById('plea2').style.fontSize = fontSz;
+	   }
 	   else
+	   {
 			document.getElementById('plea1').style.fontSize = fontSz-4;
+			document.getElementById('plea2').style.fontSize = fontSz-4;
+	   }
 	}
 	else if (electionState == 1 )
 		document.getElementById('action').value = languagePack[0][languageSelection];// "শুরু করুন";
@@ -931,10 +961,6 @@ function updateLabel()
 		document.getElementById('action').value = languagePack[4][languageSelection];
 		if (stealingCode <= 0)
 			document.getElementById('progress').innerText = languagePack[8][languageSelection];//"Fair voting in progress";
-		else if (stealingCode === 9999999)
-		{
-			document.getElementById('progress').innerText = languagePack[9][languageSelection];//"Vote rigging in progress";
-		}
 		else
 		{
 			document.getElementById('progress').innerText = languagePack[9][languageSelection];//"Vote stealing in progress";
@@ -1406,6 +1432,7 @@ function showWindow(winNumber)
 		//console.log("EVM getting ready");
 		electionState = 1;
 		stealingCode = 0;
+		voteCastedSoFar = 0;
 		count = 0;
 		riggingIntended = false;
 
