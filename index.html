@@ -763,7 +763,7 @@ function evmCry()
       
       document.getElementById('stealingPanel').style.display = 'none';
 	  
-	  if (stealingCode > 0)	
+	  if (stealingCode >= 0)	
 	  {
 	    //DisableOption(true);
 		//electionState = 2;
@@ -1026,7 +1026,7 @@ function showWindow(winNumber)
 	}
 	else if (winNumber == 2)
 	{
-	    //console.log("Fair Election selected, showing EVM blank panel");
+	    console.log("Fair Election selected, showing EVM blank panel");
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
