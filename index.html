@@ -667,6 +667,7 @@ function evmCry()
 			count = 0;
 			riggingIntended = false;
 			stealingCode = 0;
+			voteCastedSoFar = 0;
 			stateMachine(1);
 		}
    }
@@ -728,7 +729,7 @@ function evmCry()
 		   document.getElementById("btnStart2").style.visibility = "hidden";
 		   document.getElementById("btnContainer").style.display = "none";
 		   	   
-		   stealingCode = -1;
+		   stealingCode = 0;
 		   highlightSelection("lbl2", 0);
 		   //console.log("Thief 1");
 	   }
@@ -752,7 +753,7 @@ function evmCry()
 		    document.getElementById("thief3").style.display = "block";
 		    document.getElementById("startstealing").style.visibility = "hidden";
 		    //console.log("Thief 3");
-		    stealingCode = -1;
+		    stealingCode = 0;
 			highlightSelection("lbl2", 2);
 	   }
 	   highlightSelection("lbl3", 99);
@@ -857,7 +858,7 @@ function evmCry()
    
 function updateLabel()
 {
-    //console.log("updating label for selection " + languageSelection);
+    console.log("updating label for selection " + languageSelection + " and state = " + electionState);
 	document.getElementById("label1x").innerText = languagePack[2][languageSelection];
 	document.getElementById("label1y").innerText = languagePack[3][languageSelection];
 	document.getElementById("z3").value = languagePack[18][languageSelection];
@@ -952,7 +953,7 @@ function updateLabel()
 	else if (electionState == 7)
 	{
 	
-	
+        showResultDirectlyInEVM(true);	
 	    document.getElementById('action').value =  languagePack[1][languageSelection]; //"Start over";
 		document.getElementById('progress').innerText = languagePack[16][languageSelection];//"Election complete";
 	}
@@ -1404,6 +1405,9 @@ function showWindow(winNumber)
 		
 		//console.log("EVM getting ready");
 		electionState = 1;
+		stealingCode = 0;
+		count = 0;
+		riggingIntended = false;
 
 		document.getElementById("options").style.display = "flex";
 		document.getElementById("progress").style.display = "none";
