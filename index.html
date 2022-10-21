@@ -640,7 +640,12 @@ function evmCry()
         //console.log("current state = " + electionState);
 		if (electionState === 2)
 		{
+		    // action button clicked to start voting
 		    // vote Rigging started
+			// fair election started
+			// stealing code already selected if rigging is intended
+			count = 0;
+			riggingIntended = false;
 			console.log("moving to state from " + electionState + " to 4");
 			stateMachine(4);
 		}
@@ -734,7 +739,8 @@ function evmCry()
 			document.getElementById("thief2").style.display = "block";
 			document.getElementById("thief3").style.display = "none";
 			//document.getElementById("btnStart").style.display = "inline-block";
-			stealingCode = 9999999;
+			// code will be updated when stealing process in followed
+			stealingCode = 0;//9999999;
 			highlightSelection("lbl2", 1);
 			//console.log("Thief 2");
 	   }
