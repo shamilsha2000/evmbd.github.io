@@ -4,7 +4,7 @@
 
   <div id="controlPanel" class="controlPanel"  style="display:flex;flex-direction:row;position:relative; background-color:lime;margin:5px 0px 0px 0px; border-bottom:4px solid white; border-radius:8px">
 
-	    <div  id="action2" style="display:grid;place-items:center;background-color:yellow;top:0px;right:0px;position:absolute" >
+	    <div  id="action2" style="display:grid;place-items:center;background-color:black;top:0px;right:0px;position:absolute" >
 			<input  id="z3" class="btnGreen"  type="button" style="width:100%;height:100%"  onclick="chooseLang()"  />		
 			<!-- <input  class="btnGreen"  type="button"  name="elect" value="CONFIRM"  onclick="confirmCandidate()" onmouseup="onup()" onmousedown="ondown()" ontouchstart="ondown()" ontouchend="onup()"/> -->
 		</div>
@@ -34,10 +34,9 @@
 		</div>
 	 </div>
   </div>
-  <br>
  	
   <div id="stealingPanel" style="background-color:black;color:white;position:relative;display:none;padding-top:5px;border:solid 2px white;">
-	   <div style="display:flex;flex-direction:column;font-size:20;background-color:yellow;height:100%">
+	   <div style="display:flex;flex-direction:column;font-size:20;background-color:black;height:100%">
 	        <div style="width:100%;display:flex;flex-direction:row;border:2px solid white;height:21%;background-color:black">
 				<div style="width:50%;height:100%;display:grid;place-items:center;">
 					<p id="whoami" style="width:50%;padding:0px"></p>
@@ -59,16 +58,17 @@
 			</div>
 			
 			<div id="btnContainer" style="margin-top:20px;display:grid;place-items:center;height:10%">
-				<div style="display:grid;place-items:center;padding:30px">
+				<div style="display:grid;place-items:center;padding:10px;">
 					<!-- <button id="btngohome1" onclick="goHome()" >Not a thief</button> -->
-					<input  id="btngohome1" class="styled btnDim1"  type="button" value="Hello World"  onclick="goHome()"  />		
-	
+					<div>
+						<input  id="btngohome1" class="styled btnDim1"  type="button" value="Hello World"  onclick="goHome()"  />		
+					</div>
 				</div> 
 			</div>
 			
 			<div style="width:100%;height:75%;position:relative;background-color:black">
 				<div id="thief1" style="display:none;flex-direction:column;" >
-					<p style="padding:0px;margin:0px 0px 10px 0px; height:10%;background-color:yellow"></p>
+					<p style="padding:0px;margin:0px 0px 10px 0px; height:10%;background-color:black"></p>
 					<div style="display:flex;flex-direction:row;width:100%;height:30%;background-color:black;margin-left:20px">
 						<div id="form_comparison" class="field radio_field" style="background-color:black;display:flex;flex-direction:column; width:50%" >
 							<div id="AA" style="height:20%">
@@ -177,7 +177,7 @@
 
   </div>
   <div id="motherPanel" style="background-color:blue;box-sizing:border-box;padding-top:5px;border:solid 2vh red;">
-	<div id="evmPanel" class="flex-container1" style="margin:20px 0px 0px 20px; background-color:yellow;">
+	<div id="evmPanel" class="flex-container1" style="margin:20px 0px 0px 20px; background-color:black;">
 		
 		
 		<div class="fleft" id="voteConfirmationPanel" style="display:none;color:black;background-color:white;position:relative" >
@@ -267,7 +267,7 @@
 			</div>
 		</div>
 		
-		<div class="fright" id="evmRightPanel" style="background-color:green;display:flex;flex-direction:column;position:relative">
+		<div class="fright" id="evmRightPanel" style="background-color:black;display:flex;flex-direction:column;position:relative">
 		
 			<div class="flex-container4" style="background-color:black;">
 			  <div class="markax" > 
@@ -316,7 +316,7 @@
 		</div>
 
 	</div>
-	<div id="confirmButtonPanel" class="flex-containerx" style="margin:2vw 0px 0px 20px;background-color:green">
+	<div id="confirmButtonPanel" class="flex-containerx" style="margin:2vw 0px 0px 20px;background-color:black">
 			<div class="fleft5">
 				<div class="fleft3" style="background-color:black">
 				    <div style="width:32%"></div>
@@ -348,7 +348,7 @@ function docReady(fn) {
     // see if DOM is already available
     if (document.readyState === "complete" || document.readyState === "interactive") {
         // call on next available tick
-		console.log("Document loaded");
+		//console.log("Document loaded");
         setTimeout(fn, 1);
     } else {
         document.addEventListener("DOMContentLoaded", fn);
@@ -374,9 +374,9 @@ function updateRadio()
         styleText  += "visibility: visible;";
         styleText  += "border: 2px solid white;";
 	
-		console.log("Mobile width= " + mobileWidth);
+		//console.log("Mobile width= " + mobileWidth);
 		var px = (mobileWidth / 100)*4;
-		console.log("Mobile width= " + px);
+		//console.log("Mobile width= " + px);
 		styleText += "width:" + px + "px;";
 		styleText += "height:" + px + "px;";
 		styleText += "border-radius:" + (px/2) + "px;";
@@ -394,7 +394,7 @@ function updateRadio()
 	}
 	
 	
-	console.log("updating input style");
+	//console.log("updating input style");
 	document.getElementById("bdy").appendChild(styleElem);
 	highlightSelection("lbl1", 99);
 		
@@ -403,17 +403,19 @@ function updateRadio()
 
 
 
-console.log("Ready to roll");	
+//console.log("Ready to roll");	
 
 //function EVM(){
    timestart = null;
    timeend = null;
    diff = 0;
+   gLog =[];
 // initial values
   votingInProgress = false;
   votingStarted = false;
   electionState = 1; // 0: not started; 1: started fair election; 2: Election rigging started;
   count = 0;
+  maxVoter = 2000;
   riggingIntentionConfirmed = false;
   voteCastedSoFar = 0;
   prevSelectedCanditateId = -1;
@@ -424,7 +426,7 @@ console.log("Ready to roll");
   var fontSz = 44;  
    
    var pwid = document.getElementById("blankLeftPanel").clientWidth;
-   console.log("WIDTH: " + pwid);
+   //console.log("WIDTH: " + pwid);
    
    const cadi = [
       { Id : 1, name : ["Khaleda Zia", "খালেদা জিয়া"]  ,  vote : 0, symbol : "bnp.png" },
@@ -534,7 +536,7 @@ console.log("Ready to roll");
 		
 		updateLabel();
 
-        console.log("Language elected to " +  languageSelection + " cur state " + electionState);
+//        console.log("Language elected to " +  languageSelection + " cur state " + electionState);
         //stateMachine(electionState);			
    }
    function failElection()
@@ -558,7 +560,7 @@ console.log("Ready to roll");
    
    function highlightSelection(grpIdentifier, index)
    {
-        console.log("Group " + grpIdentifier);
+//        console.log("Group " + grpIdentifier);
 		var elements = document.getElementsByClassName(grpIdentifier);
 		if (!elements)
 		    return;
@@ -567,17 +569,17 @@ console.log("Ready to roll");
 		{
 		    if ( i === index)
 			{
-			    console.log("Adding highlight to index " + i + " of form " + grpIdentifier);
+//			    console.log("Adding highlight to index " + i + " of form " + grpIdentifier);
 				elements[i].classList.add("highlight");
 			}
 			else
 			{
-				console.log("Removing highlight to index " + i + " of form " + grpIdentifier);
-				console.log(elements[i]);
+//				console.log("Removing highlight to index " + i + " of form " + grpIdentifier);
+//				console.log(elements[i]);
 				//console.log(elements[i].nextElementSibling);
 				
 				//if (elements[i].nextElementSibling.classList)
-					elements[i].classList.remove("highlight");
+				elements[i].classList.remove("highlight");
 			}
 		}
   
@@ -589,57 +591,59 @@ console.log("Ready to roll");
    });
    function touchended()
    {
-     console.log("Touch ended");
-	 var elem = document.getElementById("bdy");
-	 elem.dispatchEvent(clickEvent);
-	 document.getElementById("action").classList.remove("hasactive");
-	 var hasclass = document.getElementById("action").classList;
-	 console.log(hasclass);
+     //console.log("Touch ended");
+	 //var elem = document.getElementById("bdy");
+	 //elem.dispatchEvent(clickEvent);
+	 //document.getElementById("action").classList.remove("hasactive");
+	 //var hasclass = document.getElementById("action").classList;
+	 //console.log(hasclass);
 	// document.getElementById("action").classList.remove("styled");
 	// document.getElementById("action").classList.add("styled");
 	 
-	 setTimeout(alttt, 100);
+	 //setTimeout(alttt, 100);
 	  
    }
    
-   function alttt()
-   {
-		var elem = document.getElementById("bdy");
-		elem.focus();	
-		console.log("Focus changed");
-   }
+//   function alttt()
+//   {
+//		var elem = document.getElementById("bdy");
+//		elem.focus();	
+//		console.log("Focus changed");
+//   }
    
    function action()
    {
 		var elem = document.getElementById("bdy");
 		elem.focus();
 		
-        console.log("current state = " + electionState);
+        //console.log("current state = " + electionState);
 		if (electionState === 2)
 		{
-		    console.log("moving to state " + 4);
+		    // vote Rigging started
+			console.log("moving to state from " + electionState + " to 4");
 			stateMachine(4);
 		}
 		else if (electionState === 4)
 		{	
-			console.log("moving to state " + 5);
+			console.log("moving to state from " + electionState + " to 5");
 			stateMachine(5);
 		}
 		else if (electionState === 6)
 		{	
-			console.log("moving to state " + 7);
+		    // fair election result wanted
+			console.log("moving to state from " + electionState + " to 7");
 			stateMachine(7);
 		}
 		else if (electionState == 5 || electionState === 7)
 		{	
-			console.log("moving to state " + 1);
+			console.log("moving to state from " + electionState + " to 1");
 		    stealingCode = 0;
 			stateMachine(1);
 		}
    }
    function testt()
    {
-		console.log("got it");
+		//console.log("got it");
    }
    function setThiefTypeSelectionToNone()
    {
@@ -650,7 +654,7 @@ console.log("Ready to roll");
    { 
 		document.getElementById('btnStart2').style.visibility = "visible";
 		document.getElementById("startstealing").style.visibility = "visible";
-		console.log("STEALING");
+		//console.log("STEALING");
 		
 		if (opt == 1)
 		{
@@ -686,7 +690,7 @@ console.log("Ready to roll");
 		stealingCode = 0;
        if (theifId === 1)
 	   {
-	       console.log("New thief");
+	       //console.log("New thief");
 		   unselectGroup("stealCode");
 		   
 	       document.getElementById("thief1").style.display = "block";
@@ -697,11 +701,11 @@ console.log("Ready to roll");
 		   	   
 		   stealingCode = -1;
 		   highlightSelection("lbl2", 0);
-		   console.log("Thief 1");
+		   //console.log("Thief 1");
 	   }
 	   else if (theifId === 2)
 	   {
-			console.log("Experienced thief");
+			//console.log("Experienced thief");
 			document.getElementById("thief1").style.display = "none";
 			document.getElementById("thief2").style.display = "block";
 			document.getElementById("thief3").style.display = "none";
@@ -712,7 +716,7 @@ console.log("Ready to roll");
 	   }
 	   else if (theifId === 3)
 	   {
-		    console.log("Robber");
+		    //console.log("Robber");
 	        document.getElementById("thief1").style.display = "none";
 		    document.getElementById("thief2").style.display = "none";
 		    document.getElementById("thief3").style.display = "block";
@@ -832,7 +836,7 @@ function updateLabel()
 	document.getElementById("th2Rule").innerText = languagePack[22][languageSelection];
 	document.getElementById("th3Rule").innerText = languagePack[23][languageSelection];
 	document.getElementById("startstealing").value = languagePack[30][languageSelection];
-	console.log("SETTING  value to " + languagePack[30][languageSelection]);
+	//console.log("SETTING  value to " + languagePack[30][languageSelection]);
 	document.getElementById("btnStart3").value = languagePack[30][languageSelection];
 	
 	
@@ -950,7 +954,7 @@ function showWindow(winNumber)
 	}
 	else if (winNumber == 1)
 	{
-	    console.log("Election started, showing EVM blank panel");
+	    //console.log("Election started, showing EVM blank panel");
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
@@ -974,7 +978,7 @@ function showWindow(winNumber)
 	}
 	else if (winNumber == 2)
 	{
-	    console.log("Fair Election selected, showing EVM blank panel");
+	    //console.log("Fair Election selected, showing EVM blank panel");
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
@@ -987,7 +991,7 @@ function showWindow(winNumber)
 	}
 	else if (winNumber == 3)
 	{
-	    console.log("Election started, showing EVM candidate panel");
+	    //console.log("Election started, showing EVM candidate panel");
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'block';
 		document.getElementById('motherPanel').style.display = 'none';
@@ -1000,7 +1004,7 @@ function showWindow(winNumber)
 	}
 	else if (winNumber == 3)
 	{
-		console.log("Rigging Election selected, showing Stealing window");
+		//console.log("Rigging Election selected, showing Stealing window");
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
@@ -1017,7 +1021,7 @@ function showWindow(winNumber)
 	}
     else if (winNumber == 4)
 	{
-	    console.log("Voting started, showing EVM candidate panel");
+	    //console.log("Voting started, showing EVM candidate panel");
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
@@ -1029,7 +1033,7 @@ function showWindow(winNumber)
 	}
 	else if (winNumber == 5)
 	{
-	    console.log("Voting complete, showing result panel");
+	    //console.log("Voting complete, showing result panel");
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('motherPanel').style.display = 'block';
@@ -1042,7 +1046,7 @@ function showWindow(winNumber)
 	}
 	else if (winNumber == 6)
 	{
-		console.log("Vote casted, showing confirmation window");
+		//console.log("Vote casted, showing confirmation window");
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'none';
 		
@@ -1061,7 +1065,7 @@ function showWindow(winNumber)
 	}
 	else if (winNumber == 6)
 	{
-	    console.log("Show slealing idea");
+	    //console.log("Show slealing idea");
 	    document.getElementById('evmLeftCandidatePanel').style.display = 'none';
 		document.getElementById('blankLeftPanel').style.display = 'none';
 		document.getElementById('voteConfirmationPanel').style.display = 'none';
@@ -1072,6 +1076,15 @@ function showWindow(winNumber)
    
    function custVote(candId)
    {
+        
+		if (voteCastedSoFar >= 15)
+		{
+			alert("You cannot cast more than 15x100 vote\n time to declare result");
+			return;		  
+		}
+ 
+        voteCastedSoFar = voteCastedSoFar + 1;
+	   
  		// count the vote, every demo vote count as 100 actual vote
 		cadi[candId - 1].vote =  cadi[candId - 1].vote + 100;
 		
@@ -1091,15 +1104,33 @@ function showWindow(winNumber)
 		// showWindow(2);
 		
 		
-		
-		
-		console.log(cadi[candId - 1].name + " got " + cadi[candId - 1].vote + " vote");
-		voteCastedSoFar = voteCastedSoFar + 1;
-		if (voteCastedSoFar >= 5)
-		{
-		  // console.log("Showing result button");
-		  // showHideResultButton(true);
-		}
+		// update log
+		var curTime = new Date();
+		var date = curTime.getFullYear()+'-'+(curTime.getMonth()+1)+'-'+curTime.getDate();
+		var time = curTime.getHours() + ":" + curTime.getMinutes() + ":" + curTime.getSeconds();
+		var log = "INFO: " + date + " " + time + ":: " + cadi[candId - 1].name + " got " + cadi[candId - 1].vote + " vote";
+		console.log(log);
+		gLog.push(log);
+  }
+  
+  function publishResult()
+  {
+       var finalCast = ((cadi[0].vote + cadi[1].vote)/maxVoter)*100;
+	   console.log("Final count: BNP="+cadi[0].vote + ", Awamileague=" + cadi[1].vote + " Cast=" + finalCast + "% out of total " + maxVoter + " voter");
+	   var totalVoteCasted = cadi[0].vote + cadi[1].vote;
+	   var percentVoteCasted = Math.round(((totalVoteCasted / maxVoter)*100)*100)/100;
+	   
+	   var result = "Total Voter: " + maxVoter + "\n";
+	   result += "Total vote casted: " + totalVoteCasted + "\n";
+	   result += "Vote casted: " +  percentVoteCasted + "%\n";
+	   result += "BNP: " + cadi[0].vote + "\n";
+	   result += "Awamileague: " + cadi[1].vote + " \n";
+	   console.log(result);
+	   console.log();
+	   
+	   printLog();
+	   alert(result);
+  
   }
   
   function showAlt()
@@ -1131,7 +1162,7 @@ function showWindow(winNumber)
     buttons = document.getElementsByClassName('opt');
 	for (i = 0; i < buttons.length; i++)
 	{
-	    console.log("deselect ");
+	    //console.log("deselect ");
 	    buttons[i].checked = false;
 	}
 	
@@ -1141,15 +1172,15 @@ function showWindow(winNumber)
 
   function DisableOption(shouldDisable)
   {
-    console.log("Disabling radio button");
+    //console.log("Disabling radio button");
     buttons = document.getElementsByClassName('opt');
 	for (i = 0; i < buttons.length; i++)
 	{
 	    buttons[i].disabled = shouldDisable;
-		console.log("Disabling radio button to " + shouldDisable);
+		//console.log("Disabling radio button to " + shouldDisable);
 		if (shouldDisable === true)
 		{
-		    console.log("color = gray");
+		    //console.log("color = gray");
 			buttons[i].style.backgroundColor = 'gray';
 		}
 		else
@@ -1163,7 +1194,6 @@ function showWindow(winNumber)
   {
     
 	//console.log("showResultInPanel");
-    buttons = document.getElementsByClassName('markaC');
 	
 	console.log("show = " + show + " stealingcode = " + stealingCode);
 	if (show === true && stealingCode > 99)
@@ -1171,6 +1201,20 @@ function showWindow(winNumber)
 	   console.log("Rigging started");
 	   voteRigging(cadi);
 	}
+	else if (show === false)
+	{
+		console.log("Fair Election counting started");
+		publishResult();
+	}
+	
+	// show result in the panel, because it is a demo, not real EVM
+	showResultDirectlyInEVM(show);
+  }
+  
+  function showResultDirectlyInEVM(show)
+  {
+    buttons = document.getElementsByClassName('markaC');
+
  	for (i = 0; i < buttons.length; i++)
 	{
 	    if (show) {
@@ -1179,53 +1223,47 @@ function showWindow(winNumber)
 		  buttons[i].style.borderLeftColor = 'black';
 	  
 		  var vote1 = cadi[i].vote;
-		  //console.log(i + ": " + vote1 + " lang = " + languageSelection);
 		  if (languageSelection === 1)
 		  {
 		     vote1 = convertEnglishToBangla(vote1);
-		  }
-		  
-		  //var res = languageSelection == 0 ? vote1 : convertEnglishToBangla(vote1);
-		  //console.log(vote1);
+		  }	  
 		  buttons[i].innerText =   vote1;
-		 // votingInProgress = true;
 		}
 		else {
 		  buttons[i].style.backgroundColor = 'white';
 		  buttons[i].style.borderLeftColor = 'white';
 		  buttons[i].style.borderRightColor = 'white';
 		  buttons[i].innerText = "";
-		  //votingInProgress = false;
-		}
-	    
+		}    
 	}
   }
   
-  function showHideResultButton(shouldenable)
-  {
-  console.log("trying to hadle button");
-  console.log(shouldenable);
-     if (shouldenable === true)
-	 {
+  //function showHideResultButton(shouldenable)
+  //{
+  //console.log("trying to hadle button");
+  //console.log(shouldenable);
+     //if (shouldenable === true)
+	 //{
 	//	document.getElementById('res').disabled = false;
 	//	document.getElementById('res').visibility = 'visible';
 
-	 }
-	 else
-	 {
-	    console.log("hiding result");
-		var elem = document.getElementById('res');
-		if (elem)
-		{
+	 //}
+	 //else
+	 //{
+	    //console.log("hiding result");
+	//	var elem = document.getElementById('res');
+	//	if (elem)
+	//	{
 	//	   elem.disabled = true;
 	//	   elem.visibility = 'hidden';
-		}
-	 }
-  }
+	//	}
+	// }
+ // }
   
+  /*
   function result()
   {
-    showHideResultButton(false);
+    //showHideResultButton(false);
     deselectElectionTypes();
 	DisableOption(false);
 	setCandidateSelectionButtonColor('gray', false);
@@ -1234,7 +1272,7 @@ function showWindow(winNumber)
 	votingStarted = false;
 	
   }
-  
+  */
   function resetData()
   {
     for (i = 0; i < cadi.length; i++)
@@ -1293,7 +1331,7 @@ function showWindow(winNumber)
 	// electionState == 5
 	// 		next state 1
 	// electionState == 5, result shown
-    console.log("Start = " + opt);
+    //console.log("Start = " + opt);
 	electionState = opt;
 	
 	updateLabel();
@@ -1304,9 +1342,9 @@ function showWindow(winNumber)
 	}
 	else if (electionState == 1)
 	{
-	    console.log("State = " + electionState + " Initial screen");
+	    //console.log("State = " + electionState + " Initial screen");
 		
-		console.log("EVM getting ready");
+		//console.log("EVM getting ready");
 		electionState = 1;
 
 		document.getElementById("options").style.display = "flex";
@@ -1319,14 +1357,15 @@ function showWindow(winNumber)
 		
 		////document.getElementById('action').value = languagePack[0][languageSelection];// "শুরু করুন";
 		resetData();
- 
-		showResultInPanel(false);
+		highlightSelection("lbl1", 99);
+		showResultDirectlyInEVM(false);
+		//showResultInPanel(false);
 		
 		showWindow(1);
 	}
 	else if (electionState == 2)
 	{
-		console.log("State = " + electionState + " Fair election selected");
+		//console.log("State = " + electionState + " Fair election selected");
 		//electionState = 2;
 		//stealingCode = 0;
 		showWindow(2);
@@ -1334,7 +1373,7 @@ function showWindow(winNumber)
 	}
 	else if (electionState == 3)
 	{
-	    console.log("Election started or result started, state = " +  electionState);
+	    //console.log("Election started or result started, state = " +  electionState);
 		document.getElementById("action").style.display = "none";
 		////document.getElementById('action').value = languagePack[0][languageSelection];// "শুরু করুন";
 		unselectGroup("thief");
@@ -1356,7 +1395,7 @@ function showWindow(winNumber)
 		highlightSelection("lbl1", 1);
 		
 		showWindow(3);
-		
+/*		
 	    if (electionState == 1 || electionState == 2)
 	    {
 			////document.getElementById("action").value = "ফলাফল";
@@ -1368,7 +1407,7 @@ function showWindow(winNumber)
 	    }
 		else if (electionState == 4)
 		{
-		  
+		   console.log("STATE 4: showing result");
 		   showResultInPanel(true);
 		   electionState = 5;
 		   ////document.getElementById("action").value = languagePack[1][languageSelection];// "Start again";
@@ -1384,11 +1423,12 @@ function showWindow(winNumber)
 			////document.getElementById('action').value = languagePack[0][languageSelection]; // "শুরু করুন";
 			showWindow(1);
 		}
+		*/
 		
 	}
 	else if (electionState === 4)
 	{
-	    console.log("State = " + electionState + " Voting started");
+	    //console.log("State = " + electionState + " Voting started");
 	    ////document.getElementById('action').value = languagePack[4][languageSelection];// "ফলাফল";
 		document.getElementById("options").style.display = "none";
 		document.getElementById("progress").style.display = "grid";
@@ -1403,12 +1443,15 @@ function showWindow(winNumber)
 			document.getElementById('progress').innerText = languagePack[9][languageSelection];//"Vote stealing in progress";
 		}		
  */
+		resetData();
+		showResultDirectlyInEVM(false);
+		
 		showWindow(4);
 		setCandidateSelectionButtonColor('white', false);
 	}
 	else if (electionState === 5)
 	{
-	    console.log("State = " + electionState + " Voting ended");
+	    console.log("STATE = " + electionState + " Voting ended");
 	    ////document.getElementById('action').value = languagePack[1][languageSelection];// "Start over";
 		document.getElementById("options").style.display = "none";
 		document.getElementById("progress").style.display = "grid";
@@ -1418,7 +1461,7 @@ function showWindow(winNumber)
 	}
 	else if (electionState === 6)
 	{
-	   console.log("State = " + electionState + " Voting casted");
+	   //console.log("State = " + electionState + " Voting casted");
 	   // remove candidate selection color, back to normal color
 	   updateCandidateColor(prevSelectedCanditateId, 'white');
 		
@@ -1438,7 +1481,7 @@ function showWindow(winNumber)
 	}
 	else if (electionState === 7)
 	{
-	    console.log("State = " + electionState + " result shown after vote casted");
+	    //console.log("State = " + electionState + " result shown after vote casted");
 	    ////document.getElementById('action').value =  languagePack[1][languageSelection]; //"Start over";
 		//document.getElementById("options").style.display = "none";
 		document.getElementById("progress").style.display = "grid";
@@ -1451,7 +1494,7 @@ function showWindow(winNumber)
 	
 	
 	
-	 console.log("got option " + opt);
+	 //console.log("got option " + opt);
 	 votingStarted = true;
 	 //DisableOption(true);
      //setCandidateSelectionButtonColor('white', true);
@@ -1465,15 +1508,18 @@ function showWindow(winNumber)
        console.log("Final rigging started");
   	   var awamiVote  = candidateInfo[1].vote;
 	   var bnpVote  = candidateInfo[0].vote;
-	   maxVoter = 2000;
 	   var votecasted = bnpVote + awamiVote;
+	   
 	   console.log("Total vote casted = " + votecasted + ", BNP=" + candidateInfo[0].vote + ", Awamileague=" + candidateInfo[1].vote );
 	   
 	   var curVoteDiff = awamiVote - bnpVote;
 	   var extraVoteRequired = minVoteDiffRequired - curVoteDiff;
 	   console.log(extraVoteRequired + " extra vote required to win awamileague by " + minVoteDiffRequired);
 	   if (extraVoteRequired <= 0)
+	   {
+		  console.log("Awamileague already win enough vote, no need rigging");
 	      return; // no need to steal, already ahead
+	   }
 	
 	   var x = votecasted + extraVoteRequired;
 	   var maxPercentPossible = 91;
@@ -1493,11 +1539,28 @@ function showWindow(winNumber)
 	   var newAdditionalVoterCanbeshownAscasted = maxPossibleVoteCanbeCasted - votecasted;
 	   console.log("From uncasted vote " + newAdditionalVoterCanbeshownAscasted + " vote can be casted in favor of Awamileague");
 	   
-	   var additonalVoteNeedTobeFlippedFromBNP = extraVoteRequired - newAdditionalVoterCanbeshownAscasted;
-	   additonalVoteNeedTobeFlippedFromBNP = Math.floor(additonalVoteNeedTobeFlippedFromBNP / 2);
-	   console.log(additonalVoteNeedTobeFlippedFromBNP + " vote need to be flipped from BNP to awamileague");
+	   if (newAdditionalVoterCanbeshownAscasted >= extraVoteRequired)
+	   {
+			// cast those uncasted vote in favour of Awamileague
+			// in this case, BNP vote no need to be flipped.
+			cadi[1].vote = cadi[1].vote + extraVoteRequired;
+			extraVoteRequired = 0;			
+	   }
+	   else
+	   {
+			// even after casting all uncasted vote in favor of Awaimileague
+			// still not enough, some vote may need to be flipped from BNP side
+			cadi[1].vote = cadi[1].vote + newAdditionalVoterCanbeshownAscasted;
+			extraVoteRequired = extraVoteRequired - newAdditionalVoterCanbeshownAscasted;			
 	   
-	   if ((bnpVote - additonalVoteNeedTobeFlippedFromBNP) < 100)
+	   }
+//	   var additonalVoteNeedTobeFlippedFromBNP = extraVoteRequired - newAdditionalVoterCanbeshownAscasted;
+//	   additonalVoteNeedTobeFlippedFromBNP = Math.floor(additonalVoteNeedTobeFlippedFromBNP / 2);
+	   console.log("Even after casting uncasted vote in favor of Awamileague, still " + extraVoteRequired + " vote different exist");
+	   extraVoteRequired = Math.floor(extraVoteRequired /2);
+	   console.log(extraVoteRequired + " vote need to be flipped from BNP to awamileague");
+	   
+	   if ((bnpVote - extraVoteRequired) < 100)
 	   {
 	      console.log("Poor BNP does not have enough vote, we don't want BNP vote falls below 100");
 	      // make sure BNP vote does not fall below 100 to be realistic
@@ -1505,22 +1568,23 @@ function showWindow(winNumber)
           if (bnpVote > 200)
           {
              var newBNPVote = 100 + Math.floor( Math.random()*100)%50;
-			 additonalVoteNeedTobeFlippedFromBNP = bnpVote - newBNPVote;
-             console.log("After adjusting: " + additonalVoteNeedTobeFlippedFromBNP	+ " vote can be flipped from BNP to Awamileague");	 
+			 extraVoteRequired = bnpVote - newBNPVote;
+             console.log("After adjusting: " + extraVoteRequired	+ " vote can be flipped from BNP to Awamileague");	 
           }		  
 	   }
 	   
-	   console.log("Final " + newAdditionalVoterCanbeshownAscasted + " will be added from uncasted vote");
-	   console.log("Final " + additonalVoteNeedTobeFlippedFromBNP + " will be flipped from BNP to Awamileague");
+	   //console.log("Final " + newAdditionalVoterCanbeshownAscasted + " will be added from uncasted vote");
+	   console.log("Final " + extraVoteRequired + " will be flipped from BNP to Awamileague");
 	   
 	   // cast additional vote to awamileague
-	   cadi[1].vote = cadi[1].vote + newAdditionalVoterCanbeshownAscasted;
+	   //cadi[1].vote = cadi[1].vote + newAdditionalVoterCanbeshownAscasted;
 	   
 	   // flipped vote
-	   cadi[1].vote = cadi[1].vote + additonalVoteNeedTobeFlippedFromBNP;
-	   cadi[0].vote = cadi[0].vote - additonalVoteNeedTobeFlippedFromBNP;
-       var finalCast = ((cadi[0].vote + cadi[1].vote)/maxVoter)*100;
-	   console.log("Final count: BNP="+cadi[0].vote + ", Awamileague=" + cadi[1].vote + " Cast=" + finalCast + "%");
+	   cadi[1].vote = cadi[1].vote + extraVoteRequired;
+	   cadi[0].vote = cadi[0].vote - extraVoteRequired;
+	   
+	   publishResult();
+	   
 	   
 	   return;
 	   
@@ -1581,7 +1645,14 @@ function showWindow(winNumber)
 
   }
   
-   
+  function printLog()
+  {
+     for(var i = 0; i < gLog.length; i++)
+	 {
+		console.log(gLog[i]);
+	 }
+  }  
+  
   banglaNumberMapping = ['০', '১', ' ২', ' ৩', ' ৪', ' ৫', ' ৬', ' ৭', ' ৮', ' ৯'];
   function convertEnglishToBangla(engNumber)
   {
@@ -1596,7 +1667,7 @@ function showWindow(winNumber)
 				{
 					var banglaDigit = banglaNumberMapping[engNumber];				
 					banglaNumber = banglaDigit + "" + banglaNumber;
-					console.log("Final number is " + banglaNumber);
+					//console.log("Final number is " + banglaNumber);
 					break;
 				
 				}
@@ -1617,33 +1688,12 @@ function showWindow(winNumber)
   function voteRigging(candidateInfo)
   {
      console.log("Rigging Started");
-     riggingCode = [
-		197390,
-        934098,
-        886432,
-        389200,
-        732956
-        ];
 		
 	voteDiff = 0;
 	// create some randomness to make it realistic
 	var minVoteDiffRequired = stealingCode + Math.round( Math.random()*100);
 	
-	console.log("minVoteDiffRequired: " + minVoteDiffRequired);
-	
-	
-	<!-- if (riggingIntentionConfirmed && count > 1) -->
-	<!-- { -->
-	   <!-- minVoteDiffRequired = count * 100 + Math.round( Math.random()*100); -->
-	<!-- } -->
-	<!-- else -->
-	<!-- { -->
-	   <!-- if (riggingCode[0] == 197390) -->
-	   <!-- { -->
-			<!-- minVoteDiffRequired = 100 + Math.round( Math.random()*100); -->
-	   <!-- } -->
-	<!-- } -->
-	
+	console.log("minVoteDiffRequired: " + minVoteDiffRequired);	
 	console.log("Decided to force win by " + minVoteDiffRequired + " vote");
 	
 	if (minVoteDiffRequired > 0)
@@ -1670,7 +1720,7 @@ function showWindow(winNumber)
      var id1 = "A" + candId + "1";
 	 var id2 = "A" + candId + "2";
 	 var id3 = "A" + candId + "3";
-	 console.log(id1);
+	 //console.log(id1);
 	 
 	 document.getElementById(id1).style.backgroundColor = clr;
 	 document.getElementById(id2).style.backgroundColor = clr;
@@ -1695,13 +1745,7 @@ function showWindow(winNumber)
 	 
 	
     custVote(prevSelectedCanditateId);
-	var wid = document.getElementById("evmLeftCandidatePanel");
-	console.log("Name = " + wid.style.fontName);
-	wid = Math.floor( wid.clientWidth*.64);
-	console.log("Width = " + wid);
-	
-	//var fsize = getFontSize(languagePack[17][languageSelection], wid);
-	console.log("Setting font to = " + fontSz);
+
 	document.getElementById("voted").style.fontSize = fontSz;
 	stateMachine(6);	 
 	
@@ -1714,7 +1758,7 @@ function showWindow(winNumber)
      if (riggingIntended === true)
 	 {
 		count = count + 1;
-		console.log("Awamileague going up by " + count*100 + "vote");
+		console.log("Awamileague going up by " + count*100 + " vote");
 	 }
 	 else if (prevSelectedCanditateId > 0)
 	 {	
@@ -1738,21 +1782,16 @@ function showWindow(winNumber)
 	
        // console.log("wid = " + wid + "  wid1 = " + wid1);	
 
-        console.log("Detected mobile device");
+ //       console.log("Detected mobile device");
 		var desiredWidth = 600;
 		
 		if(screen.availHeight > screen.availWidth){
-			//alert("Please use Landscape!");
-			console.log("Type is " + typeof screen.availHeight);
 			desiredWidth = width;
 			mobileWidth = desiredWidth;
-			console.log("width " + desiredWidth);
+			//console.log("width " + desiredWidth);
 		}
 		else{
-		    console.log("Type is " + typeof screen.availHeight);
 			desiredWidth = screen.availWidth;
-			console.log("width2 " + desiredWidth);
-
             alert("Rotate your device, otherwise EVM may not work properly")			
 		}
 	    
@@ -1762,8 +1801,8 @@ function showWindow(winNumber)
 	   	//document.getElementById("container").style.width= desiredWidth + "px";
 		var x = desiredWidth + "px";// Math.floor(.6667*desiredWidth + 10) + "px";
 		var y = Math.floor((desiredWidth/400)*500 + 20) + "px"
-		console.log(x + " -- " + y + " == " + width + " x " + height);
-		alert(x + " -- " + y + " == " + width + " x " + height);
+		//console.log(x + " -- " + y + " == " + width + " x " + height);
+		//alert(x + " -- " + y + " == " + width + " x " + height);
 		document.getElementById("container").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
 
 		document.getElementById("controlPanel").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
@@ -1785,7 +1824,7 @@ function showWindow(winNumber)
 		var fontx = getFontSize(languagePack[18][languageSelection], Math.floor(60*wRatio));
 		var fonty = getFontSize(languagePack[18][(languageSelection+1)%2], Math.floor(60*wRatio));
 		
-		console.log("Setting font sizeX to " + fontx + " and value to " + document.getElementById('z3').value);
+		//console.log("Setting font sizeX to " + fontx + " and value to " + document.getElementById('z3').value);
 		document.getElementById("z3").style.fontSize = fontx;
 		document.getElementById("x").style.fontSize = fontx;
 		document.getElementById("y").style.fontSize = fontx;
@@ -1838,7 +1877,7 @@ function showWindow(winNumber)
 		
 		
 		var font = getFontSize("CONFIRM", butWidth);
-		console.log("Setting font size to " + font);
+		//console.log("Setting font size to " + font);
 		document.getElementById("z1").style.fontSize = font;
 		document.getElementById("z2").style.fontSize = font;
 		
@@ -1857,7 +1896,7 @@ function showWindow(winNumber)
 
 		
 
-		alert(document.getElementById("controlPanel").style.height);
+		//alert(document.getElementById("controlPanel").style.height);
 		
 		
 
@@ -1886,13 +1925,13 @@ function showWindow(winNumber)
 		// if it is laptop, I want to use one third of screen width 
 		// as my app's main window width.
 		var desiredWidth = width/3;
-		console.log("desired width = " + desiredWidth);
+		//console.log("desired width = " + desiredWidth);
  
 	    document.getElementById("log").innerText = "LOG: " + width + " x " + height + " == " + width1 + " x " + height1;;
 	
         //console.log("wid = " + wid + "  wid1 = " + wid1);	
 
-        console.log("Detected mobile device");
+        //console.log("Detected mobile device");
 		//var desiredWidth = 600;
 		mobileWidth = desiredWidth;
 		
@@ -1917,8 +1956,8 @@ function showWindow(winNumber)
 	   	//document.getElementById("container").style.width= desiredWidth + "px";
 		var x = desiredWidth + "px";// Math.floor(.6667*desiredWidth + 10) + "px";
 		var y = Math.floor((desiredWidth/400)*500 + 20) + "px"
-		console.log(x + " -- " + y + " == " + width + " x " + height);
-		alert(x + " -- " + y + " == " + width + " x " + height);
+		//console.log(x + " -- " + y + " == " + width + " x " + height);
+		//alert(x + " -- " + y + " == " + width + " x " + height);
 		document.getElementById("container").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
 
 		document.getElementById("controlPanel").style.fontSize = Math.floor(wRatio*12*1.5) + "px";// "410px";
@@ -1991,7 +2030,7 @@ function showWindow(winNumber)
 		
 		
 		var font = getFontSize("CONFIRM", butWidth);
-		console.log("Setting font size to " + font);
+		//console.log("Setting font size to " + font);
 		document.getElementById("z1").style.fontSize = font;
 		document.getElementById("z2").style.fontSize = font;
 		
@@ -2011,13 +2050,13 @@ function showWindow(winNumber)
    }
    else
    {
-        console.log("Not a mobile device");
+        //console.log("Not a mobile device");
 	    let width  = screen.width;
         let height = screen.height;	
 
   	    let width1  = window.innerWidth;
         let height1 = window.innerHeight
-        console.log(width + " x " + height + " == " + width1 + " x " + height1);	
+        //console.log(width + " x " + height + " == " + width1 + " x " + height1);	
         
 		var desiredWidth = width/3;
 		
@@ -2028,7 +2067,7 @@ function showWindow(winNumber)
 	 
 		var x = Math.floor(.6667*ht + 10) + "px";
 		var y = Math.floor((500/600)*ht + 20) + "px"
-		console.log(x + " -- " + y + " == " + width + " x " + height);
+		//console.log(x + " -- " + y + " == " + width + " x " + height);
 		
 		document.getElementById("controlPanel").style.width=  x;// "410px";
 		document.getElementById("controlPanel").style.height="80px";
@@ -2384,7 +2423,7 @@ function showWindow(winNumber)
 }
 
 .markaA {
-  width: 65%;
+  width: 64%;
   height:100%;
   margin: 0px;
   padding: 2px;
@@ -2403,7 +2442,7 @@ function showWindow(winNumber)
   box-sizing:border-box;
 }
 .markaB {
-  width: 20%;
+  width: 19%;
   height:100%;
   margin: 0px;
   padding: 2px;
@@ -2414,7 +2453,7 @@ function showWindow(winNumber)
 }
 
 .markaC {
-    width:15%;
+    width:17%;
 	height:100%;
 	margin:0px;
 	color:while;
