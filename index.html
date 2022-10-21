@@ -2,7 +2,7 @@
 <body id="bdy" >
 <div id="container" oncontextmenu="return false" style="background-color:lime;box-sizing:border-box;border:2vw solid white;display:grid;place-items:center;position:relative">
 
-  <div id="controlPanel" class="controlPanel"  style="display:flex;flex-direction:row;position:relative; background-color:lime;margin:5px 0px 0px 0px; border-bottom:4px solid white; border-radius:8px">
+  <div id="controlPanel" class="controlPanel"  style="display:flex;flex-direction:row;position:relative; background-color:lime;margin:5px 0px 10px 0px; border-bottom:4px solid white; border-radius:8px">
 
 	    <div  id="action2" style="display:grid;place-items:center;background-color:black;top:0px;right:0px;position:absolute" >
 			<input  id="z3" class="btnGreen"  type="button" style="width:100%;height:100%"  onclick="chooseLang()"  />		
@@ -13,7 +13,7 @@
 		<div id="options"  style="display:flex;flex-direction:column;position:relative;height:100%;color:white">		
 			<div  style="width:100%;height:50%;display:flex;place-items:center;margin-top:5px;margin-left:5%;border-bottom:2px solid white;position:relative">
 				<div style="display:grid;place-items:center;">
-					<input id="x"  class="opt"  type="radio" checked name="elect" value="1"  onclick="failElection()" />
+					<input id="x"  class="opt"  type="radio"  name="elect" value="1"  onclick="failElection()" />
 				</div>
 				<label id="label1x" class="lbl lbl1"  for="x">Hello</label>
 			</div>
@@ -176,7 +176,7 @@
 	   </div>
 
   </div>
-  <div id="motherPanel" style="background-color:blue;box-sizing:border-box;padding-top:5px;border:solid 2vh red;">
+  <div id="motherPanel" style="background-color:black;box-sizing:border-box;padding-top:5px;border:solid 2vh gray;">
 	<div id="evmPanel" class="flex-container1" style="margin:20px 0px 0px 20px; background-color:black;">
 		
 		
@@ -196,14 +196,21 @@
 		</div>
 		
 		<div class="fleft" id="infoPanel" style="display:none;color:while" >
-		   <div style="height:100%;background-color:black">
-		    Hi, my name is EVM, I am just an innocent machine. I just follow the instruction
-			given by my master (Software Engineer). I never disobey my master. 
-			If there is anything wrong, it is not me, my master told me to do so.
-			Please do not blame me.
-			<p>			
-				Select what kind of Election you want from the top panel.
-			</p>
+		   <div style="height:100%;background-color:white;display:grid;place-items:center">
+		   <div style="margin:25px">
+		       <p id="plea1">
+		          Hi,<br> My name is EVM, I am just an innocent machine. I just follow the instructions
+			      given by my master (Software Engineer). I never disobey my master. 
+			     If there is anything wrong, it is not me, my master told me to do so.
+			     Please do not blame me. <br><br> Faithfully, <br> Your EVM
+			  </p>
+			  <div style="width:100%">
+				<div   style="display:grid;place-items:center;" >
+					<input  id="evmPlea" class="styled"  type="button"  ontouchend="touchended()" onclick="evmCry()" />		
+				</div>
+			  </div>
+
+			</div>
 		   </div>
 		</div>
 		   
@@ -400,7 +407,11 @@ function updateRadio()
 		
 }
 
-
+function evmCry()
+{
+    console.log("EVM Cry");
+	stateMachine(1);
+}
 
 
 //console.log("Ready to roll");	
@@ -482,7 +493,10 @@ function updateRadio()
 		["Don't want to do Robbery", "আমি ডাকাত হতে চাই না"],//31
 		["Sorry, for simplicity, any vote other than Awamileague and BNP candidate will not be counted",
 		  "সহজভাবে বুঝানোর  জন্য আওয়ামীলীগ এবং বিএনপি ছাড়া অন্য কারো ভোট গ্রহন করা হবে না। সেইজন্য আন্তরিক ভাবে  দুঃখিত।"],//32
-	
+	    ["Yes I understood", "বুঝতে পেরেছি"],//33
+		["Hi,<br> My name is EVM, I am just an innocent machine. I just follow the instructions given by my master (Software Engineer). I never disobey my master. If there is anything wrong, it is not me, my master told me to do so. Please do not blame me. <br><br> Faithfully, <br> Your EVM",
+		  "সম্মানিত ভোটারবৃন্দ, <br> আমি একটি ইভিএম।  আমি শুধুমাত্র একটি নিরীহ যন্ত্র। আমার  কাজ হল, আমার মনিবের ( ) আদেশ পালন করা। আমি কখনও মনিবের আদেশ অমান্য করি না। যদি কোন ভুল ধরা পড়ে, সেটা আমি করি নাই, আমাকে করতে বলা হয়েছে। দয়াকরে সেজন্য আমাকে দোষারোপ করিবেন না।  <br><br>আপনার বিশ্বস্ত <br>ইভিএম"],
+		   // 34
    
    ];
    // ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ০
@@ -543,6 +557,13 @@ function updateRadio()
    {
 		stealingCode = 0;
 		highlightSelection("lbl1", 0);
+		if (electionState == 0)
+		{
+			stateMachine(1);
+			document.getElementsByClassName("opt")[0].checked = true;
+			failElection();
+		}
+		
 		stateMachine(2);
    }
    function unselectGroup(grpIdentifier)
@@ -865,7 +886,18 @@ function updateLabel()
 
 	
 	//console.log("Lang = " + languagePack[0][languageSelection]);
-	if (electionState == 1 )
+	if (electionState == 0)
+	{
+	   document.getElementById('evmPlea').value = languagePack[33][languageSelection];// "শুরু করুন";
+	   document.getElementById('plea1').innerHTML = languagePack[34][languageSelection];// "শুরু করুন";
+	   document.getElementById('evmPlea').style.fontSize = fontSz;// "শুরু করুন";
+	   
+	   if (languageSelection === 0)
+			document.getElementById('plea1').style.fontSize = fontSz;
+	   else
+			document.getElementById('plea1').style.fontSize = fontSz-4;
+	}
+	else if (electionState == 1 )
 		document.getElementById('action').value = languagePack[0][languageSelection];// "শুরু করুন";
 	else if (electionState == 2)
 	{
@@ -940,8 +972,13 @@ function showWindow(winNumber)
 	    // only show control panel
 		document.getElementById('controlPanel').style.display = 'flex';
        	document.getElementById('stealingPanel').style.display = 'none';
-		document.getElementById('motherPanel').style.display = 'none';
 		
+		document.getElementById('motherPanel').style.display = 'block';
+		document.getElementById('evmPanel').style.display = 'flex';
+ 		document.getElementById('evmLeftCandidatePanel').style.display = 'none';
+		document.getElementById('evmRightPanel').style.display = 'block';		
+		document.getElementById('blankLeftPanel').style.display = 'none';		
+	
 		//document.getElementById('evmPanel').style.display = 'none';
 
 		//document.getElementById('evmLeftCandidatePanel').style.display = 'none';
@@ -961,7 +998,8 @@ function showWindow(winNumber)
 		document.getElementById('evmPanel').style.display = 'flex';
  		document.getElementById('evmLeftCandidatePanel').style.display = 'none';
 		document.getElementById('evmRightPanel').style.display = 'block';		
-		document.getElementById('blankLeftPanel').style.display = 'block';
+		document.getElementById('blankLeftPanel').style.display = 'block';		
+		document.getElementById('infoPanel').style.display = 'none';
 		
 		//document.getElementById('voteConfirmationPanel').style.display = 'block';
 		//document.getElementById('stealingPanel').style.display = 'none';
@@ -1201,14 +1239,21 @@ function showWindow(winNumber)
 	   console.log("Rigging started");
 	   voteRigging(cadi);
 	}
+	else if (show === true)
+	{
+	   // fair electiion
+	   showResultDirectlyInEVM(show);
+	   publishResult();
+	}
 	else if (show === false)
 	{
 		console.log("Fair Election counting started");
+		showResultDirectlyInEVM(show);
 		publishResult();
 	}
 	
 	// show result in the panel, because it is a demo, not real EVM
-	showResultDirectlyInEVM(show);
+	
   }
   
   function showResultDirectlyInEVM(show)
@@ -1338,6 +1383,8 @@ function showWindow(winNumber)
 	
 	if (electionState == 0)
 	{   
+	    document.getElementById("action").style.display = "none";
+		highlightSelection("lbl1", 99);
 		showWindow(0);
 	}
 	else if (electionState == 1)
@@ -1583,66 +1630,9 @@ function showWindow(winNumber)
 	   cadi[1].vote = cadi[1].vote + extraVoteRequired;
 	   cadi[0].vote = cadi[0].vote - extraVoteRequired;
 	   
-	   publishResult();
 	   
 	   
 	   return;
-	   
-	   
-	   
-	   
-	   var maxVoteCanBeCastedWithOutRaisingEyeBrows = ((bnpVote + awamiVote)*100.0)/(87.0/65.0);
-	   
-	   var currentDiff = awamiVote - bnpVote;
-	   console.log("Without rigging Awamileague winning by " + currentDiff + " vote");
-	   // case 1: currentDiff 50, need additonal 50+ vote to reach target
-	   // case 2: currentDiff >= minVoteDiffRequired, no need to rig, already in target
-	   // case 3: currentDiff < 0, bnp will, so need to flipped  the result.
-	   var additionalVoteRequiredToReachTarget = minVoteDiffRequired - currentDiff;
-	   if (additionalVoteRequiredToReachTarget > 0)
-	   {
-	       // vote rigging required;
-		   // first try not to change BNP vote, just show uncasted vote as casted
-		   var totalCastedVote = awamiVote + bnpVote;
-		   var maxUncastedVotecanShowAsCasted = maxVoteCanBeCastedWithOutRaisingEyeBrows - totalCastedVote;
-		   if ( maxUncastedVotecanShowAsCasted >= additionalVoteRequiredToReachTarget)
-		   {
-		      console.log("No need to change BNP vote, just cast some uncasted vote to awamileague");
-		      // no need to flip BNP vote, just add additional vote with boat.
-			  candidateInfo[1].vote = candidateInfo[1].vote + additionalVoteRequiredToReachTarget;
-		   }
-		   else
-		   {
-		       // uncasted vote is not enough, bnp vote need to be flipped, but make
-			   // sure BNP vote does not below 100 to make it relialistic
-			   // first add some uncasted vote with the boat
-			   var maxBNPVoteCanBeFlipped = bnpVote - 100;
-			   console.log("casting " + maxUncastedVotecanShowAsCasted + " vote from uncasted to awamileague");
-			   candidateInfo[1].vote = candidateInfo[1].vote + maxUncastedVotecanShowAsCasted;
-			   // then flipped additional vote, change bnp vote to boat;
-			   
-			   var numberOfVoteNeedToBringFromBNP = (additionalVoteRequiredToReachTarget - candidateInfo[1].vote)/2;
-		       // make sure bnp has enough vote to be flipped, don't make bnp vote to zero, at least
-			   // shows 100 vote to bnp side to be realistic
-			   if (bnpVote <= 100)
-			   {
-			        // don't flipped if bnp got less than 100 poor, how much you can still
-					// from poor guy
-					numberOfVoteNeedToBringFromBNP = 0;
-			   }
-			   var maxVoteCanbeFlipedFromBNP = bnpVote - 100;
-			   if (numberOfVoteNeedToBringFromBNP > maxVoteCanbeFlipedFromBNP)
-			   {
-			      // be happy with what ever you get,
-				  console.log( maxVoteCanbeFlipedFromBNP + " vote will be flipped from bnp");
-			      numberOfVoteNeedToBringFromBNP = maxVoteCanbeFlipedFromBNP;
-			   }	 
-			   // 1 awamileagure, 0 bnp 
-			   candidateInfo[1].vote = candidateInfo[1].vote + numberOfVoteNeedToBringFromBNP;
-			   candidateInfo[0].vote = candidateInfo[0].vote - numberOfVoteNeedToBringFromBNP;
-		   }
-	   }
-
   }
   
   function printLog()
@@ -1697,7 +1687,11 @@ function showWindow(winNumber)
 	console.log("Decided to force win by " + minVoteDiffRequired + " vote");
 	
 	if (minVoteDiffRequired > 0)
+	{
 	   rigVote(candidateInfo, minVoteDiffRequired);
+	   showResultDirectlyInEVM(true);
+	   publishResult();  
+	}
 	   
 	stealingCode = -1;
 	
@@ -2103,7 +2097,7 @@ function showWindow(winNumber)
     
   updateRadio();
   updateCandidateName();
-  stateMachine(1); 
+  stateMachine(0); 
   
  // }
    
