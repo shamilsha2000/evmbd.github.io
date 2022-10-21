@@ -659,6 +659,9 @@ function evmCry()
 		{	
 			console.log("moving to state from " + electionState + " to 1");
 		    stealingCode = 0;
+			count = 0;
+			riggingIntended = false;
+			stealingCode = 0;
 			stateMachine(1);
 		}
    }
@@ -1013,6 +1016,7 @@ function showWindow(winNumber)
 		document.getElementById('voteConfirmationPanel').style.display = 'block';
 		document.getElementById('stealingPanel').style.display = 'none';
 		document.getElementById('voteConfirmationPanel').style.color = 'white';
+		document.getElementById('infoPanel').style.display = 'none';
 	}
 	else if (winNumber == 2)
 	{
@@ -1034,6 +1038,7 @@ function showWindow(winNumber)
        	document.getElementById('stealingPanel').style.display = 'block';
 		document.getElementById('motherPanel').style.display = 'none';
 		document.getElementById("btnContainer").style.display = "block";
+		document.getElementById('infoPanel').style.display = 'none';
 		//document.getElementById('evmPanel').style.display = 'flex';
  		//document.getElementById('evmLeftCandidatePanel').style.display = 'block';
 		//document.getElementById('evmRightPanel').style.display = 'block';		
