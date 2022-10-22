@@ -374,7 +374,19 @@ console.log("Document ready");
 });
     // DOM is loaded and ready for manipulation here
 
+function playAudio(id)
+{
+    if (id == 1){
+		var audio = new Audio('sound1.wav');
+		audio.play();
+	}
+	else if (id === 2)
+	{
+		var audio = new Audio('sound2.wav');
+		audio.play();	
+	}
 
+}
 function updateRadio()
 {
 	
@@ -847,6 +859,7 @@ function evmCry()
 	     riggingIntended = true;
 		 count = 0;
 		 stealingCode = 0;
+		 playAudio(1);
 		 // start a time, to count the cancel press
 		 setTimeout(checkRigging, 10000);
 	  }
@@ -865,7 +878,7 @@ function evmCry()
 		  stealingCode = count*100;
 		  //riggingIntentionConfirmed = false;
 		  //riggingIntended = false;
-		  
+		  playAudio(2);
 		  console.log("Rigging confirmed for " + count*100 + " vote");
 	   }
 	   
