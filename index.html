@@ -127,7 +127,7 @@
 					<div style="margin-top:20px;display:flex;flex-direction:row">
 						<div id="btnStart2" style="width:50%;display:grid;place-items:center;"> 
 							<!-- <button  id="startstealing"  onclick="startVoting()">Start Voting</button> -->
-							<input id="btnStart3" class="styled btnDim1"  type="button"  onclick="startVoting()"  />		
+							<input id="btnStart3" class="styled btnDim1"  type="button"  onclick="startVoting2()"  />		
 						</div>
 						<div style="width:50%;height:50%;display:grid;place-items:center">
 							<!-- <button id="btngohome2" onclick="goHome()" >Cancel</button> -->
@@ -775,6 +775,11 @@ function evmCry()
 	   highlightSelection("lbl3", 99);
    }
    
+   function startVoting2()
+   {
+      stealingCode = 9;
+	  startVoting();
+   }
    function startVoting()
    {
       
@@ -966,11 +971,13 @@ function updateLabel()
 	}
 	else if (electionState == 4)
 	{
+	    console.log("Code " + stealingCode);
 		document.getElementById('action').value = languagePack[4][languageSelection];
 		if (stealingCode <= 0)
 			document.getElementById('progress').innerText = languagePack[8][languageSelection];//"Fair voting in progress";
 		else
 		{
+		    stealingCode = 0;
 			document.getElementById('progress').innerText = languagePack[9][languageSelection];//"Vote stealing in progress";
 		}		
 	}
