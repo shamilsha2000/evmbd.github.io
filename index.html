@@ -537,11 +537,19 @@ function evmCry()
 
 }
  
+ isApple = false;
    function isMobile()
    {
 		if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+		{
 			// true for mobile device
+			if (/iPhone|iPad/i.test(navigator.userAgent))
+			{
+				console.log("It is an apple device");
+				isApple = true;
+			}
 			return true;
+		}
 		}else{
 			// false for not mobile device
 		    return false;
@@ -1907,6 +1915,10 @@ function showWindow(winNumber)
 		document.getElementById("confirmButtonPanel").style.height= (60*wRatio) + "px"; //"60px";
 		document.getElementById("confirmButtonPanel").style.fontSize= (44*wRatio) + "px"; //"60px";
 		
+		if (isApple === true)
+		{
+			document.getElementById("confirmButtonPanel").style.marginTop = (20*wRatio) + "px"; //"60px";		
+		}
 		var butWidth = Math.floor( mobileWidth/6);
 		document.getElementById("z1").style.width = butWidth + "px";
 		document.getElementById("z2").style.width = butWidth + "px";
