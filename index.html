@@ -977,7 +977,8 @@ function updateLabel()
 			document.getElementById('progress').innerText = languagePack[8][languageSelection];//"Fair voting in progress";
 		else
 		{
-		    stealingCode = 0;
+		    if (stealingCode == 9)
+				stealingCode = 0; // there is no code for experienced thief,  it is customizable
 			document.getElementById('progress').innerText = languagePack[9][languageSelection];//"Vote stealing in progress";
 		}		
 	}
