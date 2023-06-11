@@ -1,0 +1,33 @@
+<html>
+  
+  <body>
+    
+    <button id="start" onclick="startAlert()">Start </button>
+    <br>
+    <button id="stop" onclick="stopAlert()">Stop</button>
+    <br>
+    <audio id="xyz" src="sound1.wav" preload="auto"></audio>
+    
+    <script>
+     let timer1;
+     function startAlert()
+     {
+       timer1 = setInterval(timerStart, 5000);
+     }
+     
+     function stopAlert()
+     {
+       clearInterval(timer1);
+     }
+     
+     function timerStart()
+     {
+       document.getElementById('xyz').play();
+       alert("Thank you!");
+     }
+   </script>
+   <body>
+     
+   
+  
+</html>
