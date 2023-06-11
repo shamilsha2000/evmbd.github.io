@@ -22,7 +22,7 @@
      let timer1;
      function startAlert()
      {
-       var durationStr = document.getElementById("duration");
+       let durationStr = document.getElementById("duration").value;
        let duration = parseInt(durationStr) ;
        alert(duration);
        timer1 = setInterval(timerStart, duration);
