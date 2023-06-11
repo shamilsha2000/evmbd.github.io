@@ -2,17 +2,29 @@
   
   <body>
     
+    <table>
+      <td>
     <button id="start" onclick="startAlert()">Start </button>
-    <br>
+    
+      </td>
+      <td>
     <button id="stop" onclick="stopAlert()">Stop</button>
-    <br>
+      </td>
+      <table>
+        <br>
     <audio id="xyz" src="sound2.wav" preload="auto"></audio>
+        
+        <by>
+         <input type="text" id="duration"/>
     
     <script>
      let timer1;
      function startAlert()
      {
-       timer1 = setInterval(timerStart, 5000);
+       var durationStr = document.getElementById("duration");
+       let duration = parseInt(durationStr) ;
+       alert(duration);
+       timer1 = setInterval(timerStart, duration);
      }
      
      function stopAlert()
